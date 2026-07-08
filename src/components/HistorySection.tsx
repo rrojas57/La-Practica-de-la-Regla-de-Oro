@@ -8,6 +8,7 @@ export interface SavedPractice {
   title: string;
   answers: Record<number, string>;
   notes?: string;
+  customAforismos?: Record<string, string>;
 }
 
 interface HistorySectionProps {

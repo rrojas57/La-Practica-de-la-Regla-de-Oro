@@ -1,4 +1,4 @@
-import { HelpCategory, StepConfig, AforismoOutput } from "./helpLists";
+import { HelpCategory, StepConfig, AforismoOutput, adaptPunto1Es, toInfinitiveEs, toGerundEs, combineWithPorEs, suboA, haciendoPartEs } from "./helpLists";
 
 export interface TranslationDict {
   logoTitle: string;
@@ -996,19 +996,182 @@ export const EXAMPLES_LIST_EN = [
 ];
 
 // Helper to format aphorisms in Spanish/English dynamically
+
+export const ENGLISH_P1_MAP: Record<string, string> = {
+  "excluding": "excluding behavior",
+  "indifference": "indifference",
+  "ignored": "being ignored",
+  "rejection": "rejection",
+  "isolation": "isolation",
+  "contempt": "contempt",
+  "neglect": "neglect",
+  "marginality": "marginality",
+  "invisibility": "invisibility",
+  "aggression": "aggression",
+  "insults": "insults",
+  "screaming": "screaming",
+  "humiliation": "humiliation",
+  "teasing": "teasing",
+  "dismissal": "dismissal",
+  "criticism": "criticism",
+  "judgment": "judgment",
+  "belittlement": "belittlement",
+  "disdain": "disdain",
+  "subjugation": "subjugation",
+  "manipulation": "manipulation",
+  "demanding": "demanding behavior",
+  "injustice": "injustice",
+  "control": "control",
+  "abuse of power": "abuse of power",
+  "imposition": "imposition",
+  "authoritarianism": "authoritarianism",
+  "lying": "lying",
+  "betrayal": "betrayal"
+};
+
+export const ENGLISH_ING_MAP: Record<string, string> = {
+  // Point 2
+  "i suffer and withdraw": "suffering and withdrawing",
+  "i isolate myself": "isolating myself",
+  "i get depressed": "getting depressed",
+  "i shut down with rancor": "shutting down with rancor",
+  "i feel guilty": "feeling guilty",
+  "i resign myself": "resigning myself",
+  "i feel helpless": "feeling helpless",
+  "i scream with rage": "screaming with rage",
+  "i attack back": "attacking back",
+  "i seek revenge": "seeking revenge",
+  "i get irritated": "getting irritated",
+  "i complain violently": "complaining violently",
+  "i argue without listening": "arguing without listening",
+  "i pay back in kind": "paying back in kind",
+  "i feel fear and flee": "feeling fear and fleeing",
+  "i freeze": "freezing",
+  "i get anxious": "getting anxious",
+  "i tense up physically": "tensing up physically",
+  "i feel abandoned": "feeling abandoned",
+  "i seek submissive approval": "seeking submissive approval",
+  
+  // Point 4
+  "i approach and appreciate others": "approaching and appreciating others",
+  "i dialogue honestly": "dialoguing honestly",
+  "i express my affection": "expressing my affection",
+  "i accompany with patience": "accompanying with patience",
+  "i value others' virtues": "valuing others' virtues",
+  "i breathe calmly": "breathing calmly",
+  "i listen with openness": "listening with openness",
+  "i act without haste": "acting without haste",
+  "i seek to understand before judging": "seeking to understand before judging",
+  "i forgive sincerely": "forgiving sincerely",
+  "i reconcile": "reconciling",
+  "i set healthy boundaries with love": "setting healthy boundaries with love",
+  "i express myself firmly and calmly": "expressing myself firmly and calmly",
+  "i value myself": "valuing myself",
+  "i trust my inner strength": "trusting my inner strength",
+  "i open up without fear": "opening up without fear",
+  
+  // Point 6
+  "i express what i feel and think": "expressing what I feel and think",
+  "i ask for help with humility": "asking for help with humility",
+  "i tell what happens honestly": "telling what happens honestly",
+  "i dialogue with frankness": "dialoguing with frankness",
+  "i speak from the heart": "speaking from the heart",
+  "i reflect in silence": "reflecting in silence",
+  "i realize the mechanicalness": "realizing the mechanicalness",
+  "i breathe deeply and observe": "breathing deeply and observing",
+  "i accept my part": "accepting my part",
+  "i meditate in calm": "meditating in calm",
+  "i take the initiative to repair": "taking the initiative to repair",
+  "i risk to change": "risking to change",
+  "i act with courage": "acting with courage",
+  "i make myself responsible of me": "making myself responsible for myself",
+  "i decide not to harm": "deciding not to harm",
+  
+  // Point 8
+  "i connect with the human in me and in others": "connecting with the human in myself and in others",
+  "i look at the other as an equal": "looking at the other as an equal",
+  "i feel empathy with their pain": "feeling empathy with their pain",
+  "i seek what unites us and not what separates us": "seeking what unites us and not what separates us",
+  "i forgive and let go of resentment": "forgiving and letting go of resentment",
+  "i reconcile intimately": "reconciling intimately",
+  "i feel compassion for their ignorance": "feeling compassion for their ignorance",
+  "i accept that we all make mistakes": "accepting that we all make mistakes",
+  "i act with benevolence": "acting with benevolence",
+  "i wish others' well-being from the heart": "wishing others' well-being from the heart",
+  "i seek unity and peace": "seeking unity and peace",
+  "i commit to nonviolence": "committing to nonviolence"
+};
+
+// English helper maps for perfect grammar conversion
+
+export function adaptPunto1En(text: string): string {
+  const t = text.trim();
+  const lower = t.toLowerCase();
+  
+  if (ENGLISH_P1_MAP[lower]) {
+    return ENGLISH_P1_MAP[lower];
+  }
+  
+  if (/^(being|the|a|an)\s/i.test(t)) {
+    return t;
+  }
+  
+  if (lower.endsWith("ing")) {
+    return `being ${lower}`;
+  }
+  
+  return lower;
+}
+
+export function toIngEn(text: string): string {
+  const t = text.trim();
+  const lower = t.toLowerCase();
+  
+  if (ENGLISH_ING_MAP[lower]) {
+    return ENGLISH_ING_MAP[lower];
+  }
+  
+  if (lower.endsWith("ing")) {
+    return t;
+  }
+  
+  if (/^i\s+/i.test(t)) {
+    const verbPart = t.slice(2).trim();
+    const words = verbPart.split(/\s+/);
+    const firstWord = words[0];
+    const firstLower = firstWord.toLowerCase();
+    
+    let ing = firstLower;
+    if (firstLower.endsWith("e") && !firstLower.endsWith("ee")) {
+      ing = firstLower.slice(0, -1) + "ing";
+    } else if (firstLower.endsWith("t") && /^[aeiou][t]$/.test(firstLower.slice(-2))) {
+      ing = firstLower + "ting";
+    } else if (firstLower.endsWith("p") && /^[aeiou][p]$/.test(firstLower.slice(-2))) {
+      ing = firstLower + "ping";
+    } else {
+      ing = firstLower + "ing";
+    }
+    
+    words[0] = ing;
+    return words.join(" ");
+  }
+  
+  return t;
+}
+
 export function generateAforismosTranslated(answers: Record<number, string>, lang: 'es' | 'en'): AforismoOutput[] {
   const clean = (val: string, placeholder = "___") => {
     return val && val.trim() !== "" ? val.trim() : placeholder;
   };
 
-  const p1 = clean(answers[1], lang === 'es' ? "[Maltrato 1]" : "[Mistreatment 1]");
-  const p2 = clean(answers[2], lang === 'es' ? "[Respuesta 2]" : "[Response 2]");
-  const p3 = clean(answers[3], lang === 'es' ? "[Virtud 3]" : "[Virtue 3]");
-  const p4 = clean(answers[4], lang === 'es' ? "[Acción 4]" : "[Action 4]");
-  const p5 = clean(answers[5], lang === 'es' ? "[Caída 5]" : "[Fall 5]");
-  const p6 = clean(answers[6], lang === 'es' ? "[Subida 6]" : "[Rise 6]");
-  const p7 = clean(answers[7], lang === 'es' ? "[Caída 7]" : "[Fall 7]");
-  const p8 = clean(answers[8], lang === 'es' ? "[Subida 8]" : "[Rise 8]");
+  const p1Raw = clean(answers[1], "");
+  const p2Raw = clean(answers[2], "");
+  const p3Raw = clean(answers[3], "");
+  const p4Raw = clean(answers[4], "");
+  const p5Raw = clean(answers[5], "");
+  const p6Raw = clean(answers[6], "");
+  const p7Raw = clean(answers[7], "");
+  const p8Raw = clean(answers[8], "");
 
   function capitalizeFirst(str: string): string {
     const trimmed = str.trim();
@@ -1017,16 +1180,27 @@ export function generateAforismosTranslated(answers: Record<number, string>, lan
   }
 
   if (lang === 'es') {
-    const aforismoPrincipalText = `${p6.toUpperCase()}, ${p8.toUpperCase().startsWith("POR ") ? p8.toUpperCase() : `POR ${p8.toUpperCase()}`}.`;
-    const opcionalIText = capitalizeFirst(`para evitar ${p2.toLowerCase()} ante ${p1.toLowerCase()}, doy el trato de ${p3.toLowerCase()}, haciendo ${p4.toLowerCase()}.`);
-    const opcionalIIText = capitalizeFirst(`por ${p5.toLowerCase()} caigo a ${p2.toLowerCase()}, pero por ${p6.toLowerCase()} subo a ${p3.toLowerCase()}.`);
-    const opcionalIIIText = capitalizeFirst(`por ${p7.toLowerCase()} caigo a ${p1.toLowerCase()}, pero por ${p8.toLowerCase()} subo a ${p4.toLowerCase()}.`);
+    // Adaptive conversion for Spanish values
+    const p1 = p1Raw !== "" ? adaptPunto1Es(p1Raw) : "[Maltrato 1]";
+    const p2Infinitive = p2Raw !== "" ? toInfinitiveEs(p2Raw) : "[Respuesta 2]";
+    const p3 = p3Raw !== "" ? p3Raw : "[Virtud 3]";
+    const p4Infinitive = p4Raw !== "" ? toInfinitiveEs(p4Raw) : "[Acción 4]";
+    const p5 = p5Raw !== "" ? p5Raw : "[Caída 5]";
+    const p6Infinitive = p6Raw !== "" ? toInfinitiveEs(p6Raw) : "[Subida 6]";
+    const p7 = p7Raw !== "" ? p7Raw : "[Caída 7]";
+    const p8Infinitive = p8Raw !== "" ? toInfinitiveEs(p8Raw) : "[Subida 8]";
+
+    // Construct highly polished grammatically correct sentences
+    const aforismoPrincipalText = capitalizeFirst(`${combineWithPorEs(p6Infinitive)} ${suboA(p3)} y ${combineWithPorEs(p8Infinitive)} ${suboA(p4Infinitive)}.`);
+    const opcionalIText = capitalizeFirst(`para evitar ${p2Infinitive.toLowerCase()} ante ${p1.toLowerCase()}, doy el trato de ${p3.toLowerCase()}, ${haciendoPartEs(p4Raw).toLowerCase()}.`);
+    const opcionalIIText = capitalizeFirst(`${combineWithPorEs(p5).toLowerCase()} caigo a ${p2Infinitive.toLowerCase()}, pero ${combineWithPorEs(p6Infinitive).toLowerCase()} ${suboA(p3).toLowerCase()}.`);
+    const opcionalIIIText = capitalizeFirst(`${combineWithPorEs(p7).toLowerCase()} caigo ante ${p1.toLowerCase()}, pero ${combineWithPorEs(p8Infinitive).toLowerCase()} ${suboA(p4Infinitive).toLowerCase()}.`);
 
     return [
       {
         id: "6+8",
         title: "Aforismo de Subida (Integración de Caminos)",
-        formula: "Punto 6 (Subida) + Punto 8 (Subida)",
+        formula: "Por [Punto 6] subo a [Punto 3] y por [Punto 8] subo a [Punto 4]",
         text: aforismoPrincipalText
       },
       {
@@ -1044,40 +1218,49 @@ export function generateAforismosTranslated(answers: Record<number, string>, lan
       {
         id: "opcional-3",
         title: "Trascendencia del Rechazo Activo (Opcional III)",
-        formula: "Por [Punto 7] caigo a [Punto 1], pero por [Punto 8] subo a [Punto 4]",
+        formula: "Por [Punto 7] caigo ante [Punto 1], pero por [Punto 8] subo a [Punto 4]",
         text: opcionalIIIText
       }
     ];
   } else {
-    // English version
-    const aforismoPrincipalText = `${p6.toUpperCase()}, ${p8.toUpperCase().startsWith("BY ") ? p8.toUpperCase() : `BY ${p8.toUpperCase()}`}.`;
-    const opcionalIText = capitalizeFirst(`to avoid ${p2.toLowerCase()} in the face of ${p1.toLowerCase()}, I offer the treatment of ${p3.toLowerCase()}, by doing ${p4.toLowerCase()}.`);
-    const opcionalIIText = capitalizeFirst(`through ${p5.toLowerCase()} I fall to ${p2.toLowerCase()}, but through ${p6.toLowerCase()} I rise to ${p3.toLowerCase()}.`);
-    const opcionalIIIText = capitalizeFirst(`through ${p7.toLowerCase()} I fall to ${p1.toLowerCase()}, but through ${p8.toLowerCase()} I rise to ${p4.toLowerCase()}.`);
+    // English version with perfect gerund (-ing) constructions
+    const p1 = p1Raw !== "" ? adaptPunto1En(p1Raw) : "[Mistreatment 1]";
+    const p2Ing = p2Raw !== "" ? toIngEn(p2Raw) : "[Response 2]";
+    const p3 = p3Raw !== "" ? p3Raw : "[Virtue 3]";
+    const p4Ing = p4Raw !== "" ? toIngEn(p4Raw) : "[Action 4]";
+    const p5 = p5Raw !== "" ? p5Raw : "[Fall 5]";
+    const p6Ing = p6Raw !== "" ? toIngEn(p6Raw) : "[Rise 6]";
+    const p7 = p7Raw !== "" ? p7Raw : "[Fall 7]";
+    const p8Ing = p8Raw !== "" ? toIngEn(p8Raw) : "[Rise 8]";
+
+    const aforismoPrincipalText = capitalizeFirst(`through ${p6Ing.toLowerCase()} I rise to ${p3.toLowerCase()} and through ${p8Ing.toLowerCase()} I rise to ${p4Ing.toLowerCase()}.`);
+    const opcionalIText = capitalizeFirst(`to avoid ${p2Ing.toLowerCase()} in the face of ${p1.toLowerCase()}, I offer the treatment of ${p3.toLowerCase()}, by ${p4Ing.toLowerCase()}.`);
+    const opcionalIIText = capitalizeFirst(`through ${p5.toLowerCase()} I fall into ${p2Ing.toLowerCase()}, but through ${p6Ing.toLowerCase()} I rise to ${p3.toLowerCase()}.`);
+    const opcionalIIIText = capitalizeFirst(`through ${p7.toLowerCase()} I fall into ${p1.toLowerCase()}, but through ${p8Ing.toLowerCase()} I rise to ${p4Ing.toLowerCase()}.`);
 
     return [
       {
         id: "6+8",
         title: "Rising Aphorism (Paths Integration)",
-        formula: "Point 6 (Rise) + Point 8 (Rise)",
+        formula: "Through [Point 6] I rise to [Point 3] and through [Point 8] I rise to [Point 4]",
         text: aforismoPrincipalText
       },
       {
         id: "opcional-1",
         title: "Overcoming Crisis Aphorism (Optional I)",
-        formula: "To avoid [Point 2] before [Point 1], I offer the treatment of [Point 3], by doing [Point 4]",
+        formula: "To avoid [Point 2] in the face of [Point 1], I offer the treatment of [Point 3], by [Point 4]",
         text: opcionalIText
       },
       {
         id: "opcional-2",
         title: "Emotional Conflict Resolution (Optional II)",
-        formula: "Through [Point 5] I fall to [Point 2], but through [Point 6] I rise to [Point 3]",
+        formula: "Through [Point 5] I fall into [Point 2], but through [Point 6] I rise to [Point 3]",
         text: opcionalIIText
       },
       {
         id: "opcional-3",
         title: "Active Rejection Transcendence (Optional III)",
-        formula: "Through [Point 7] I fall to [Point 1], but through [Point 8] I rise to [Point 4]",
+        formula: "Through [Point 7] I fall into [Point 1], but through [Point 8] I rise to [Point 4]",
         text: opcionalIIIText
       }
     ];

@@ -1,15 +1,25 @@
 import { translations } from "../data/translations";
-import { BookOpen, CheckCircle, Info, Sparkles, Heart, Lock } from "lucide-react";
-import { motion } from "motion/react";
+import { BookOpen, CheckCircle, Info, Sparkles, Heart, Lock, Headphones } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import RelaxationPlayer from "./RelaxationPlayer";
 
 interface IntroSectionProps {
   onStart: () => void;
   onLoadExample: () => void;
   theme: "light" | "dark";
   lang?: "es" | "en";
+  showRelaxation: boolean;
+  onToggleRelaxation: () => void;
 }
 
-export default function IntroSection({ onStart, onLoadExample, theme, lang = "es" }: IntroSectionProps) {
+export default function IntroSection({ 
+  onStart, 
+  onLoadExample, 
+  theme, 
+  lang = "es",
+  showRelaxation,
+  onToggleRelaxation
+}: IntroSectionProps) {
   const isDark = theme === "dark";
   const t = translations[lang];
 
@@ -181,6 +191,73 @@ export default function IntroSection({ onStart, onLoadExample, theme, lang = "es
             {t.introPurposesExtra}
           </p>
         </div>
+      </motion.div>
+
+      {/* Guided Relaxation Preparatory Card / Player */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.35 }}
+        className="w-full"
+      >
+        <AnimatePresence mode="wait">
+          {showRelaxation ? (
+            <motion.div
+              key="relaxation-player-active"
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.2 }}
+            >
+              <RelaxationPlayer theme={theme} lang={lang} onClose={onToggleRelaxation} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="relaxation-card-inactive"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className={`rounded-2xl p-6 border flex flex-col md:flex-row items-start md:items-center justify-between gap-5 transition-all duration-200 shadow-sm ${
+                isDark 
+                  ? "bg-slate-900 border-slate-800 text-slate-200 hover:border-slate-700" 
+                  : "bg-slate-50/70 border-slate-200/60 text-slate-800 hover:border-slate-300/60"
+              }`}
+            >
+              <div className="flex items-start gap-4">
+                <div className={`p-3.5 rounded-2xl shrink-0 ${
+                  isDark ? "bg-amber-500/10 text-amber-400" : "bg-amber-500/10 text-amber-600"
+                }`}>
+                  <Headphones className="w-6 h-6 animate-pulse" />
+                </div>
+                <div className="space-y-1">
+                  <h3 className={`text-sm font-black uppercase tracking-wider flex items-center gap-2 ${
+                    isDark ? "text-amber-400" : "text-amber-800"
+                  }`}>
+                    <span>{lang === "es" ? "🧘 Recomendación: Relajación Guiada" : "🧘 Recommended: Guided Relaxation"}</span>
+                    <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                  </h3>
+                  <p className={`text-xs leading-relaxed max-w-2xl ${isDark ? "text-slate-300" : "text-slate-600"}`}>
+                    {lang === "es"
+                      ? "Antes de iniciar tu reflexión, te proponemos realizar una relajación guiada de 3 minutos (física externa, interna y mental). Es la mejor condición para acallar el ruido interno y reflexionar de corazón."
+                      : "Before starting your reflection, we suggest a 3-minute guided relaxation (external physical, internal, and mental). This is the best state to quiet internal noise and reflect deeply."}
+                  </p>
+                </div>
+              </div>
+
+              <button
+                onClick={onToggleRelaxation}
+                className={`w-full md:w-auto px-5 py-3 rounded-xl text-xs font-black flex items-center justify-center gap-2 transition duration-200 shrink-0 cursor-pointer ${
+                  isDark
+                    ? "bg-amber-600/20 hover:bg-amber-600/30 text-amber-300 border border-amber-500/30"
+                    : "bg-white hover:bg-amber-50 text-amber-700 border border-amber-200"
+                }`}
+              >
+                <Headphones className="w-4 h-4" />
+                <span>{lang === "es" ? "Escuchar Relajación" : "Listen to Relaxation"}</span>
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
 
       {/* CTA Buttons */}

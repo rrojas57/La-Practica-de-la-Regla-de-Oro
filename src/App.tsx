@@ -7,6 +7,8 @@ import HelpWordsPanel from "./components/HelpWordsPanel";
 import AforismosDisplay from "./components/AforismosDisplay";
 import HistorySection, { SavedPractice } from "./components/HistorySection";
 import SupportSection from "./components/SupportSection";
+import RelaxationPlayer from "./components/RelaxationPlayer";
+import SiloSchemaTable from "./components/SiloSchemaTable";
 import {
   Sparkles,
   BookOpen,
@@ -25,7 +27,8 @@ import {
   Moon,
   ShieldCheck,
   Lock,
-  MessageSquare
+  MessageSquare,
+  Headphones
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -78,9 +81,11 @@ export default function App() {
   const [currentStepId, setCurrentStepId] = useState<number>(1);
   const [notes, setNotes] = useState<string>("");
   const [practiceTitle, setPracticeTitle] = useState<string>("");
+  const [customAforismos, setCustomAforismos] = useState<Record<string, string>>({});
   
   // Show optional help panel state
   const [showHelp, setShowHelp] = useState<boolean>(false);
+  const [showRelaxation, setShowRelaxation] = useState<boolean>(false);
 
   // Reset showHelp state whenever the step changes to encourage reflection first
   useEffect(() => {
@@ -171,6 +176,7 @@ export default function App() {
       setCurrentStepId(1);
       setNotes("");
       setPracticeTitle("");
+      setCustomAforismos({});
       showToast(t.toastFormReset);
     }
   };
@@ -197,7 +203,8 @@ export default function App() {
       }),
       title,
       answers,
-      notes: notes.trim()
+      notes: notes.trim(),
+      customAforismos
     };
 
     const updated = [newPractice, ...savedPractices];
@@ -212,6 +219,7 @@ export default function App() {
     setCurrentStepId(1);
     setNotes(practice.notes || "");
     setPracticeTitle(practice.title);
+    setCustomAforismos(practice.customAforismos || {});
     setActiveTab("practice");
     showToast(`${t.toastPracticeLoaded}"${practice.title}"`);
   };
@@ -232,6 +240,7 @@ export default function App() {
       ? "Este es el ejemplo clásico de aplicación de la Regla de Oro, abordando la violencia externa del trato excluyente mediante la consideración e inclusión, superando el sufrimiento defensivo y la desconfianza por medio de la comunicación honesta."
       : "This is the classic example of applying the Golden Rule, addressing the external violence of excluding treatment through consideration and inclusion, overcoming defensive suffering and distrust through honest communication.");
     setPracticeTitle(lang === "es" ? "Ejemplo - Superación del Trato Excluyente" : "Example - Overcoming Excluding Treatment");
+    setCustomAforismos({});
     setActiveTab("practice");
     showToast(t.toastExampleLoaded);
   };
@@ -244,6 +253,7 @@ export default function App() {
       ? `Este es el ejercicio de reflexión cargado desde los ejemplos de apoyo de la aplicación: "${title}". Úsalo como inspiración para tu propio trabajo.`
       : `This is the reflection exercise loaded from the application's support examples: "${title}". Use it as inspiration for your own work.`);
     setPracticeTitle(title);
+    setCustomAforismos({});
     setActiveTab("practice");
     showToast(t.toastPracticeReady);
   };
@@ -254,12 +264,36 @@ export default function App() {
     setCurrentStepId(1);
     setNotes("");
     setPracticeTitle("");
+    setCustomAforismos({});
     setActiveTab("practice");
   };
 
+  // Callbacks for custom aforismos
+  const handleUpdateAforismo = (id: string, text: string) => {
+    setCustomAforismos(prev => ({
+      ...prev,
+      [id]: text
+    }));
+  };
+
+  const handleResetAforismo = (id: string) => {
+    setCustomAforismos(prev => {
+      const copy = { ...prev };
+      delete copy[id];
+      return copy;
+    });
+  };
+
+  // Generate the active aforismos list (merged with any custom edits)
+  const defaultAforismos = generateAforismosTranslated(answers, lang);
+  const currentAforismos = defaultAforismos.map(af => ({
+    ...af,
+    text: customAforismos[af.id] !== undefined ? customAforismos[af.id] : af.text
+  }));
+
   // Download all aforismos as a text file
   const handleDownloadAll = () => {
-    const aforismos = generateAforismosTranslated(answers, lang);
+    const aforismos = currentAforismos;
     const textContent = `
 =========================================
 ${t.downloadHeader}
@@ -299,19 +333,11 @@ ${t.downloadFooterQuote}
     showToast(t.toastDownloadSuccess);
   };
 
-  // Generate the active aforismos list
-  const currentAforismos = generateAforismosTranslated(answers, lang);
-
   // Simultaneous preview in-progress (Aforismo 6+8 & Opcional 1 preview)
   const renderSimultaneousPreview = () => {
-    const p1 = answers[1] ? answers[1].toUpperCase() : "___";
-    const p2 = answers[2] ? answers[2].toUpperCase() : "___";
-    const p3 = answers[3] ? answers[3].toUpperCase() : "___";
-    const p4 = answers[4] ? answers[4].toUpperCase() : "___";
-    const p6 = answers[6] ? answers[6].toUpperCase() : "___";
-    const p8 = answers[8] ? answers[8].toUpperCase() : "___";
-
     const isDark = theme === "dark";
+    const mainRisingAforismo = currentAforismos.find(af => af.id === "6+8")?.text || "...";
+    const goldenAforismo = currentAforismos.find(af => af.id === "opcional-1")?.text || "...";
 
     return (
       <div className={`rounded-2xl p-5 border space-y-4 transition-colors duration-200 ${
@@ -335,7 +361,7 @@ ${t.downloadFooterQuote}
             <p className={`text-sm font-bold mt-1 italic ${
               isDark ? "text-amber-300" : "text-amber-950"
             }`}>
-              "{p6}, {p8.startsWith("BY ") || p8.startsWith("POR ") || p8 === "___" ? p8 : (lang === "es" ? "POR " : "BY ") + p8}."
+              "{mainRisingAforismo}"
             </p>
           </div>
 
@@ -349,15 +375,7 @@ ${t.downloadFooterQuote}
             <p className={`text-xs font-semibold mt-1 ${
               isDark ? "text-amber-400/90" : "text-amber-900/90"
             }`}>
-              {lang === "es" ? (
-                <>
-                  Para evitar <span className="underline">{p2.toLowerCase()}</span> ante <span className="underline">{p1.toLowerCase()}</span>, doy el trato de <span className="underline">{p3.toLowerCase()}</span>, haciendo <span className="underline">{p4.toLowerCase()}</span>.
-                </>
-              ) : (
-                <>
-                  To avoid <span className="underline">{p2.toLowerCase()}</span> before <span className="underline">{p1.toLowerCase()}</span>, I offer the treatment of <span className="underline">{p3.toLowerCase()}</span>, by doing <span className="underline">{p4.toLowerCase()}</span>.
-                </>
-              )}
+              {goldenAforismo}
             </p>
           </div>
         </div>
@@ -537,6 +555,8 @@ ${t.downloadFooterQuote}
                 onLoadExample={handleLoadExample}
                 theme={theme}
                 lang={lang}
+                showRelaxation={showRelaxation}
+                onToggleRelaxation={() => setShowRelaxation(!showRelaxation)}
               />
             </motion.div>
           )}
@@ -588,6 +608,47 @@ ${t.downloadFooterQuote}
                     <div className="text-xs font-extrabold text-amber-500">{progressPercent}%</div>
                   </div>
                 </div>
+              </div>
+
+              {/* Optional Relaxation Banner */}
+              <div className="w-full">
+                <AnimatePresence mode="wait">
+                  {showRelaxation ? (
+                    <motion.div
+                      key="practice-relaxation-active"
+                      initial={{ opacity: 0, scale: 0.98 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.98 }}
+                    >
+                      <RelaxationPlayer theme={theme} lang={lang} onClose={() => setShowRelaxation(false)} />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="practice-relaxation-inactive"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className={`p-3.5 rounded-xl border flex items-center justify-between gap-4 text-xs font-bold cursor-pointer transition ${
+                        theme === "dark" 
+                          ? "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-850/50" 
+                          : "bg-slate-50/70 border-slate-200/60 text-slate-700 hover:border-slate-300/60 hover:bg-slate-100"
+                      }`}
+                      onClick={() => setShowRelaxation(true)}
+                    >
+                      <div className="flex items-center gap-2">
+                        <Headphones className="w-4 h-4 text-amber-500 animate-pulse shrink-0" />
+                        <span>
+                          {lang === "es"
+                            ? "🧘 ¿Te gustaría calmar tu mente antes de empezar? Realiza la relajación guiada"
+                            : "🧘 Would you like to calm your mind before starting? Do the guided relaxation"}
+                        </span>
+                      </div>
+                      <span className="text-amber-600 dark:text-amber-400 font-extrabold hover:underline shrink-0 text-[10px] uppercase tracking-wider">
+                        {lang === "es" ? "Escuchar" : "Listen"} →
+                      </span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               {/* Privacy Warning Banner */}
@@ -890,7 +951,19 @@ ${t.downloadFooterQuote}
 
                       <AforismosDisplay
                         aforismos={currentAforismos}
+                        rawAnswers={answers}
+                        onUpdateAforismo={handleUpdateAforismo}
+                        onResetAforismo={handleResetAforismo}
+                        customAforismos={customAforismos}
                         onDownloadAll={handleDownloadAll}
+                        theme={theme}
+                        lang={lang}
+                      />
+
+                      <SiloSchemaTable
+                        answers={answers}
+                        aforismos={currentAforismos}
+                        customAforismos={customAforismos}
                         theme={theme}
                         lang={lang}
                       />
@@ -987,19 +1060,23 @@ ${t.downloadFooterQuote}
         <div className="max-w-7xl mx-auto px-4 space-y-4">
           <div className="flex items-center justify-center gap-1.5">
             <Heart className="w-4 h-4 fill-amber-500 text-amber-500" />
-            <span className={`font-semibold ${theme === "dark" ? "text-slate-200" : "text-slate-800"}`}>{lang === "es" ? "\"La Práctica de la Regla de Oro\"" : "\"The Golden Rule Practice\""}</span>
+            <span className={`font-bold ${theme === "dark" ? "text-slate-200" : "text-slate-800"}`}>
+              {lang === "es" ? "La Práctica de la Regla de Oro" : "The Golden Rule Practice"}
+            </span>
           </div>
-          <p className="max-w-md mx-auto leading-relaxed">
-            {lang === "es" ? "Una herramienta basada en la metodología de la no violencia activa para promover la coherencia personal, la paz mental y la reconciliación humana." : "A tool based on the methodology of active nonviolence to promote personal coherence, mental peace, and human reconciliation."}
+          <p className="max-w-2xl mx-auto leading-relaxed text-xs">
+            {lang === "es" 
+              ? "Una herramienta basada en la metodología de la no violencia activa para promover la coherencia personal, la paz mental y la reconciliación personal y social." 
+              : "A tool based on the methodology of active nonviolence to promote personal coherence, mental peace, and personal and social reconciliation."}
           </p>
-          <div className={`text-[10px] pt-2 border-t flex flex-wrap justify-center gap-4 ${
+          <div className={`text-[10px] pt-2 border-t flex flex-wrap justify-center items-center gap-x-4 gap-y-1.5 ${
             theme === "dark" ? "border-slate-900 text-slate-500" : "border-slate-100/60 text-slate-400"
           }`}>
-            <span>© {new Date().getFullYear()} - {lang === "es" ? "Basado en la Escuela de Silo" : "Based on Silo's School"}</span>
+            <span>{lang === "es" ? "© 2026 - Basado en la Escuela de Silo" : "© 2026 - Based on Silo's School"}</span>
             <span>•</span>
-            <span>{lang === "es" ? "Guardado local privado (Sin base de datos)" : "Private local storage (No database required)"}</span>
+            <span>{lang === "es" ? "Guardado local privado (Sin base de datos)" : "Private local storage (No database)"}</span>
             <span>•</span>
-            <span>{lang === "es" ? "Desarrollado con amor y respeto" : "Developed with love and respect"}</span>
+            <span>{lang === "es" ? "Desarrollado por R.E.R.H., desde la humildad y bondad" : "Developed by R.E.R.H., with humility and kindness"}</span>
           </div>
         </div>
       </footer>
