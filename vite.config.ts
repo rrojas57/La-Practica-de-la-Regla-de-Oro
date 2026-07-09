@@ -6,6 +6,7 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
+    envPrefix: ['VITE_', 'URL_de_web_de_VITE_BUZON'],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
