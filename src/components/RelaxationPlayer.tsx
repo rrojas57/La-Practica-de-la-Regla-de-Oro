@@ -20,7 +20,7 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
       }, 
       gender: "female", 
       pitch: 0.84,  // Lowered pitch for pectoral/warm resonance
-      rate: 0.62,   // Slowed rate for isochronous pacing
+      rate: 0.32,   // Ralentizado a la mitad para una locución sumamente pausada e isócrona
       volume: 0.55  // Low volume/intensity
     },
     m1: { 
@@ -30,7 +30,7 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
       }, 
       gender: "male", 
       pitch: 0.68,  // Substantially lowered pitch for deep pectoral resonance
-      rate: 0.62,   // Slowed rate for isochronous pacing
+      rate: 0.32,   // Ralentizado a la mitad para una locución sumamente pausada e isócrona
       volume: 0.55  // Low volume/intensity
     }
   };
@@ -83,7 +83,7 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
         es: "Busca una postura cómoda, cierra suavemente los ojos si lo deseas y prepárate para soltar el ruido y las tensiones del día. Respira lenta y profundamente.",
         en: "Find a comfortable position, gently close your eyes if you wish, and prepare to release the noise and tension of the day. Breathe slowly and deeply."
       },
-      duration: 12 // seconds
+      duration: 24 // segundos (duplicado para voz lenta)
     },
     {
       title: { es: "1. Relajación Externa", en: "1. External Relaxation" },
@@ -92,7 +92,7 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
         es: "Comenzamos por relajar los músculos del cuerpo. Relaja tu frente, tus mejillas, tus mandíbulas, tu lengua y tu garganta. Deja que tus ojos caigan pesados. Siente el cuello flojo, los hombros y los brazos cayendo pesados. Relaja tu pecho, tu abdomen, tus piernas y tus pies. Siente todo tu cuerpo completamente suelto y en paz.",
         en: "We begin by relaxing the muscles of the body. Relax your forehead, cheeks, jaws, tongue, and throat. Let your eyes fall heavy. Feel your neck loose, your shoulders and arms falling heavy. Relax your chest, abdomen, legs, and feet. Feel your entire body completely loose and at peace."
       },
-      duration: 35
+      duration: 70 // segundos (duplicado para voz lenta)
     },
     {
       title: { es: "2. Relajación Interna", en: "2. Internal Relaxation" },
@@ -101,7 +101,7 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
         es: "Ahora relajamos las tensiones internas. Siente tu pecho por dentro, relaja tus pulmones y calma tu corazón. Siente tu estómago e intestinos, soltando cualquier nudo, tensión o contractura. Registra tu interior blando, cálido y luminoso, como un refugio de paz.",
         en: "Now we relax internal tensions. Feel your chest inside, relax your lungs, and calm your heart. Feel your stomach and intestines, releasing any knots, tension, or tightness. Notice your soft, warm, and luminous interior, like a refuge of peace."
       },
-      duration: 30
+      duration: 60 // segundos (duplicado para voz lenta)
     },
     {
       title: { es: "3. Relajación Mental", en: "3. Mental Relaxation" },
@@ -110,7 +110,7 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
         es: "Finalmente, relaja tu mente. Deja pasar las preocupaciones y pensamientos como nubes en el viento. No te detengas en ninguno de ellos. Si aparece una imagen, déjala ir suavemente. Siente tu mente silenciosa, vacía y tranquila, como un lago cristalino en absoluta calma.",
         en: "Finally, relax your mind. Let worries and thoughts pass by like clouds in the wind. Do not dwell on any of them. If an image appears, gently let it go. Feel your mind silent, empty, and peaceful, like a crystal-clear lake in absolute stillness."
       },
-      duration: 30
+      duration: 60 // segundos (duplicado para voz lenta)
     },
     {
       title: { es: "Estado de Paz Listo", en: "Peaceful State Ready" },
@@ -119,7 +119,7 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
         es: "Has alcanzado un estado de calma, silencio y coherencia. Estás en la mejor disposición para iniciar tu reflexión sobre la Regla de Oro. Cuando lo desees, continúa hacia el ejercicio.",
         en: "You have reached a state of calm, silence, and coherence. You are in the best condition to begin your reflection on the Golden Rule. Whenever you are ready, continue to the exercise."
       },
-      duration: 10
+      duration: 20 // segundos (duplicado para voz lenta)
     }
   ];
 

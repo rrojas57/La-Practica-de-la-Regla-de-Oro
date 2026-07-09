@@ -503,7 +503,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
     };
 
     try {
-      const webhookUrl = (import.meta as any).env?.VITE_BUZON_WEBHOOK_URL;
+      const webhookUrl = import.meta.env.VITE_BUZON_WEBHOOK_URL;
       
       if (webhookUrl) {
         // Real dispatch to user configured webhook
