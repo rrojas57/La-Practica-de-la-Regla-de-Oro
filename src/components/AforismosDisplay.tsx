@@ -11,7 +11,7 @@ interface AforismosDisplayProps {
   customAforismos: Record<string, string>;
   onDownloadAll?: () => void;
   theme?: "light" | "dark";
-  lang?: "es" | "en";
+  lang?: "es" | "en" | "fr" | "de" | "pt";
 }
 
 export default function AforismosDisplay({
@@ -37,15 +37,15 @@ export default function AforismosDisplay({
   };
 
   // Human-friendly titles for the 8 steps to help the user substitute
-  const stepLabels: Record<number, { es: string, en: string, color: string }> = {
-    1: { es: "1. Forma de Maltrato", en: "1. Type of Mistreatment", color: "bg-rose-500/10 text-rose-500 border-rose-500/20" },
-    2: { es: "2. Sufrimiento / Reacción", en: "2. Suffering / Reaction", color: "bg-rose-500/10 text-rose-500 border-rose-500/20" },
-    3: { es: "3. Virtud Guía", en: "3. Guide Virtue", color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20" },
-    4: { es: "4. Acción Solidaria", en: "4. Solidary Action", color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20" },
-    5: { es: "5. Sentimiento de Caída", en: "5. Falling Feeling", color: "bg-indigo-500/10 text-indigo-500 border-indigo-500/20" },
-    6: { es: "6. Acción de Subida 1", en: "6. Rising Action 1", color: "bg-amber-500/10 text-amber-500 border-amber-500/20" },
-    7: { es: "7. Sentimiento de Caída", en: "7. Falling Feeling", color: "bg-indigo-500/10 text-indigo-500 border-indigo-500/20" },
-    8: { es: "8. Acción de Subida 2", en: "8. Rising Action 2", color: "bg-amber-500/10 text-amber-500 border-amber-500/20" },
+  const stepLabels: Record<number, { es: string, en: string, fr: string, de: string, pt: string, color: string }> = {
+    1: { es: "1. Forma de Maltrato", en: "1. Type of Mistreatment", fr: "1. Type de maltraitance", de: "1. Art der Fehlbehandlung", pt: "1. Tipo de maltrato", color: "bg-rose-500/10 text-rose-500 border-rose-500/20" },
+    2: { es: "2. Sufrimiento / Reacción", en: "2. Suffering / Reaction", fr: "2. Souffrance / Réaction", de: "2. Leiden / Reaktion", pt: "2. Sofrimento / Reação", color: "bg-rose-500/10 text-rose-500 border-rose-500/20" },
+    3: { es: "3. Virtud Guía", en: "3. Guide Virtue", fr: "3. Vertu guide", de: "3. Leitende Tugend", pt: "3. Virtude guia", color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20" },
+    4: { es: "4. Acción Solidaria", en: "4. Solidary Action", fr: "4. Action solidaire", de: "4. Solidarische Aktion", pt: "4. Ação solidária", color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20" },
+    5: { es: "5. Sentimiento de Caída", en: "5. Falling Feeling", fr: "5. Sentiment de chute", de: "5. Gefühl des Absturzes", pt: "5. Sentimento de queda", color: "bg-indigo-500/10 text-indigo-500 border-indigo-500/20" },
+    6: { es: "6. Acción de Subida 1", en: "6. Rising Action 1", fr: "6. Action de montée 1", de: "6. Aufsteigende Aktion 1", pt: "6. Ação de subida 1", color: "bg-amber-500/10 text-amber-500 border-amber-500/20" },
+    7: { es: "7. Sentimiento de Caída", en: "7. Falling Feeling", fr: "7. Sentiment de chute", de: "7. Gefühl des Absturzes", pt: "7. Sentimento de queda", color: "bg-indigo-500/10 text-indigo-500 border-indigo-500/20" },
+    8: { es: "8. Acción de Subida 2", en: "8. Rising Action 2", fr: "8. Action de montée 2", de: "8. Aufsteigende Aktion 2", pt: "8. Ação de subida 2", color: "bg-amber-500/10 text-amber-500 border-amber-500/20" },
   };
 
   return (
@@ -123,9 +123,9 @@ export default function AforismosDisplay({
               
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => {
-                  const label = stepLabels[num][lang];
+                  const label = stepLabels[num][lang] || stepLabels[num]["es"];
                   const colorClass = stepLabels[num].color;
-                  const value = rawAnswers[num] || (lang === "es" ? "(Vacío)" : "(Empty)");
+                  const value = rawAnswers[num] || (lang === "es" ? "(Vacío)" : lang === "fr" ? "(Vide)" : lang === "de" ? "(Leer)" : lang === "pt" ? "(Vazio)" : "(Empty)");
                   
                   return (
                     <div 
@@ -246,12 +246,24 @@ export default function AforismosDisplay({
                             ? "bg-slate-950/60 text-slate-100 border-slate-805 focus:border-amber-500" 
                             : "bg-slate-50 text-slate-850 border-slate-205 focus:border-amber-500"
                         }`}
-                        placeholder={lang === "es" ? "Escribe tu redacción personalizada aquí..." : "Write your customized wording here..."}
+                        placeholder={
+                          lang === "es" ? "Escribe tu redacción personalizada aquí..." :
+                          lang === "fr" ? "Écrivez votre texte personnalisé ici..." :
+                          lang === "de" ? "Schreiben Sie hier Ihren personalisierten Text..." :
+                          lang === "pt" ? "Escreve a tua redação personalizada aqui..." :
+                          "Write your customized wording here..."
+                        }
                       />
                       
                       <div className="flex items-center justify-between gap-3">
                         <p className={`text-[10px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>
-                          {lang === "es" ? "Escribe con tus propias palabras respetando el sentido profundo de la fórmula." : "Write in your own words, respecting the formula's deep meaning."}
+                          {
+                            lang === "es" ? "Escribe con tus propias palabras respetando el sentido profundo de la fórmula." :
+                            lang === "fr" ? "Écrivez avec vos propres mots en respectant le sens profond de la formule." :
+                            lang === "de" ? "Schreiben Sie in eigenen Worten unter Wahrung des tiefen Sinns der Formel." :
+                            lang === "pt" ? "Escreve com as tuas próprias palavras respeitando o sentido profundo da fórmula." :
+                            "Write in your own words, respecting the formula's deep meaning."
+                          }
                         </p>
                         
                         <div className="flex gap-2 shrink-0">
@@ -266,10 +278,16 @@ export default function AforismosDisplay({
                                   ? "bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-750 hover:text-white"
                                   : "bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                               }`}
-                              title={lang === "es" ? "Restaurar sugerencia automática" : "Restore automatic suggestion"}
+                              title={
+                                lang === "es" ? "Restaurar sugerencia automática" :
+                                lang === "fr" ? "Restaurer la suggestion automatique" :
+                                lang === "de" ? "Automatischen Vorschlag wiederherstellen" :
+                                lang === "pt" ? "Restaurar sugestão automática" :
+                                "Restore automatic suggestion"
+                              }
                             >
                               <RotateCcw className="w-3 h-3" />
-                              <span>{lang === "es" ? "Deshacer" : "Revert"}</span>
+                              <span>{lang === "es" ? "Deshacer" : lang === "fr" ? "Annuler" : lang === "de" ? "Zurücksetzen" : lang === "pt" ? "Desfazer" : "Revert"}</span>
                             </button>
                           )}
                           <button
@@ -277,7 +295,7 @@ export default function AforismosDisplay({
                             className={`px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-slate-950 rounded-lg text-[10px] font-extrabold transition flex items-center gap-1 cursor-pointer shadow-xs`}
                           >
                             <Check className="w-3 h-3" />
-                            <span>{lang === "es" ? "Listo" : "Done"}</span>
+                            <span>{lang === "es" ? "Listo" : lang === "fr" ? "Prêt" : lang === "de" ? "Fertig" : lang === "pt" ? "Concluído" : "Done"}</span>
                           </button>
                         </div>
                       </div>
@@ -288,7 +306,13 @@ export default function AforismosDisplay({
                       className={`flex gap-3 items-start relative cursor-pointer group p-2.5 -m-2.5 rounded-xl transition ${
                         isDark ? "hover:bg-slate-800/40" : "hover:bg-slate-50/50"
                       }`}
-                      title={lang === "es" ? "Hacer clic para editar texto" : "Click to edit text"}
+                      title={
+                        lang === "es" ? "Hacer clic para editar texto" :
+                        lang === "fr" ? "Cliquer pour éditer le texte" :
+                        lang === "de" ? "Klicken, um den Text zu bearbeiten" :
+                        lang === "pt" ? "Clicar para editar o texto" :
+                        "Click to edit text"
+                      }
                     >
                       <Quote className={`w-8 h-8 shrink-0 rotate-180 transition-colors duration-200 ${
                         isPrimary 
@@ -307,7 +331,15 @@ export default function AforismosDisplay({
                           isPrimary ? "text-amber-550" : "text-slate-400"
                         }`}>
                           <Pencil className="w-2.5 h-2.5" />
-                          <span>{lang === "es" ? "Clic para editar e integrar tu estilo" : "Click to edit and integrate your style"}</span>
+                          <span>
+                            {
+                              lang === "es" ? "Clic para editar e integrar tu estilo" :
+                              lang === "fr" ? "Cliquer pour éditer et personnaliser" :
+                              lang === "de" ? "Klicken, um Ihren Stil anzupassen" :
+                              lang === "pt" ? "Clica para editares e integrares o teu estilo" :
+                              "Click to edit and integrate your style"
+                            }
+                          </span>
                         </span>
                       </div>
                     </div>
@@ -321,9 +353,25 @@ export default function AforismosDisplay({
               }`}>
                 <span className="flex items-center gap-1">
                   <Heart className="w-3 h-3 text-red-400" />
-                  <span>{lang === "es" ? "La Regla de Oro" : "The Golden Rule"}</span>
+                  <span>
+                    {
+                      lang === "es" ? "La Regla de Oro" :
+                      lang === "fr" ? "La Règle d'Or" :
+                      lang === "de" ? "Die Goldene Regel" :
+                      lang === "pt" ? "A Regra de Ouro" :
+                      "The Golden Rule"
+                    }
+                  </span>
                 </span>
-                <span>{lang === "es" ? "Reflexión Activa" : "Active Reflection"}</span>
+                <span>
+                  {
+                    lang === "es" ? "Reflexión Activa" :
+                    lang === "fr" ? "Réflexion Active" :
+                    lang === "de" ? "Aktive Reflexion" :
+                    lang === "pt" ? "Reflexão Ativa" :
+                    "Active Reflection"
+                  }
+                </span>
               </div>
             </motion.div>
           );

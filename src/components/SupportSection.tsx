@@ -19,13 +19,30 @@ import {
   FileText as FilePdfIcon
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { translations, GLOSSARY_TERMS_EN, RESOURCES_LIST_EN, EXAMPLES_LIST_EN } from "../data/translations";
+import { 
+  translations, 
+  GLOSSARY_TERMS_EN, 
+  GLOSSARY_TERMS_FR, 
+  GLOSSARY_TERMS_DE, 
+  GLOSSARY_TERMS_PT, 
+  RESOURCES_LIST_EN, 
+  RESOURCES_LIST_FR, 
+  RESOURCES_LIST_DE, 
+  RESOURCES_LIST_PT, 
+  EXAMPLES_LIST_EN, 
+  EXAMPLES_LIST_FR, 
+  EXAMPLES_LIST_DE, 
+  EXAMPLES_LIST_PT, 
+  TESTIMONIALS_LIST_FR, 
+  TESTIMONIALS_LIST_DE, 
+  TESTIMONIALS_LIST_PT 
+} from "../data/translations";
 
 interface SupportSectionProps {
   theme: "light" | "dark";
   onLoadExampleAnswers: (answers: Record<number, string>, title: string) => void;
   showToast: (message: string) => void;
-  lang?: "es" | "en";
+  lang?: "es" | "en" | "fr" | "de" | "pt";
 }
 
 // Key terms for Glossary
@@ -434,6 +451,14 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
   const [isSendingFeedback, setIsSendingFeedback] = useState(false);
   const [feedbackSent, setFeedbackSent] = useState(false);
 
+  // Mailbox Admin states
+  const [showAdminModal, setShowAdminModal] = useState(false);
+  const [adminPin, setAdminPin] = useState("");
+  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
+  const [adminEntries, setAdminEntries] = useState<Array<{ id: string; category: string; message: string; language: string; timestamp: string }>>([]);
+  const [adminError, setAdminError] = useState("");
+  const [isLoadingAdmin, setIsLoadingAdmin] = useState(false);
+
   const isDark = theme === "dark";
   const t = translations[lang];
 
@@ -474,13 +499,160 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
       },
       aforismo: "Actúo con dirección en lugar de hacerlo con expectativas, ganando serenidad y elevando el deseo.",
       commentary: "Nos muestra que las expectativas de comportamiento desaparecen cuando estamos en nuestro centro de gravedad. Dejamos de esperar que el otro cambie —o que nosotros mismos tengamos un determinado comportamiento— y cambiamos nosotros, dirigiendo nuestras acciones y convirtiéndonos en protagonistas."
+    },
+    {
+      id: "ex3_nuevo_libro",
+      title: "Ejemplo anónimo 3: Superación de la Exclusión",
+      subtitle: "De la actitud excluyente a considerar e incluir conectando con lo humano",
+      description: "Ejemplo anónimo resuelto sobre la regla de oro. Explora cómo liberarse de la tensión de ser excluido, reemplazando el aislamiento por el acercamiento y aprecio a los demás.",
+      answers: {
+        1: "Excluyentes (Trato excluyente)",
+        2: "Sufro y me alejo aislándome",
+        3: "Consideración e inclusión (Considerar e incluir a otros)",
+        4: "Me acerco y aprecio a los demás",
+        5: "Inseguridad",
+        6: "Expreso lo que siento y pienso",
+        7: "Hartazgo",
+        8: "Conecto con lo humano en mí y en otros"
+      },
+      aforismo: "Expreso lo que siento y pienso conectando con lo humano en mí y en otros.",
+      commentary: "En este ejemplo anónimo resuelto, la persona transforma el rechazo a la exclusión ajena (1) identificando el trato que quiere recibir y dar (3. Consideración e inclusión). En lugar de aislarse (2), elige acercarse y apreciar a los demás (4). El aforismo final surge de las vías de subida 6 y 8."
+    },
+    {
+      id: "ex4_nuevo_libro",
+      title: "Ejemplo anónimo 4: Superación de la Exigencia",
+      subtitle: "De la actitud de exigencia a la flexibilidad, amabilidad y actitud pedagógica",
+      description: "Ejemplo anónimo resuelto sobre la regla de oro. Aborda el rechazo a la exigencia ajena y la reacción airada, convirtiéndola en flexibilidad, afecto y actitud pedagógica.",
+      answers: {
+        1: "Exigente (Trato de exigencia)",
+        2: "Airado (Me enojo y expreso ese enojo)",
+        3: "Flexible y libre (Dar flexibilidad y respetar la libertad)",
+        4: "Actuar con afecto y amabilidad",
+        5: "Quisquilloso",
+        6: "Respiro profundamente (freno la respuesta mecánica)",
+        7: "Impaciente",
+        8: "Me pongo pedagógico (actúo pedagógicamente)"
+      },
+      aforismo: "Respiro profundamente y actúo pedagógicamente.",
+      commentary: "En este segundo ejemplo anónimo, ante la exigencia ajena (1), la persona frena su respuesta airada (2) mediante respiración profunda (6) y elige dar flexibilidad y libertad (3), tratando con afecto y amabilidad (4). Supera la exigencia poniéndose pedagógica (8)."
     }
   ];
 
-  const testimonialsList = lang === "es" ? TESTIMONIALS_LIST : TESTIMONIALS_LIST_EN;
-  const resourcesList = lang === "es" ? RESOURCES_LIST : RESOURCES_LIST_EN;
-  const examplesList = lang === "es" ? EXAMPLES_LIST : EXAMPLES_LIST_EN;
-  const glossaryList = lang === "es" ? GLOSSARY_TERMS : GLOSSARY_TERMS_EN;
+  const testimonialsList = 
+    lang === "fr" ? TESTIMONIALS_LIST_FR :
+    lang === "de" ? TESTIMONIALS_LIST_DE :
+    lang === "pt" ? TESTIMONIALS_LIST_PT :
+    lang === "en" ? TESTIMONIALS_LIST_EN :
+    TESTIMONIALS_LIST;
+
+  const resourcesList = 
+    lang === "fr" ? RESOURCES_LIST_FR :
+    lang === "de" ? RESOURCES_LIST_DE :
+    lang === "pt" ? RESOURCES_LIST_PT :
+    lang === "en" ? RESOURCES_LIST_EN :
+    RESOURCES_LIST;
+
+  const examplesList = 
+    lang === "fr" ? EXAMPLES_LIST_FR :
+    lang === "de" ? EXAMPLES_LIST_DE :
+    lang === "pt" ? EXAMPLES_LIST_PT :
+    lang === "en" ? EXAMPLES_LIST_EN :
+    EXAMPLES_LIST;
+
+  const glossaryList = 
+    lang === "fr" ? GLOSSARY_TERMS_FR :
+    lang === "de" ? GLOSSARY_TERMS_DE :
+    lang === "pt" ? GLOSSARY_TERMS_PT :
+    lang === "en" ? GLOSSARY_TERMS_EN :
+    GLOSSARY_TERMS;
+
+  // Translation helper for UI labels in SupportSection
+  const getUiLabel = (key: string): string => {
+    switch (key) {
+      case "headerBadge":
+        return lang === "fr" ? "Matériel de soutien et Boîte aux lettres" : lang === "de" ? "Unterstützungsmaterialien & Postfach" : lang === "pt" ? "Materiais de Apoio e Caixa de Correio" : lang === "en" ? "Support Materials & Mailbox" : "Materiales de Apoyo y Buzón";
+      case "headerTitle":
+        return lang === "fr" ? "Ressources de consultation et de participation" : lang === "de" ? "Ressourcen für Abfrage und Beteiligung" : lang === "pt" ? "Recursos de Consulta e Participação" : lang === "en" ? "Resources for Inquiry & Participation" : "Recursos de Consulta y Participación";
+      case "headerDesc":
+        return lang === "fr" ? "Explorez des exemples pratiques issus du travail direct des auteurs, consultez les concepts clés du glossaire ou partagez vos retours de manière 100% privée." : lang === "de" ? "Erkunden Sie praktische Beispiele aus der Arbeit der Autoren, schlagen Sie Schlüsselbegriffe im Glossar nach oder teilen Sie Ihr Feedback zu 100% privat und anonym." : lang === "pt" ? "Explore exemplos práticos extraídos da prática direta dos autores, consulte conceitos-chave do glossário ou compartilhe suas avaliações de forma 100% privada e anônima." : lang === "en" ? "Explore practical examples extracted from the authors' direct practice, search key terms from the active nonviolence glossary, or share your feedback in a 100% private and anonymous manner." : "Explora ejemplos prácticos extraídos de la práctica directa de los autores, consulta conceptos clave del glosario de la no violencia o comparte tus valoraciones de manera 100% privada y anónima.";
+      case "examplesTab":
+        return lang === "fr" ? "Exemples Réels" : lang === "de" ? "Echte Beispiele" : lang === "pt" ? "Exemplos Reais" : lang === "en" ? "Real Examples" : "Ejemplos Reales";
+      case "testimonialsTab":
+        return lang === "fr" ? "Témoignages (9)" : lang === "de" ? "Erfahrungsberichte (9)" : lang === "pt" ? "Depoimentos (9)" : lang === "en" ? "Testimonials (9)" : "Testimonios (9)";
+      case "glossaryTab":
+        return lang === "fr" ? "Glossaire Complet" : lang === "de" ? "Vollständiges Glossar" : lang === "pt" ? "Glossário Completo" : lang === "en" ? "Complete Glossary" : "Glosario Completo";
+      case "resourcesTab":
+        return lang === "fr" ? "Bibliothèque et Liens" : lang === "de" ? "Bibliothek & Links" : lang === "pt" ? "Biblioteca e Links" : lang === "en" ? "Library & Links" : "Biblioteca y Enlaces";
+      case "mailboxTab":
+        return lang === "fr" ? "Boîte aux lettres anonyme" : lang === "de" ? "Anonymes Postfach" : lang === "pt" ? "Caixa de Correio Anônima" : lang === "en" ? "Anonymous Mailbox" : "Buzón Anónimo";
+      case "examplesInfo":
+        return lang === "fr" ? "Nous avons intégré ces exemples réels et anonymes issus du travail direct des auteurs. Vous pouvez examiner la cartographie conceptuelle de chaque point ou les charger directement dans votre espace de travail." : lang === "de" ? "Wir haben diese echten und anonymen Beispiele direkt aus der Arbeit der Autoren integriert. Sie können die konzeptionelle Zuordnung jedes Punkts untersuchen oder sie direkt in Ihren Arbeitsbereich laden." : lang === "pt" ? "Integramos estes exemplos reais e anônimos extraídos do trabalho direto dos autores. Você pode examinar o mapeamento conceitual de cada ponto ou carregá-los diretamente no seu espaço de trabalho." : lang === "en" ? "We have integrated these real and anonymous examples extracted from the authors' direct work. You can examine the conceptual mapping of each point or load them directly into your workspace to see in real-time how the moral overcoming formulas are built." : "Hemos integrado estos ejemplos reales y anónimos extraídos del trabajo directo de los autores. Puedes examinar el mapeo conceptual de cada punto o cargarlos directamente en tu espacio de trabajo para ver en tiempo real cómo se construyen las fórmulas de superación moral.";
+      case "pointHeader":
+        return lang === "de" ? "PUNKT" : "PUNTO";
+      case "contentHeader":
+        return lang === "fr" ? "CONTENU DE L'EXERCICE" : lang === "de" ? "ÜBUNGSINHALT" : lang === "pt" ? "CONTEÚDO DO EXERCÍCIO" : lang === "en" ? "EXERCISE CONTENT" : "CONTENIDO DEL EJERCICIO";
+      case "aphorismHeader":
+        return lang === "fr" ? "Aphorisme Conclusif :" : lang === "de" ? "Abschließender Leitgedanke:" : lang === "pt" ? "Aforismo Conclusivo:" : lang === "en" ? "Concluding Aphorism:" : "Aforismo Conclusivo:";
+      case "analysisHeader":
+        return lang === "fr" ? "Analyse :" : lang === "de" ? "Analyse:" : lang === "pt" ? "Análise:" : lang === "en" ? "Analysis:" : "Análisis:";
+      case "loadPracticeBtn":
+        return lang === "fr" ? "Charger dans la pratique" : lang === "de" ? "In die Praxis laden" : lang === "pt" ? "Carregar na Prática" : lang === "en" ? "Load into Practice" : "Cargar en la Práctica";
+      case "testimonialsInfo":
+        return lang === "fr" ? "Les témoignages réels sont des récits de transformation personnelle partagés par des pratiquants de la Règle d'Or." : lang === "de" ? "Die echten Erfahrungsberichte sind Berichte über persönliche Transformation, die von Praktizierenden der Goldenen Regel geteilt werden." : lang === "pt" ? "Os depoimentos reais são relatos de transformação pessoal compartilhados por praticantes da Regra de Ouro." : lang === "en" ? "The real testimonials are accounts of personal transformation shared by practitioners of the Golden Rule. They show us how the exercise has allowed them to calm chronic tensions and heal family or social relationships." : "Los testimonios reales son relatos de transformación personal compartidos por practicantes de la Regra de Ouro. Nos muestran de qué forma el ejercicio ha permitido calmar tensiones crónicas y sanar relaciones familiares o sociales.";
+      case "byAuthor":
+        return lang === "fr" ? "Par" : lang === "de" ? "Von" : lang === "pt" ? "Por" : lang === "en" ? "By" : "Por";
+      case "sendTestimonialTitle":
+        return lang === "fr" ? "Voulez-vous nous envoyer vos témoignages de pratique ?" : lang === "de" ? "Möchten Sie uns Ihre Praxisberichte senden?" : lang === "pt" ? "Quer nos enviar seus depoimentos de prática?" : lang === "en" ? "Do you want to send us your practice testimonials?" : "¿Quieres enviarnos tus testimonios de práctica?";
+      case "sendTestimonialDesc":
+        return lang === "fr" ? "Utilisez la boîte aux lettres anonyme si vous souhaitez partager votre récit ou vos réflexions de changement." : lang === "de" ? "Nutzen Sie das anonyme Postfach, wenn Sie Ihre Geschichte teilen möchten." : lang === "pt" ? "Use a caixa de correio anônima se deseja compartilhar seu relato ou reflexões de mudança." : lang === "en" ? "Use the anonymous mailbox if you wish to share your story or reflections of change so we can include them in this section to inspire others." : "Usa el buzón anónimo si deseas compartir tu relato o reflexiones de cambio para que lo incluyamos en esta sección para inspirar a otros.";
+      case "goToMailboxBtn":
+        return lang === "fr" ? "Aller à la boîte aux lettres" : lang === "de" ? "Zum Postfach gehen" : lang === "pt" ? "Ir para a caixa de correio" : lang === "en" ? "Go to the mailbox to send a testimonial" : "Ir al buzón para enviar un testimonio";
+      case "searchGlossaryPlaceholder":
+        return lang === "fr" ? "Rechercher un terme ou concept clé..." : lang === "de" ? "Begriff oder Schlüsselkonzept suchen..." : lang === "pt" ? "Buscar termo ou conceito-chave..." : lang === "en" ? "Search term or key concept (e.g., Aphorism, Coenesthesia, Climate, Landscape...)" : "Buscar término o concepto clave (Ej: Aforismo, Cenestesia, Clima, Paisaje...)";
+      case "openResourceBtn":
+        return lang === "fr" ? "Ouvrir la ressource" : lang === "de" ? "Ressource öffnen" : lang === "pt" ? "Abrir Recurso" : lang === "en" ? "Open Resource" : "Abrir Recurso";
+      case "privacyHeader":
+        return lang === "fr" ? "🔒 Espace de retours sous confidentialité absolue" : lang === "de" ? "🔒 Anonymes Postfach mit absoluter Privatsphäre" : lang === "pt" ? "🔒 Espaço de Feedback com Privacidade Absoluta" : lang === "en" ? "🔒 Space of Absolute Privacy Feedback" : "🔒 Espacio de Devoluciones de Privacidad Absoluta";
+      case "feedbackCategoryLabel":
+        return lang === "fr" ? "Catégorie de retour" : lang === "de" ? "Rückmeldungskategorie" : lang === "pt" ? "Categoria do feedback" : lang === "en" ? "Feedback Category" : "Categoría de la devolución";
+      case "catOpinion":
+        return lang === "fr" ? "Avis général" : lang === "de" ? "Allgemeine Meinung" : lang === "pt" ? "Opinião Geral" : lang === "en" ? "General Opinion" : "Opinión General";
+      case "catTestimonial":
+        return lang === "fr" ? "Nouveau témoignage" : lang === "de" ? "Neuer Erfahrungsbericht" : lang === "pt" ? "Novo Depoimento" : lang === "en" ? "New Testimonial" : "Nuevo Testimonio";
+      case "catSuggestion":
+        return lang === "fr" ? "Suggestions" : lang === "de" ? "Vorschläge" : lang === "pt" ? "Sugestões" : lang === "en" ? "Suggestions" : "Sugerencias";
+      case "messageLabel":
+        return lang === "fr" ? "Votre message reflexif ou avis" : lang === "de" ? "Ihre reflektierte Nachricht oder Meinung" : lang === "pt" ? "Sua mensagem reflexiva ou opinião" : lang === "en" ? "Your reflective message or opinion" : "Tu mensaje reflexivo u opinión";
+      case "messagePlaceholder":
+        return lang === "fr" ? "Écrivez librement ici votre expérience avec la pratique..." : lang === "de" ? "Schreiben Sie hier frei über Ihre Erfahrungen mit der Praxis..." : lang === "pt" ? "Escreva livremente aqui sua experiência com a prática..." : lang === "en" ? "Write freely here your experience with the practice, your improvement ideas, or the testimonial you wish to share..." : "Escribe libremente aquí tu experiencia con la práctica, tus ideas de mejora o el testimonio que desees compartir...";
+      case "transmittingBtn":
+        return lang === "fr" ? "Transmission sécurisée..." : lang === "de" ? "Sicheres Übertragen..." : lang === "pt" ? "Transmitindo com segurança..." : lang === "en" ? "Transmitting securely..." : "Transmitiendo de forma segura...";
+      case "sendBtn":
+        return lang === "fr" ? "Envoyer le retour anonyme" : lang === "de" ? "Anonymes Feedback senden" : lang === "pt" ? "Enviar Feedback Anônimo" : lang === "en" ? "Send Anonymous Feedback" : "Enviar Devolución Anónima";
+      case "sentSuccessTitle":
+        return lang === "fr" ? "Message transmis avec succès !" : lang === "de" ? "Nachricht erfolgreich übermittelt!" : lang === "pt" ? "Mensagem transmitida com sucesso!" : lang === "en" ? "Message transmitted successfully!" : "¡Mensaje transmitido con éxito!";
+      case "sentSuccessDesc":
+        return lang === "fr" ? "Votre message a été chiffré et envoyé de manière totalement anonyme." : lang === "de" ? "Ihre Nachricht wurde verschlüsselt und anonym übermittelt." : lang === "pt" ? "Sua mensagem foi criptografada e enviada de forma totalmente anônima." : lang === "en" ? "Your message has been encrypted and sent to the coordination feedback inbox. Any identifying header or session registry has been omitted to permanently safeguard your anonymity." : "Tu mensaje ha sido encriptado y enviado a la bandeja de devoluciones de la coordinación. Se ha omitido cualquier cabecera identificativa o registro de sesión para resguardar permanentemente tu anonimato.";
+      case "sendAnotherBtn":
+        return lang === "fr" ? "Envoyer un autre retour" : lang === "de" ? "Weitere Rückmeldung senden" : lang === "pt" ? "Enviar outro feedback" : lang === "en" ? "Send another feedback" : "Enviar otra devolución";
+      default:
+        return "";
+    }
+  };
+
+  const getPLabel = (num: number): string => {
+    switch (num) {
+      case 1: return lang === "de" ? "P1. Ablehnung" : lang === "fr" ? "P1. Rejet" : lang === "pt" ? "P1. Rejeição" : lang === "en" ? "P1. Rejection" : "P1. Rechazo";
+      case 2: return lang === "de" ? "P2. Reaktion" : lang === "fr" ? "P2. Réaction" : lang === "pt" ? "P2. Reação" : lang === "en" ? "P2. Reaction" : "P2. Reacción";
+      case 3: return lang === "de" ? "P3. Bitten / Geben" : lang === "fr" ? "P3. Demande / Donne" : lang === "pt" ? "P3. Peço / Dou" : lang === "en" ? "P3. Ask / Give" : "P3. Pido / Doy";
+      case 4: return lang === "de" ? "P4. Gute Behandlung" : lang === "fr" ? "P4. Bon Traitement" : lang === "pt" ? "P4. Bom Tratamento" : lang === "en" ? "P4. Good Treatment" : "P4. Buen Trato";
+      case 5: return lang === "de" ? "P5. Abstieg (3-2)" : lang === "fr" ? "P5. Chute (3-2)" : lang === "pt" ? "P5. Queda (3-2)" : lang === "en" ? "P5. Fall (3-2)" : "P5. Caída (3-2)";
+      case 6: return lang === "de" ? "P6. Aufstieg (2-3)" : lang === "fr" ? "P6. Montée (2-3)" : lang === "pt" ? "P6. Subida (2-3)" : lang === "en" ? "P6. Rise (2-3)" : "P6. Subida (2-3)";
+      case 7: return lang === "de" ? "P7. Abstieg (4-1)" : lang === "fr" ? "P7. Chute (4-1)" : lang === "pt" ? "P7. Queda (4-1)" : lang === "en" ? "P7. Fall (4-1)" : "P7. Caída (4-1)";
+      case 8: return lang === "de" ? "P8. Aufstieg (1-4)" : lang === "fr" ? "P8. Montée (1-4)" : lang === "pt" ? "P8. Subida (1-4)" : lang === "en" ? "P8. Rise (1-4)" : "P8. Subida (1-4)";
+      default: return "";
+    }
+  };
 
   // Filter glossary
   const filteredGlossary = glossaryList.filter(
@@ -495,46 +667,118 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
 
     setIsSendingFeedback(true);
     
-    // Anonymity Check - We only package the feedback text and selected category
     const payload = {
       category: feedbackType,
       message: feedbackText.trim(),
+      language: lang,
       timestamp: new Date().toISOString()
     };
 
     try {
-      const webhookUrl = import.meta.env.VITE_BUZON_WEBHOOK_URL || import.meta.env.URL_de_web_de_VITE_BUZON;
-      
+      // 1. Send directly to our backend API /api/mailbox
+      const res = await fetch("/api/mailbox", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      // 2. Optional dispatch to webhook if configured
+      const webhookUrl = import.meta.env.VITE_BUZON_WEBHOOK_URL;
       if (webhookUrl) {
-        // Real dispatch to user configured webhook
-        // We use mode: "no-cors" and Content-Type: "text/plain" to bypass CORS preflight check
-        // and allow Google's redirect (302) to succeed seamlessly.
-        await fetch(webhookUrl, {
+        fetch(webhookUrl, {
           method: "POST",
           mode: "no-cors",
-          headers: {
-            "Content-Type": "text/plain"
-          },
+          headers: { "Content-Type": "text/plain" },
           body: JSON.stringify(payload)
-        });
-      } else {
-        // Graceful simulator: Wait 1 second to show action
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        console.log("Feedback enviado de forma anónima (Simulado sin webhook):", payload);
+        }).catch(err => console.warn("Webhook dispatch warning:", err));
       }
 
       setFeedbackSent(true);
       setFeedbackText("");
-      showToast("Mensaje enviado de forma totalmente anónima. ¡Gracias por tu devolución!");
+      showToast(lang === "en" ? "Feedback sent anonymously to the mailbox!" : "¡Comentario guardado correctamente en el Buzón Anónimo! Muchas gracias.");
     } catch (err) {
       console.error("Error al enviar al buzón:", err);
-      showToast("Tu mensaje se procesó localmente debido a límites de red. ¡Agradecemos tu intención!");
-      // Still show success to protect practitioner comfort
+      showToast("Mensaje registrado localmente. ¡Gracias por tu devolución!");
       setFeedbackSent(true);
       setFeedbackText("");
     } finally {
       setIsSendingFeedback(false);
     }
+  };
+
+  // Mailbox Admin Handlers
+  const handleAuthenticateAdmin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!adminPin.trim()) return;
+    setIsLoadingAdmin(true);
+    setAdminError("");
+
+    try {
+      const res = await fetch("/api/mailbox/admin", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pin: adminPin.trim() })
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setIsAdminAuthenticated(true);
+        setAdminEntries(data.entries || []);
+      } else {
+        setAdminError(data.error || "Clave Secreta/PIN incorrecto.");
+      }
+    } catch (err) {
+      console.error("Error authenticating admin:", err);
+      setAdminError("Error de conexión al verificar PIN.");
+    } finally {
+      setIsLoadingAdmin(false);
+    }
+  };
+
+  const handleDeleteAdminEntry = async (id: string) => {
+    try {
+      const res = await fetch("/api/mailbox/admin", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pin: adminPin.trim(), id })
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setAdminEntries(data.entries || []);
+        showToast("Registro eliminado correctamente.");
+      }
+    } catch (err) {
+      console.error("Error deleting entry:", err);
+    }
+  };
+
+  const handleClearAllAdminEntries = async () => {
+    if (!window.confirm("¿Está seguro de que desea vaciar todo el buzón de comentarios?")) return;
+    try {
+      const res = await fetch("/api/mailbox/admin", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pin: adminPin.trim(), id: "ALL" })
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setAdminEntries([]);
+        showToast("Se han borrado todos los comentarios.");
+      }
+    } catch (err) {
+      console.error("Error clearing mailbox:", err);
+    }
+  };
+
+  const exportAdminEntries = () => {
+    const jsonStr = JSON.stringify(adminEntries, null, 2);
+    const blob = new Blob([jsonStr], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `devoluciones_buzon_anonimo_${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -544,16 +788,14 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
       <div className="space-y-3">
         <div className="flex items-center gap-2">
           <span className="text-xs font-bold text-amber-500 uppercase tracking-widest bg-amber-500/10 px-2.5 py-1 rounded-full">
-            {lang === "es" ? "Materiales de Apoyo y Buzón" : "Support Materials & Mailbox"}
+            {getUiLabel("headerBadge")}
           </span>
         </div>
         <h2 className={`text-2xl sm:text-3xl font-bold tracking-tight ${isDark ? "text-white" : "text-slate-900"}`}>
-          {lang === "es" ? "Recursos de Consulta y Participación" : "Resources for Inquiry & Participation"}
+          {getUiLabel("headerTitle")}
         </h2>
         <p className={`text-sm max-w-3xl leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
-          {lang === "es"
-            ? "Explora ejemplos prácticos extraídos de la práctica directa de los autores, consulta conceptos clave del glosario de la no violencia o comparte tus valoraciones de manera 100% privada y anónima."
-            : "Explore practical examples extracted from the authors' direct practice, search key terms from the active nonviolence glossary, or share your feedback in a 100% private and anonymous manner."}
+          {getUiLabel("headerDesc")}
         </p>
       </div>
 
@@ -562,11 +804,11 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
         isDark ? "border-slate-800" : "border-slate-200"
       }`}>
         {[
-          { id: "examples", label: lang === "es" ? "Ejemplos Reales" : "Real Examples", icon: FileText },
-          { id: "testimonials", label: lang === "es" ? "Testimonios (9)" : "Testimonials (9)", icon: Users },
-          { id: "glossary", label: lang === "es" ? "Glosario Completo" : "Complete Glossary", icon: Bookmark },
-          { id: "resources", label: lang === "es" ? "Biblioteca y Enlaces" : "Library & Links", icon: BookOpen },
-          { id: "mailbox", label: lang === "es" ? "Buzón Anónimo" : "Anonymous Mailbox", icon: MessageSquare }
+          { id: "examples", label: getUiLabel("examplesTab"), icon: FileText },
+          { id: "testimonials", label: getUiLabel("testimonialsTab"), icon: Users },
+          { id: "glossary", label: getUiLabel("glossaryTab"), icon: Bookmark },
+          { id: "resources", label: getUiLabel("resourcesTab"), icon: BookOpen },
+          { id: "mailbox", label: getUiLabel("mailboxTab"), icon: MessageSquare }
         ].map(tab => {
           const Icon = tab.icon;
           const active = activeSubTab === tab.id;
@@ -610,11 +852,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
               }`}>
                 <Info className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
                 <p className={`text-xs leading-relaxed ${isDark ? "text-slate-400" : "text-slate-600"}`}>
-                  {lang === "es" ? (
-                    <>Hemos integrado estos <strong>ejemplos reales y anónimos</strong> extraídos del trabajo directo de los autores. Puedes examinar el mapeo conceptual de cada punto o cargarlos directamente en tu espacio de trabajo para ver en tiempo real cómo se construyen las fórmulas de superación moral.</>
-                  ) : (
-                    <>We have integrated these <strong>real and anonymous examples</strong> extracted from the authors' direct work. You can examine the conceptual mapping of each point or load them directly into your workspace to see in real-time how the moral overcoming formulas are built.</>
-                  )}
+                  {getUiLabel("examplesInfo")}
                 </p>
               </div>
 
@@ -647,20 +885,20 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         isDark ? "bg-slate-950 border-slate-850/60" : "bg-slate-50 border-slate-100"
                       }`}>
                         <div className="grid grid-cols-12 gap-1 pb-1 border-b border-dashed border-slate-800/20 dark:border-slate-200/10">
-                          <span className="col-span-4 text-slate-400 font-bold">{lang === "es" ? "PUNTO" : "POINT"}</span>
+                          <span className="col-span-4 text-slate-400 font-bold">{getUiLabel("pointHeader")}</span>
                           <span className={`col-span-8 font-bold ${isDark ? "text-slate-200" : "text-slate-800"}`}>
-                            {lang === "es" ? "CONTENIDO DEL EJERCICIO" : "EXERCISE CONTENT"}
+                            {getUiLabel("contentHeader")}
                           </span>
                         </div>
                         {[
-                          { num: 1, label: lang === "es" ? "P1. Rechazo" : "P1. Rejection", val: ex.answers[1] },
-                          { num: 2, label: lang === "es" ? "P2. Reacción" : "P2. Reaction", val: ex.answers[2] },
-                          { num: 3, label: lang === "es" ? "P3. Pido / Doy" : "P3. Ask / Give", val: ex.answers[3] },
-                          { num: 4, label: lang === "es" ? "P4. Buen Trato" : "P4. Good Treatment", val: ex.answers[4] },
-                          { num: 5, label: lang === "es" ? "P5. Caída (3-2)" : "P5. Fall (3-2)", val: ex.answers[5] },
-                          { num: 6, label: lang === "es" ? "P6. Subida (2-3)" : "P6. Rise (2-3)", val: ex.answers[6] },
-                          { num: 7, label: lang === "es" ? "P7. Caída (4-1)" : "P7. Fall (4-1)", val: ex.answers[7] },
-                          { num: 8, label: lang === "es" ? "P8. Subida (1-4)" : "P8. Rise (1-4)", val: ex.answers[8] }
+                          { num: 1, label: getPLabel(1), val: ex.answers[1] },
+                          { num: 2, label: getPLabel(2), val: ex.answers[2] },
+                          { num: 3, label: getPLabel(3), val: ex.answers[3] },
+                          { num: 4, label: getPLabel(4), val: ex.answers[4] },
+                          { num: 5, label: getPLabel(5), val: ex.answers[5] },
+                          { num: 6, label: getPLabel(6), val: ex.answers[6] },
+                          { num: 7, label: getPLabel(7), val: ex.answers[7] },
+                          { num: 8, label: getPLabel(8), val: ex.answers[8] }
                         ].map(p => (
                           <div key={p.num} className="grid grid-cols-12 gap-1 items-start">
                             <span className="col-span-4 text-slate-450 font-bold text-[10px]">{p.label}:</span>
@@ -674,7 +912,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         isDark ? "bg-amber-950/10 border-amber-900/30 text-amber-300" : "bg-amber-50/50 border-amber-100 text-amber-900"
                       }`}>
                         <span className="text-[9px] uppercase font-bold block tracking-wider opacity-80">
-                          {lang === "es" ? "Aforismo Conclusivo:" : "Concluding Aphorism:"}
+                          {getUiLabel("aphorismHeader")}
                         </span>
                         <p className="text-xs font-bold mt-1 italic">
                           "{ex.aforismo}"
@@ -683,7 +921,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
 
                       {/* Commentary details */}
                       <p className={`text-xs leading-relaxed italic ${isDark ? "text-slate-400" : "text-slate-500"}`}>
-                        💡 <strong>{lang === "es" ? "Análisis:" : "Analysis:"}</strong> {ex.commentary}
+                        💡 <strong>{getUiLabel("analysisHeader")}</strong> {ex.commentary}
                       </p>
                     </div>
 
@@ -699,7 +937,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         }`}
                       >
                         <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
-                        <span>{lang === "es" ? "Cargar en la Práctica" : "Load into Practice"}</span>
+                        <span>{getUiLabel("loadPracticeBtn")}</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
@@ -723,11 +961,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
               }`}>
                 <Users className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
                 <p className={`text-xs leading-relaxed ${isDark ? "text-slate-400" : "text-slate-600"}`}>
-                  {lang === "es" ? (
-                    <>Los <strong>testimonios reales</strong> son relatos de transformación personal compartidos por practicantes de la Regla de Oro. Nos muestran de qué forma el ejercicio ha permitido calmar tensiones crónicas y sanar relaciones familiares o sociales.</>
-                  ) : (
-                    <>The <strong>real testimonials</strong> are accounts of personal transformation shared by practitioners of the Golden Rule. They show us how the exercise has allowed them to calm chronic tensions and heal family or social relationships.</>
-                  )}
+                  {getUiLabel("testimonialsInfo")}
                 </p>
               </div>
 
@@ -737,7 +971,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                   <div 
                     key={idx}
                     className={`rounded-2xl border p-5 space-y-4 flex flex-col justify-between relative overflow-hidden transition-all shadow-2xs hover:shadow-xs ${
-                      isDark ? "bg-slate-900 border-slate-800 hover:border-slate-750" : "bg-white border-slate-150 hover:border-slate-200"
+                      isDark ? "bg-slate-900 border-slate-800 hover:border-slate-755" : "bg-white border-slate-150 hover:border-slate-200"
                     }`}
                   >
                     <div className="space-y-3">
@@ -747,7 +981,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                             "{t.title}"
                           </h4>
                           <span className="text-[11px] text-amber-600 font-semibold block">
-                            {lang === "es" ? "Por" : "By"} {t.author}
+                            {getUiLabel("byAuthor")} {t.author}
                           </span>
                         </div>
                         <span className="text-[9px] uppercase font-mono tracking-wider text-amber-600 bg-amber-500/10 px-2 py-0.5 rounded-md font-bold shrink-0">
@@ -769,12 +1003,10 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
               }`}>
                 <Users className="w-8 h-8 text-amber-500 mx-auto opacity-70" />
                 <h4 className={`text-sm font-bold ${isDark ? "text-slate-200" : "text-slate-800"}`}>
-                  {lang === "es" ? "¿Quieres enviarnos tus testimonios de práctica?" : "Do you want to send us your practice testimonials?"}
+                  {getUiLabel("sendTestimonialTitle")}
                 </h4>
                 <p className={`text-xs max-w-xl mx-auto leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}>
-                  {lang === "es"
-                    ? "Usa el buzón anónimo si deseas compartir tu relato o reflexiones de cambio para que lo incluyamos en esta sección para inspirar a otros."
-                    : "Use the anonymous mailbox if you wish to share your story or reflections of change so we can include them in this section to inspire others."}
+                  {getUiLabel("sendTestimonialDesc")}
                 </p>
                 <div className="pt-2">
                   <button 
@@ -784,7 +1016,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     }`}
                   >
                     <MessageSquare className="w-3.5 h-3.5 text-amber-500" />
-                    <span>{lang === "es" ? "Ir al buzón para enviar un testimonio" : "Go to the mailbox to send a testimonial"}</span>
+                    <span>{getUiLabel("goToMailboxBtn")}</span>
                   </button>
                 </div>
               </div>
@@ -805,7 +1037,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                 <input
                   type="text"
-                  placeholder={lang === "es" ? "Buscar término o concepto clave (Ej: Aforismo, Cenestesia, Clima, Paisaje...)" : "Search term or key concept (e.g., Aphorism, Coenesthesia, Climate, Landscape...)"}
+                  placeholder={getUiLabel("searchGlossaryPlaceholder")}
                   value={glossarySearch}
                   onChange={(e) => setGlossarySearch(e.target.value)}
                   className={`w-full pl-10 pr-4 py-3 rounded-xl border text-xs font-medium focus:outline-none focus:ring-1 transition-all ${
@@ -830,9 +1062,9 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         {g.term}
                       </h4>
                       <span className={`text-[9px] px-2 py-0.5 rounded font-bold font-mono ${
-                        g.tag === "Metodología" || g.tag === "Methodology"
+                        ["Metodología", "Methodology", "Méthodologie", "Methodik", "Metodologia"].includes(g.tag as string)
                           ? "bg-blue-500/10 text-blue-400"
-                          : g.tag === "Estados" || g.tag === "States"
+                          : ["Estados", "States", "États", "Zustände"].includes(g.tag as string)
                           ? "bg-rose-500/10 text-rose-450"
                           : "bg-emerald-500/10 text-emerald-450"
                       }`}>
@@ -847,9 +1079,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
 
                 {filteredGlossary.length === 0 && (
                   <div className="col-span-full text-center py-8 text-slate-450 text-xs">
-                    {lang === "es"
-                      ? `No se encontraron términos para "${glossarySearch}". Intenta con otra palabra.`
-                      : `No terms were found for "${glossarySearch}". Try another word.`}
+                    {`No matching terms for "${glossarySearch}".`}
                   </div>
                 )}
               </div>
@@ -871,11 +1101,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
               }`}>
                 <Info className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
                 <p className={`text-xs leading-relaxed ${isDark ? "text-slate-400" : "text-slate-600"}`}>
-                  {lang === "es" ? (
-                    <><strong>Biblioteca de la No Violencia:</strong> Consulta las obras completas de Silo y otros autores de referencia. La bibliografía completa de Silo puede ser consultada en PDF libremente en la web oficial <a href="https://www.silo.net" target="_blank" rel="noreferrer" className="text-amber-500 hover:underline font-bold inline-flex items-center gap-0.5">silo.net <ExternalLink className="w-3 h-3 inline" /></a>.</>
-                  ) : (
-                    <><strong>Nonviolence Library:</strong> Consult the complete works of Silo and other reference authors. Silo's complete bibliography can be accessed freely in PDF format on the official website <a href="https://www.silo.net" target="_blank" rel="noreferrer" className="text-amber-500 hover:underline font-bold inline-flex items-center gap-0.5">silo.net <ExternalLink className="w-3 h-3 inline" /></a>.</>
-                  )}
+                  <strong>Biblioteca:</strong> <a href="https://www.silo.net" target="_blank" rel="noreferrer" className="text-amber-500 hover:underline font-bold inline-flex items-center gap-0.5">silo.net <ExternalLink className="w-3 h-3 inline" /></a>
                 </p>
               </div>
 
@@ -895,13 +1121,13 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                       <div className="space-y-2.5">
                         <div className="flex items-center justify-between">
                           <span className={`text-[9px] px-2 py-0.5 rounded font-bold font-mono ${
-                            r.type === "Libro" || r.type === "Book"
+                            ["Libro", "Book", "Livre", "Buch", "Livro"].includes(r.type as string)
                               ? "bg-amber-500/10 text-amber-500"
-                              : r.type === "Conferencia" || r.type === "Conference"
+                              : ["Conferencia", "Conference", "Conférence", "Konferenz"].includes(r.type as string)
                               ? "bg-blue-500/10 text-blue-400"
-                              : r.type === "Arenga" || r.type === "Harangue"
+                              : ["Arenga", "Harangue", "Discours"].includes(r.type as string)
                               ? "bg-rose-500/10 text-rose-450"
-                              : r.type === "Manual"
+                              : ["Manual", "Handbuch"].includes(r.type as string)
                               ? "bg-purple-500/10 text-purple-400"
                               : "bg-emerald-500/10 text-emerald-450"
                           }`}>
@@ -948,7 +1174,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                             ) : (
                               <FilePdfIcon className="w-3.5 h-3.5" />
                             )}
-                            <span>{lang === "es" ? "Abrir Recurso" : "Open Resource"}</span>
+                            <span>{getUiLabel("openResourceBtn")}</span>
                             <ExternalLink className="w-3 h-3" />
                           </a>
                         </div>
@@ -984,16 +1210,28 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                   <h3 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${
                     isDark ? "text-emerald-400" : "text-emerald-800"
                   }`}>
-                    {lang === "es" ? "🔒 Espacio de Devoluciones de Privacidad Absoluta" : "🔒 Space of Absolute Privacy Feedback"}
+                    {getUiLabel("privacyHeader")}
                   </h3>
                   <p className={`text-xs leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
-                    {lang === "es" ? (
+                    {lang === "fr" ? (
                       <>
-                        <strong>¿Cómo garantizamos tu anonimato?</strong> El buzón funciona de forma 100% ciega. No registramos direcciones IP, no generamos cookies persistentes en este formulario, ni te pedimos correos o datos identificativos. La información viaja encriptada por un canal unidireccional directo hacia los coordinadores de la práctica. Tu voz es valiosa y tu intimidad está completamente a salvo.
+                        <strong>Comment garantissons-nous votre anonymat ?</strong> La boîte aux lettres fonctionne à 100 % à aveugle. Nous n'enregistrons pas d'adresses IP, ne générons pas de cookies persistants sur ce formulaire, et ne demandons aucun e-mail ou donnée d'identification.
+                      </>
+                    ) : lang === "de" ? (
+                      <>
+                        <strong>Wie garantieren wir Ihre Anonymität?</strong> Das Postfach funktioniert zu 100% blind. Wir speichern keine IP-Adressen, erstellen keine dauerhaften Cookies und fragen nicht nach E-Mails oder Identitätsdaten.
+                      </>
+                    ) : lang === "pt" ? (
+                      <>
+                        <strong>Como garantimos seu anonimato?</strong> A caixa de correio funciona de forma 100% cega. Não registramos endereços IP, não geramos cookies persistentes e não solicitamos e-mails nem dados de identificação.
+                      </>
+                    ) : lang === "en" ? (
+                      <>
+                        <strong>How do we guarantee your anonymity?</strong> The mailbox operates 100% blindly. We do not register IP addresses, we do not generate persistent cookies in this form, nor do we ask for emails or identifying data.
                       </>
                     ) : (
                       <>
-                        <strong>How do we guarantee your anonymity?</strong> The mailbox operates 100% blindly. We do not register IP addresses, we do not generate persistent cookies in this form, nor do we ask for emails or identifying data. Information travels encrypted through a direct one-way channel to the practice coordinators. Your voice is valuable and your privacy is completely safe.
+                        <strong>¿Cómo garantizamos tu anonimato?</strong> El buzón funciona de forma 100% ciega. No registramos direcciones IP, no generamos cookies persistentes en este formulario, ni te pedimos correos o datos identificativos. La información viaja encriptada por un canal unidireccional directo hacia los coordinadores de la práctica. Tu voz es valiosa y tu intimidad está completamente a salvo.
                       </>
                     )}
                   </p>
@@ -1006,13 +1244,13 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     <label className={`text-xs font-bold uppercase tracking-wider block ${
                       isDark ? "text-slate-300" : "text-slate-700"
                     }`}>
-                      {lang === "es" ? "Categoría de la devolución" : "Feedback Category"}
+                      {getUiLabel("feedbackCategoryLabel")}
                     </label>
                     <div className="grid grid-cols-3 gap-3">
                       {[
-                        { id: "opinion", label: lang === "es" ? "Opinión General" : "General Opinion" },
-                        { id: "testimonio", label: lang === "es" ? "Nuevo Testimonio" : "New Testimonial" },
-                        { id: "sugerencia", label: lang === "es" ? "Sugerencias" : "Suggestions" }
+                        { id: "opinion", label: getUiLabel("catOpinion") },
+                        { id: "testimonio", label: getUiLabel("catTestimonial") },
+                        { id: "sugerencia", label: getUiLabel("catSuggestion") }
                       ].map(cat => (
                         <button
                           key={cat.id}
@@ -1038,12 +1276,12 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     <label className={`text-xs font-bold uppercase tracking-wider block ${
                       isDark ? "text-slate-300" : "text-slate-700"
                     }`}>
-                      {lang === "es" ? "Tu mensaje reflexivo u opinión" : "Your reflective message or opinion"}
+                      {getUiLabel("messageLabel")}
                     </label>
                     <textarea
                       rows={5}
                       required
-                      placeholder={lang === "es" ? "Escribe libremente aquí tu experiencia con la práctica, tus ideas de mejora o el testimonio que desees compartir..." : "Write freely here your experience with the practice, your improvement ideas, or the testimonial you wish to share..."}
+                      placeholder={getUiLabel("messagePlaceholder")}
                       value={feedbackText}
                       onChange={(e) => setFeedbackText(e.target.value)}
                       className={`w-full p-4 rounded-xl border text-xs leading-relaxed focus:outline-none focus:ring-1 transition-all ${
@@ -1069,12 +1307,12 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                       {isSendingFeedback ? (
                         <>
                           <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          <span>{lang === "es" ? "Transmitiendo de forma segura..." : "Transmitting securely..."}</span>
+                          <span>{getUiLabel("transmittingBtn")}</span>
                         </>
                       ) : (
                         <>
                           <Send className="w-3.5 h-3.5" />
-                          <span>{lang === "es" ? "Enviar Devolución Anónima" : "Send Anonymous Feedback"}</span>
+                          <span>{getUiLabel("sendBtn")}</span>
                         </>
                       )}
                     </button>
@@ -1093,12 +1331,10 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                   </div>
                   <div className="space-y-1">
                     <h4 className={`text-base font-bold ${isDark ? "text-slate-100" : "text-slate-900"}`}>
-                      {lang === "es" ? "¡Mensaje transmitido con éxito!" : "Message transmitted successfully!"}
+                      {getUiLabel("sentSuccessTitle")}
                     </h4>
                     <p className={`text-xs ${isDark ? "text-slate-400" : "text-slate-500"}`}>
-                      {lang === "es"
-                        ? "Tu mensaje ha sido encriptado y enviado a la bandeja de devoluciones de la coordinación. Se ha omitido cualquier cabecera identificativa o registro de sesión para resguardar permanentemente tu anonimato."
-                        : "Your message has been encrypted and sent to the coordination feedback inbox. Any identifying header or session registry has been omitted to permanently safeguard your anonymity."}
+                      {getUiLabel("sentSuccessDesc")}
                     </p>
                   </div>
                   <div className="pt-3">
@@ -1109,17 +1345,188 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         isDark ? "bg-slate-800 hover:bg-slate-750 text-slate-200" : "bg-slate-100 hover:bg-slate-200 text-slate-700"
                       }`}
                     >
-                      {lang === "es" ? "Enviar otra devolución" : "Send another feedback"}
+                      {getUiLabel("sendAnotherBtn")}
                     </button>
                   </div>
                 </motion.div>
               )}
+
+              {/* Footer action for Admin Access to feedback */}
+              <div className="pt-6 border-t border-slate-200/40 dark:border-slate-800/60 flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowAdminModal(true);
+                    setAdminError("");
+                  }}
+                  className={`text-[11px] font-bold px-3.5 py-2 rounded-xl border flex items-center gap-2 transition cursor-pointer ${
+                    isDark 
+                      ? "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-amber-400 hover:border-amber-500/40" 
+                      : "bg-slate-50 border-slate-200 text-slate-500 hover:text-slate-800 hover:border-slate-300"
+                  }`}
+                >
+                  <Lock className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Panel Privado de Devoluciones (Acceso PIN)</span>
+                </button>
+              </div>
             </motion.div>
           )}
 
         </AnimatePresence>
       </div>
 
+      {/* ADMIN CONTROL PANEL MODAL */}
+      <AnimatePresence>
+        {showAdminModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className={`w-full max-w-2xl rounded-2xl border p-6 space-y-6 shadow-2xl max-h-[90vh] flex flex-col ${
+                isDark ? "bg-slate-900 border-slate-800 text-slate-100" : "bg-white border-slate-200 text-slate-900"
+              }`}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 shrink-0">
+                <div className="flex items-center gap-2.5">
+                  <div className="p-2 rounded-xl bg-amber-500/10 text-amber-500">
+                    <Lock className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold">Panel Privado de Devoluciones</h3>
+                    <p className="text-[11px] text-slate-400">Buzón Anónimo — Registros e Historial</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => {
+                    setShowAdminModal(false);
+                    setIsAdminAuthenticated(false);
+                    setAdminPin("");
+                  }}
+                  className="px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition cursor-pointer"
+                >
+                  Cerrar
+                </button>
+              </div>
+
+              {/* Authentication view */}
+              {!isAdminAuthenticated ? (
+                <form onSubmit={handleAuthenticateAdmin} className="space-y-4 py-4 max-w-md mx-auto w-full">
+                  <div className="text-center space-y-1">
+                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+                      Introduzca la Clave Secreta o PIN del Administrador para ver los comentarios recibidos:
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <input
+                      type="password"
+                      placeholder="Ingrese el PIN (ej: 1969)"
+                      value={adminPin}
+                      onChange={(e) => setAdminPin(e.target.value)}
+                      className={`w-full p-3 rounded-xl border text-sm text-center font-mono tracking-widest focus:outline-none focus:ring-1 ${
+                        isDark ? "bg-slate-800 border-slate-700 text-amber-400 focus:border-amber-500" : "bg-slate-50 border-slate-300 text-slate-900 focus:border-amber-500"
+                      }`}
+                    />
+                    {adminError && (
+                      <p className="text-xs text-rose-500 text-center font-semibold">
+                        {adminError}
+                      </p>
+                    )}
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isLoadingAdmin || !adminPin.trim()}
+                    className="w-full py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs transition cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    {isLoadingAdmin ? (
+                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    ) : (
+                      <span>Verificar y Desbloquear Panel</span>
+                    )}
+                  </button>
+                </form>
+              ) : (
+                /* Authenticated Feedback List */
+                <div className="space-y-4 flex-1 overflow-hidden flex flex-col">
+                  {/* Action toolbar */}
+                  <div className="flex items-center justify-between gap-2 shrink-0">
+                    <span className="text-xs font-bold text-slate-400">
+                      Total Devoluciones: <strong className="text-amber-500">{adminEntries.length}</strong>
+                    </span>
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={exportAdminEntries}
+                        disabled={adminEntries.length === 0}
+                        className="px-3 py-1.5 rounded-lg text-[11px] font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition disabled:opacity-50 cursor-pointer"
+                      >
+                        Exportar JSON
+                      </button>
+                      <button
+                        onClick={handleClearAllAdminEntries}
+                        disabled={adminEntries.length === 0}
+                        className="px-3 py-1.5 rounded-lg text-[11px] font-bold bg-rose-600 hover:bg-rose-500 text-white transition disabled:opacity-50 cursor-pointer"
+                      >
+                        Vaciar Buzón
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* List of submissions */}
+                  <div className="flex-1 overflow-y-auto space-y-3 pr-1">
+                    {adminEntries.length === 0 ? (
+                      <div className="p-8 text-center text-xs text-slate-400 border rounded-xl border-dashed">
+                        No hay devoluciones o comentarios guardados en el buzón.
+                      </div>
+                    ) : (
+                      adminEntries.map((item) => (
+                        <div
+                          key={item.id}
+                          className={`p-4 rounded-xl border space-y-2 relative group transition ${
+                            isDark ? "bg-slate-800/60 border-slate-750" : "bg-slate-50 border-slate-200"
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/10 text-amber-500">
+                                {item.category}
+                              </span>
+                              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 uppercase">
+                                {item.language || "es"}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                              <span className="text-[10px] text-slate-400 font-mono">
+                                {new Date(item.timestamp).toLocaleString("es-ES")}
+                              </span>
+                              <button
+                                onClick={() => handleDeleteAdminEntry(item.id)}
+                                className="text-slate-400 hover:text-rose-500 transition cursor-pointer text-xs font-bold"
+                                title="Eliminar este comentario"
+                              >
+                                ✕
+                              </button>
+                            </div>
+                          </div>
+
+                          <p className={`text-xs leading-relaxed whitespace-pre-wrap ${
+                            isDark ? "text-slate-200" : "text-slate-800"
+                          }`}>
+                            {item.message}
+                          </p>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

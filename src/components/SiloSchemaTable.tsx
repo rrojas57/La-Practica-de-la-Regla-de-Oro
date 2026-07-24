@@ -370,8 +370,13 @@ ${lang === "es" ? "Generado el" : "Generated on"}: ${new Date().toLocaleDateStri
                   <div className="space-y-1">
                     <span className="text-[10px] font-black uppercase text-amber-600 block">
                       {lang === "es" 
-                        ? "3 ¿Cómo pido que me trate?: con la Virtud opuesta a 1 y ese trato doy." 
-                        : "3 How do I ask to be treated?: with the opposite Virtue to 1, and that's how I treat."}
+                        ? "3 ¿Qué trato pido recibir?: con la Virtud opuesta a 1 y ese trato doy." 
+                        : "3 What treatment do I ask to receive?: with the opposite Virtue to 1 and that treatment I give."}
+                    </span>
+                    <span className="text-[9px] font-bold text-slate-500 dark:text-slate-400 block italic">
+                      {lang === "es"
+                        ? "¿Cómo doy ese trato? (Paso a la acción: describe cómo vas a dar tú este mismo trato a los demás)"
+                        : "How do I give that treatment? (Action step)"}
                     </span>
                   </div>
                   <p className="text-sm font-bold italic text-indigo-600 dark:text-amber-300 leading-relaxed pt-2">
@@ -384,8 +389,8 @@ ${lang === "es" ? "Generado el" : "Generated on"}: ${new Date().toLocaleDateStri
                   <div className="space-y-1">
                     <span className="text-[10px] font-black uppercase text-amber-600 block">
                       {lang === "es" 
-                        ? "4 ¿Cómo lo hago? Con la Virtud opuesta a 2." 
-                        : "4 How do I do it? With the opposite Virtue to 2."}
+                        ? "4 ¿Cómo lo hago? (Buen trato elegido opuesto a 2)." 
+                        : "4 How do I do it? (Chosen good treatment opposite to 2)."}
                     </span>
                   </div>
                   <p className="text-sm font-bold italic text-indigo-600 dark:text-amber-300 leading-relaxed pt-2">
@@ -431,7 +436,7 @@ ${lang === "es" ? "Generado el" : "Generated on"}: ${new Date().toLocaleDateStri
                 {/* Point 7 (Span 2) */}
                 <div className="col-span-2 p-3 border-r-2 border-slate-900 dark:border-slate-700 flex flex-col justify-between">
                   <span className="text-[9px] font-black uppercase text-rose-500 block leading-tight">
-                    {lang === "es" ? "7 ¿Cómo caigo de nivel 4 a 1?" : "7 How do I fall from level 4 to 1?"}
+                    {lang === "es" ? "7 ¿Cómo caigo del buen trato elegido (4) al maltrato (1)?" : "7 How do I fall from chosen good treatment (4) to 1?"}
                   </span>
                   <p className="text-xs font-bold italic text-slate-800 dark:text-slate-200 leading-normal pt-1.5 line-clamp-4">
                     {getAns(7)}
@@ -441,7 +446,7 @@ ${lang === "es" ? "Generado el" : "Generated on"}: ${new Date().toLocaleDateStri
                 {/* Point 8 (Span 3) */}
                 <div className="col-span-3 p-3 flex flex-col justify-between bg-emerald-500/5">
                   <span className="text-[9px] font-black uppercase text-emerald-600 block leading-tight">
-                    {lang === "es" ? "8 ¿Cómo subo de nivel 1 a 4?" : "8 How do I rise from level 1 to 4?"}
+                    {lang === "es" ? "8 ¿Cómo subo de la actitud de rechazo/maltrato (1) al buen trato elegido (4)?" : "8 How do I rise from rejection (1) to chosen good treatment (4)?"}
                   </span>
                   <p className="text-xs font-bold italic text-indigo-600 dark:text-amber-300 leading-normal pt-1.5 line-clamp-4">
                     {getAns(8)}

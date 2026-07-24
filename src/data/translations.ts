@@ -159,7 +159,7 @@ export interface TranslationDict {
   downloadFooterQuote: string;
 }
 
-export const translations: Record<"es" | "en", TranslationDict> = {
+export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationDict> = {
   es: {
     logoTitle: "La Regla de Oro",
     logoSubtitle: "Práctica Interactiva",
@@ -205,7 +205,7 @@ export const translations: Record<"es" | "en", TranslationDict> = {
       "Romper la cadena de violencia interna y externa.",
       "Actuar desde nuestras mejores virtudes, no desde el impulso del momento.",
       "Elevar nuestro nivel de conciencia, lo que mejora nuestra vida y la de quienes nos rodean.",
-      "Con el tiempo, esta práctica se convierte en una herramienta para vivir con más unidad interna: pensar, sentir y actuar en la misma dirección.",
+      "Con el tempo, esta práctica se convierte en una herramienta para vivir con más unidad interna: pensar, sentir y actuar en la misma dirección.",
       "Esta aplicación te acompañará paso a paso para que puedas practicarla de manera sencilla, profunda y accesible. No importa tu edad, tu cultura, tu historia o tu situación actual: Todos podemos aprender a vivir con menos violencia y más libertad interna."
     ],
     introExplanation: "Todas las personas experimentamos momentos de tensión, enojo, frustración o confusión. A veces reaccionamos de forma puramente mecánica o compulsiva desde un bajo nivel de conciencia. Esta práctica es una herramienta de autoconocimiento y transformación personal diseñada para ayudarte a detener la reacción automática, comprender tus estados internos y elegir el buen trato de manera consciente. No es una norma rígida ni una obligación moral, sino un camino hacia una vida con menos sufrimiento, más unidad interna y verdadera libertad.",
@@ -505,6 +505,525 @@ export const translations: Record<"es" | "en", TranslationDict> = {
     downloadNotesHeader: "PERSONAL NOTES / WORK DIARY:",
     downloadNotesEmpty: "No additional notes.",
     downloadFooterQuote: "When you treat others as you want to be treated, you liberate yourself. — Silo"
+  },
+  fr: {
+    logoTitle: "La Règle d'Or",
+    logoSubtitle: "Pratique Interactive",
+    tabIntro: "Introduction",
+    tabPractice: "Pratique",
+    tabHistory: "Historique",
+    tabSupport: "Bibliothèque et Liens",
+    themeToggleDark: "Passer au thème sombre",
+    themeToggleLight: "Passer au thème clair",
+    toastThemeChanged: "Thème changé en : ",
+    toastFormReset: "Formulaire réinitialisé avec succès.",
+    toastPracticeSaved: "Pratique enregistrée avec succès dans votre historique !",
+    toastPracticeLoaded: "Pratique chargée : ",
+    toastPracticeDeleted: "Pratique supprimée de votre historique.",
+    toastExampleLoaded: "Un exemple résolu complet a été chargé. Consultez la carte et les idées forces.",
+    toastPracticeReady: "Exemple chargé avec succès dans votre espace de travail. Comparez-le sur la carte !",
+    toastFormCheck: "Veuillez répondre au moins aux premières questions avant d'enregistrer.",
+    toastDownloadSuccess: "Fichier texte téléchargé avec succès.",
+    
+    // Intro section
+    introTagline: "Transformation personnelle et non-violence",
+    introTitle: "La Pratique de la Règle d'Or",
+    introSubtitle: "Un chemin pratique pour surmonter les réactions mécaniques, comprendre vos états intérieurs et choisir consciemment un traitement bienveillant.",
+    introPrivacyTitle: "🔒 Espace 100% sécurisé et privé",
+    introPrivacyText: "Cet exercice est un outil de connaissance de soi strictement personnel. Pour votre totale tranquillité d'esprit, les réponses que vous saisissez tout au long de ces points ne sont stockées sur aucun serveur externe ni enregistrées dans aucune base de données accessible par des tiers. Tout ce que vous écrivez est traité de manière temporaire et locale sur votre écran pour votre propre travail intérieur. Pratiquez en toute liberté.",
+    introPrincipleTitle: "Principe central",
+    introSiloQuote: "Lorsque tu traites les autres comme tu veux qu'ils te traitent, tu te libères.",
+    introInspiration: "Cette pratique s'inspire de la Règle d'Or du Nouvel Humanisme, présentée dans \"La Règle d'Or de la Non-Violence\" de Roberto Kohanoff et Isabel Lazzaroni.",
+    introSiloAuthor: "— Silo, Humanisme Universaliste",
+    introBenefitsTitle: "La pratique de la Règle d'Or nous aide à :",
+    introBenefits: [
+      "Arrêter les réactions compulsives et choisir comment nous voulons agir (réponse différée).",
+      "Comprendre pourquoi certaines attitudes ou certains comportements d'autrui nous affectent autant.",
+      "Nous libérer des tensions internes, des contradictions et des humeurs (climats) négatives.",
+      "Améliorer nos relations, car nous cessons de demander à l'autre de changer et commençons à changer nous-mêmes.",
+      "Construire un mode de vie plus cohérent, plus bienveillant et plus libre.",
+      "Il ne s'agit pas d'être parfait ni de \"bien se comporter\". Il s'agit d'apprendre à vivre avec plus de conscience et moins de violence interne, étape par étape."
+    ],
+    introPurposeTitle: "Cette pratique est utile pour :",
+    introPurposes: [
+      "Mieux nous comprendre et reconnaître ce qui nous blesse et pourquoi.",
+      "Détecter des schémas répétitifs issus de notre histoire personnelle.",
+      "Briser la chaîne de la violence interne et externe.",
+      "Agir selon nos meilleures vertus, et non sous l'impulsion du moment.",
+      "Élever notre niveau de conscience, ce qui améliore notre vie et celle de notre entourage.",
+      "Avec le temps, cette pratique devient un outil pour vivre avec plus d'unité interne : penser, sentir et agir dans la même direction.",
+      "Cette application vous accompagnera pas à pas afin que vous puissiez la pratiquer de manière simple, profonde et accessible. Peu importe votre âge, votre culture, votre histoire ou votre situation actuelle : nous pouvons tous apprendre à vivre avec moins de violence et plus de liberté intérieure."
+    ],
+    introExplanation: "Nous traversons tous des moments de tension, de colère, de frustration ou de confusion. Parfois, nous réagissons de manière purement mécanique ou compulsive à partir d'un bas niveau de conscience. Cette pratique est un outil de connaissance de soi et de transformation personnelle conçu pour vous aider à arrêter la réaction automatique, comprendre vos états intérieurs et choisir consciemment un traitement bienveillant. Ce n'est ni une norme rigide ni une obligation morale, mais un chemin vers une vie avec moins de souffrance, plus d'unité interne et une véritable liberté.",
+    introPurposesExtra: "Cette application vous accompagnera pas à pas afin que vous puissiez la pratiquer de manière simple, profonde et accessible. Peu importe votre âge, votre culture, votre histoire ou votre situation actuelle : nous pouvons tous apprendre à vivre avec moins de violence et plus de liberté intérieure.",
+    introBtnStart: "Démarrer une nouvelle pratique",
+    introBtnExample: "Voir un exemple résolu",
+
+    // Practice Section
+    practiceTitleLabel: "Pratique en cours",
+    practiceTitlePlaceholder: "Donnez un titre à votre réflexion (ex: Surmonter un conflit de travail)",
+    practiceProgressLabel: "Progression globale :",
+    practiceCompletedCount: " terminés",
+    practicePrivacyTitle: "Garantie de confidentialité et de vie privée absolue",
+    practicePrivacyText: "Votre pratique de réflexion est absolument privée. Tout ce que vous écrivez est stocké localement et de manière chiffrée dans la base de données de votre propre navigateur (localStorage). Aucune donnée personnelle, réflexion ou réponse n'est envoyée à des serveurs externes ou à des bases de données dans le cloud. Votre intimité émotionnelle est entièrement protégée.",
+    practiceQuestionLabel: "Question ",
+    practiceTypeLuminous: "Espace Lumineux",
+    practiceTypeDark: "Espace Perturbé",
+    practiceTypeTransition: "Transition",
+    practiceInputWordLabel: "Votre mot ou phrase courte :",
+    practiceBtnPrev: "Précédent",
+    practiceBtnNext: "Suivant",
+    practiceBtnLastPrompt: "Dernière question !",
+    practiceHelpPrompt: "Si vous ne trouvez pas le mot approprié, vous pouvez chercher de l'aide dans ce panneau.",
+    practiceBtnHelp: "Afficher l'aide",
+    practiceBtnHideHelp: "Masquer les suggestions d'aide",
+    practiceHelpSuffix: " Cliquez sur l'une de ces suggestions pour la sélectionner :",
+    practiceHelpOptional: "Vous pouvez également écrire n'importe quel autre mot qui représente mieux votre ressenti.",
+    
+    // Simultaneous Preview
+    previewTitle: "Idée Force en Construction",
+    previewMainTitle: "Aphorisme Principal (Chemins de Montée 6 + 8) :",
+    previewGoldenTitle: "Formule de Dépassement (Optionnel I) :",
+    previewGoldenTemplate: "Pour éviter {p2} face à {p1}, j'offre le traitement de {p3}, en faisant {p4}.",
+    previewHint: "✨ Regardez comment vos réflexions s'intègrent dynamiquement en temps réel dans ces énoncés logiques.",
+
+    // Workspace Actions
+    actionTitle: "Voulez-vous conserver votre session ?",
+    actionSubtitle: "Enregistrez vos réponses dans votre historique privé pour les revoir plus tard.",
+    actionBtnReset: "Réinitialiser",
+    actionBtnSave: "Enregistrer la pratique",
+    actionResetConfirm: "Êtes-vous sûr de vouloir réinitialiser les réponses actuelles ? Votre brouillon actif sera perdu.",
+
+    // Results Section
+    resultsCompletedTitle: "Vous avez complété les 8 points de la pratique !",
+    resultsCompletedSubtitle: "Votre esprit est passé de la réactivité à la conscience de soi. Vous pouvez contempler vos aphorismes finaux ci-dessous.",
+    resultsBtnSaveHistory: "Enregistrer dans l'historique",
+    resultsSynthesisTitle: "Votre synthèse est en route",
+    resultsSynthesisSubtitle: "Répondez aux {totalSteps} questions du questionnaire pour générer l'ensemble des aphorismes interactifs et de développement personnel. Vous avez actuellement répondu à {answeredCount} sur {totalSteps}.",
+
+    // Aforismos Display
+    aforismosTitle: "Vos Idées Forces et Aphorismes Générés",
+    aforismosSubtitle: "Formules et énoncés logiques construits simultanément à partir de votre réflexion.",
+    aforismosBtnDownload: "Télécharger tout",
+    aforismosCopiedTitle: "Copier l'aphorisme",
+    aforismosCopiedMessage: "Aphorisme copié dans le presse-papiers",
+
+    // History Section
+    historyTitle: "Votre historique de pratiques enregistrées",
+    historySubtitle: "Ici résident vos travaux antérieurs de connaissance de soi. Ils sont enregistrés localement sur votre propre appareil.",
+    historyEmptyTitle: "L'historique des pratiques enregistrées est vide",
+    historyEmptyText: "Vous n'avez pas encore de réflexions enregistrées dans votre navigateur. Remplissez le questionnaire dans l'onglet Pratique et cliquez sur 'Enregistrer la pratique' pour commencer à construire votre journal personnel.",
+    historyBtnStartNew: "Démarrer la première pratique",
+    historyCardDate: "Date d'enregistrement : ",
+    historyBtnLoad: "Charger dans l'espace de travail",
+    historyBtnDelete: "Supprimer",
+    historyDeleteConfirm: "Êtes-vous sûr de vouloir supprimer cette pratique de votre historique ? Cette action est irréversible.",
+
+    // Support Section
+    supportTitle: "Bibliothèque et matériel de soutien",
+    supportSubtitle: "Approfondissez votre compréhension de la Règle d'Or avec les références bibliographiques originales et le glossaire des termes du Nouvel Humanisme.",
+    supportTabExamples: "Exemples et Témoignages",
+    supportTabGlossary: "Glossaire des Termes",
+    supportTabResources: "Bibliothèque de Liens",
+    supportTabMailbox: "Boîte aux lettres et Contact",
+    
+    // Support Examples
+    supportExamplesTitle: "Études de cas et pratiques inspirantes",
+    supportExamplesSubtitle: "Consultez ces exercices réels et anonymes résolus pour vous guider dans votre propre réflexion intérieure.",
+    supportExamplesBtnLoad: "Charger cet exemple dans l'espace de travail",
+    supportExamplesAforismoLabel: "Aphorisme clé résultant :",
+    supportExamplesCommentaryLabel: "Commentaire de l'exercice :",
+
+    // Support Glossary
+    supportGlossarySearchPlaceholder: "Rechercher un terme ou une définition...",
+    supportGlossaryEmpty: "Aucun terme ne correspond à votre recherche.",
+
+    // Support Resources
+    supportResourcesTitle: "Livres et conférences de consultation",
+    supportResourcesSubtitle: "Accédez directement à la littérature fondatrice de la pensée humaniste et de la méthodologie de la non-violence active.",
+    supportResourcesAuthor: "Auteur : ",
+    supportResourcesPublisher: "Éditeur : ",
+    supportResourcesYear: "Année : ",
+    supportResourcesTypeBook: "Livre",
+    supportResourcesTypeConference: "Conférence",
+    supportResourcesTypeSpeech: "Allocution de Silo",
+    supportResourcesTypeManual: "Manuel",
+    supportResourcesTypeVideo: "Chaîne YouTube",
+    supportResourcesTypePdf: "Livre au format PDF",
+
+    // Support Mailbox
+    supportMailboxTitle: "Boîte aux lettres et retours",
+    supportMailboxSubtitle: "Envoyez vos avis, questions ou rapports techniques directement à l'équipe de développement de manière totalement anonyme.",
+    supportMailboxPrivateCheckTitle: "Garantie d'anonymat complet",
+    supportMailboxPrivateCheckText: "Votre vie privée est blindée. Cette boîte de réception ne collecte ni votre adresse e-mail, ni votre adresse IP, ni votre géolocalisation, ni aucune donnée pouvant vous identifier. Les messages sont transmis de façon cryptée directement au tableau de gestion pour révision technique et éditoriale. Si vous souhaitez une réponse, veuillez éventuellement inclure un moyen de contact à la fin de votre message.",
+    supportMailboxLabelCategory: "Catégorie du message :",
+    supportMailboxCategoryOpinion: "Avis ou Suggestion",
+    supportMailboxCategoryError: "Signaler un bug technique",
+    supportMailboxCategoryQuestion: "Doute conceptuel ou méthodologique",
+    supportMailboxCategoryOther: "Autre sujet",
+    supportMailboxLabelMessage: "Contenu de votre message :",
+    supportMailboxPlaceholderMessage: "Écrivez ici vos idées, suggestions ou commentaires en toute liberté...",
+    supportMailboxBtnSend: "Envoyer un message anonyme",
+    supportMailboxBtnSending: "Envoi sécurisé en cours...",
+    supportMailboxSuccessTitle: "Message envoyé avec succès !",
+    supportMailboxSuccessText: "Merci beaucoup pour votre contribution. Votre message a été intégré en toute sécurité dans notre feuille de calcul de gestion et sera analysé avec le plus profond respect par l'équipe technique. Votre contribution nous aide à améliorer l'expérience de tous.",
+    supportMailboxBtnSendAnother: "Envoyer un autre message",
+
+    // Download Output File Format
+    downloadHeader: "LA PRATIQUE DE LA REGLE D'OR",
+    downloadPracticeTitle: "Titre de la réflexion : ",
+    downloadDate: "Date de téléchargement : ",
+    downloadResponsesHeader: "REPONSES AU QUESTIONNAIRE :",
+    downloadAforismosHeader: "IDEES FORCES ET APHORISMES GENERES :",
+    downloadNotesHeader: "NOTES PERSONNELLES / JOURNAL DE TRAVAIL :",
+    downloadNotesEmpty: "Aucune note supplémentaire.",
+    downloadFooterQuote: "Lorsque tu traites les autres comme tu veux qu'ils te traitent, tu te libères. — Silo"
+  },
+  de: {
+    logoTitle: "Die Goldene Regel",
+    logoSubtitle: "Interaktive Praxis",
+    tabIntro: "Einführung",
+    tabPractice: "Praxis",
+    tabHistory: "Verlauf",
+    tabSupport: "Bibliothek & Links",
+    themeToggleDark: "Zu dunklem Thema wechseln",
+    themeToggleLight: "Zu hellem Thema wechseln",
+    toastThemeChanged: "Thema geändert zu: ",
+    toastFormReset: "Formular erfolgreich zurückgesetzt.",
+    toastPracticeSaved: "Praxis erfolgreich in Ihrem Verlauf gespeichert!",
+    toastPracticeLoaded: "Praxis geladen: ",
+    toastPracticeDeleted: "Praxis aus Ihrem Verlauf gelöscht.",
+    toastExampleLoaded: "Ein vollständig gelöstes Beispiel wurde geladen. Überprüfen Sie die Karte und die Leitgedanken.",
+    toastPracticeReady: "Beispiel erfolgreich in Ihren Arbeitsbereich geladen. Vergleichen Sie es auf der Karte!",
+    toastFormCheck: "Bitte beantworten Sie mindestens die ersten Fragen, bevor Sie speichern.",
+    toastDownloadSuccess: "Textdatei erfolgreich heruntergeladen.",
+    
+    // Intro section
+    introTagline: "Persönliche Transformation und Gewaltfreiheit",
+    introTitle: "Die Praxis der Goldenen Regel",
+    introSubtitle: "Ein praktischer Weg, um mechanische Reaktionen zu überwinden, Ihre inneren Zustände zu verstehen und sich bewusst für eine gütige Behandlung zu entscheiden.",
+    introPrivacyTitle: "🔒 100% sicherer und privater Bereich",
+    introPrivacyText: "Diese Übung ist ein rein persönliches Werkzeug zur Selbsterkenntnis. Zur Ihrer vollständigen Beruhigung werden die Antworten, die Sie in diesen Punkten eingeben, auf keinem externen Server gespeichert und in keiner für Dritte zugänglichen Datenbank registriert. Alles, was Sie schreiben, wird vorübergehend und lokal auf Ihrem Bildschirm für Ihre eigene innere Arbeit verarbeitet. Praktizieren Sie mit absoluter Freiheit.",
+    introPrincipleTitle: "Zentrales Prinzip",
+    introSiloQuote: "Wenn Sie andere so behandeln, wie Sie selbst behandelt werden möchten, befreien Sie sich.",
+    introInspiration: "Diese Praxis ist von der Goldenen Regel des Neuen Humanismus inspiriert, wie sie in „Die Goldene Regel der Gewaltfreiheit“ von Roberto Kohanoff und Isabel Lazzaroni dargelegt ist.",
+    introSiloAuthor: "— Silo, Universalistischer Humanismus",
+    introBenefitsTitle: "Die Praxis der Goldenen Regel hilft uns dabei:",
+    introBenefits: [
+      "Kompulsive Reaktionen zu stoppen und selbst zu wählen, wie wir handeln wollen (verzögerte Antwort).",
+      "Zu verstehen, warum uns bestimmte Einstellungen oder Verhaltensweisen anderer so sehr betreffen.",
+      "Uns von inneren Spannungen, Widersprüchen und negativen Stimmungen (Klimata) zu befreien.",
+      "Unsere Beziehungen zu verbessern, weil wir aufhören, den anderen um Veränderung zu bitten, und anfangen, uns selbst zu verändern.",
+      "Einen kohärenteren, gütigeren und freieren Lebensstil aufzubauen.",
+      "Es geht nicht darum, perfekt zu sein oder sich „gut zu benehmen“. Es geht darum zu lernen, Schritt für Schritt mit mehr Bewusstsein und weniger innerer Gewalt zu leben."
+    ],
+    introPurposeTitle: "Diese Praxis dient dazu:",
+    introPurposes: [
+      "Uns selbst besser zu verstehen und zu erkennen, was uns schmerzt und warum.",
+      "Sich wiederholende Muster zu erkennen, die aus unserer persönlichen Geschichte stammen.",
+      "Die Kette der inneren und äußeren Gewalt zu durchbrechen.",
+      "Aus unseren besten Tugenden heraus zu handeln, nicht aus dem Impuls des Augenblicks.",
+      "Unser Bewusstseinsniveau zu erhöhen, was unser Leben und das Leben der Menschen um uns herum verbessert.",
+      "Mit der Zeit wird diese Praxis zu einem Werkzeug, um mit mehr innerer Einheit zu leben: Denken, Fühlen und Handeln in dieselbe Richtung zu lenken.",
+      "Diese Anwendung wird Sie Schritt für Schritt begleiten, damit Sie sie auf einfache, tiefe und zugängliche Weise praktizieren können. Unabhängig von Ihrem Alter, Ihrer Kultur, Ihrer Geschichte oder Ihrer aktuellen Situation: Wir alle können lernen, mit weniger Gewalt und mehr innerer Freiheit zu leben."
+    ],
+    introExplanation: "Wir alle erleben Momente der Spannung, des Ärgers, der Frustration oder der Verwirrung. Manchmal reagieren wir rein mechanisch oder compulsiv auf einem niedrigen Bewusstseinsniveau. Diese Praxis ist ein Werkzeug zur Selbsterkenntnis und zur persönlichen Transformation, das Ihnen helfen soll, die automatische Reaktion zu stoppen, Ihre inneren Zustände zu verstehen und sich bewusst für eine gütige Behandlung zu entscheiden. Es ist weder eine starre Norm noch eine moralische Verpflichtung, sondern un chemin vers une vie avec moins de souffrance, mehr innerer Einheit und wahrer Freiheit.",
+    introPurposesExtra: "Diese Anwendung wird Sie Schritt für Schritt begleiten, damit Sie sie auf einfache, tiefe und zugängliche Weise praktizieren können. Unabhängig von Ihrem Alter, Ihrer Kultur, Ihrer Geschichte oder Ihrer aktuellen Situation: Wir alle können lernen, mit weniger Gewalt und mehr innerer Freiheit zu leben.",
+    introBtnStart: "Neue Praxis starten",
+    introBtnExample: "Ein gelöstes Beispiel ansehen",
+
+    // Practice Section
+    practiceTitleLabel: "Praxis läuft",
+    practiceTitlePlaceholder: "Geben Sie Ihrer Reflexion einen Titel (z. B. Überwindung eines Arbeitskonflikts)",
+    practiceProgressLabel: "Gesamtfortschritt:",
+    practiceCompletedCount: " abgeschlossen",
+    practicePrivacyTitle: "Garantie für absolute Vertraulichkeit und Privatsphäre",
+    practicePrivacyText: "Ihre Reflexionspraxis ist absolut privat. Alles, was Sie schreiben, wird lokal und verschlüsselt in der Datenbank Ihres eigenen Browsers (localStorage) gespeichert. Es werden keine persönlichen Daten, Reflexionen oder Antworten an externe Server oder Cloud-Datenbanken gesendet. Ihre emotionale Privatsphäre ist vollständig geschützt.",
+    practiceQuestionLabel: "Frage ",
+    practiceTypeLuminous: "Lichter Raum",
+    practiceTypeDark: "Gestörter Raum",
+    practiceTypeTransition: "Übergang",
+    practiceInputWordLabel: "Ihr Wort oder kurzer Satz:",
+    practiceBtnPrev: "Zurück",
+    practiceBtnNext: "Weiter",
+    practiceBtnLastPrompt: "Letzte Frage!",
+    practiceHelpPrompt: "Wenn Sie nicht das richtige Wort finden, können Sie in diesem Hilfebereich nach Vorschlägen suchen.",
+    practiceBtnHelp: "Hilfe anzeigen",
+    practiceBtnHideHelp: "Hilfevorschläge ausblenden",
+    practiceHelpSuffix: " Klicken Sie auf einen dieser Vorschläge, um ihn auszuwählen:",
+    practiceHelpOptional: "Sie können auch jedes andere Wort schreiben, das Ihre Gefühle am besten wiedergibt.",
+    
+    // Simultaneous Preview
+    previewTitle: "Leitgedanke im Aufbau",
+    previewMainTitle: "Hauptaphorismus (Aufsteigende Pfade 6 + 8):",
+    previewGoldenTitle: "Überwindungsformel (Optional I):",
+    previewGoldenTemplate: "Um {p2} angesichts von {p1} zu vermeiden, schenke ich die Behandlung von {p3}, indem ich {p4} tue.",
+    previewHint: "✨ Sehen Sie, wie Ihre Reflexionen dynamisch in Echtzeit in diese logischen Sätze integriert werden.",
+
+    // Workspace Actions
+    actionTitle: "Möchten Sie Ihre Sitzung speichern?",
+    actionSubtitle: "Speichern Sie Ihre Antworten in Ihrem privaten Verlauf, um sie später zu überprüfen.",
+    actionBtnReset: "Zurücksetzen",
+    actionBtnSave: "Praxis speichern",
+    actionResetConfirm: "Sind Sie sicher, dass Sie die aktuellen Antworten zurücksetzen möchten? Ihr aktiver Entwurf geht verloren.",
+
+    // Results Section
+    resultsCompletedTitle: "Sie haben alle 8 Punkte der Praxis abgeschlossen!",
+    resultsCompletedSubtitle: "Ihr Geist hat sich von der Reaktivität zur Selbsterkenntnis bewegt. Unten können Sie Ihre endgültigen Aphorismen betrachten.",
+    resultsBtnSaveHistory: "Im Verlauf speichern",
+    resultsSynthesisTitle: "Ihre Synthese ist auf dem Weg",
+    resultsSynthesisSubtitle: "Beantworten Sie die {totalSteps} Fragen des Fragebogens, um die interaktiven und selbstverbessernden Aphorismen zu generieren. Derzeit haben Sie {answeredCount} von {totalSteps} beantwortet.",
+
+    // Aforismos Display
+    aforismosTitle: "Ihre Leitgedanken und generierten Aphorismen",
+    aforismosSubtitle: "Formeln und logische Aussagen, die gleichzeitig aus Ihrer Reflexion erstellt wurden.",
+    aforismosBtnDownload: "Alle herunterladen",
+    aforismosCopiedTitle: "Aphorismus kopieren",
+    aforismosCopiedMessage: "Aphorismus in die Zwischenablage kopiert",
+
+    // History Section
+    historyTitle: "Ihr Verlauf gespeicherter Praktiken",
+    historySubtitle: "Hier befinden sich Ihre früheren Arbeiten zur Selbsterkenntnis. Sie werden lokal auf Ihrem eigenen Gerät gespeichert.",
+    historyEmptyTitle: "Verlauf der gespeicherten Praktiken ist leer",
+    historyEmptyText: "Sie haben noch keine gespeicherten Reflexionen in Ihrem Browser. Füllen Sie den Fragebogen im Reiter Praxis aus und klicken Sie auf 'Praxis speichern', um Ihr persönliches Tagebuch aufzubauen.",
+    historyBtnStartNew: "Erste Praxis starten",
+    historyCardDate: "Registrierungsdatum: ",
+    historyBtnLoad: "In den Arbeitsbereich laden",
+    historyBtnDelete: "Löschen",
+    historyDeleteConfirm: "Sind Sie sicher, dass Sie diese Praxis aus Ihrem Verlauf löschen möchten? Dies kann nicht rückgängig gemacht werden.",
+
+    // Support Section
+    supportTitle: "Bibliothek und Begleitmaterial",
+    supportSubtitle: "Vertiefen Sie Ihr Verständnis der Goldenen Regel mit den originalen Literaturreferenzen und dem Glossar der Begriffe des Neuen Humanismus.",
+    supportTabExamples: "Beispiele & Erfahrungsberichte",
+    supportTabGlossary: "Glossary der Begriffe",
+    supportTabResources: "Links-Bibliothek",
+    supportTabMailbox: "Briefkasten & Kontakt",
+    
+    // Support Examples
+    supportExamplesTitle: "Fallstudien und inspirierende Praktiken",
+    supportExamplesSubtitle: "Überprüfen Sie diese echten und anonymen gelösten Übungen, um sich bei Ihrer eigenen inneren Reflexion leiten zu lassen.",
+    supportExamplesBtnLoad: "Dieses Beispiel in den Arbeitsbereich laden",
+    supportExamplesAforismoLabel: "Resultierender Hauptaphorismus:",
+    supportExamplesCommentaryLabel: "Kommentar zur Übung:",
+
+    // Support Glossary
+    supportGlossarySearchPlaceholder: "Begriff oder Definition suchen...",
+    supportGlossaryEmpty: "Keine Begriffe gefunden, die Ihrer Suche entsprechen.",
+
+    // Support Resources
+    supportResourcesTitle: "Bücher und Vorträge zum Nachschlagen",
+    supportResourcesSubtitle: "Greifen Sie direkt auf die grundlegende Literatur des humanistischen Denkens und der Methodik der aktiven Gewaltfreiheit zu.",
+    supportResourcesAuthor: "Autor: ",
+    supportResourcesPublisher: "Herausgeber: ",
+    supportResourcesYear: "Jahr: ",
+    supportResourcesTypeBook: "Buch",
+    supportResourcesTypeConference: "Konferenz",
+    supportResourcesTypeSpeech: "Silos Ansprache",
+    supportResourcesTypeManual: "Handbuch",
+    supportResourcesTypeVideo: "YouTube-Kanal",
+    supportResourcesTypePdf: "PDF-Buch",
+
+    // Support Mailbox
+    supportMailboxTitle: "Briefkasten und Feedback",
+    supportMailboxSubtitle: "Senden Sie Ihre Meinungen, Zweifel oder technischen Berichte völlig anonym direkt an das Entwicklungsteam.",
+    supportMailboxPrivateCheckTitle: "Garantie für vollständige Anonymität",
+    supportMailboxPrivateCheckText: "Ihre Privatsphäre ist geschützt. Dieser Briefkasten erfasst weder Ihre E-Mail, Ihre IP, Ihren Standort noch sonstige Daten, die Sie identifizieren könnten. Die Nachricht wird verschlüsselt direkt an das Verwaltungstabellen-Dokument gesendet, um eine rein technische und inhaltliche Überprüfung zu ermöglichen. Wenn Sie eine Antwort wünschen, geben Sie bitte optional eine Kontaktmöglichkeit am Ende Ihrer Nachricht an.",
+    supportMailboxLabelCategory: "Kategorie der Nachricht:",
+    supportMailboxCategoryOpinion: "Meinung oder Vorschlag",
+    supportMailboxCategoryError: "Einen technischen Fehler melden",
+    supportMailboxCategoryQuestion: "Konzeptionelle/methodische Frage",
+    supportMailboxCategoryOther: "Anderes Anliegen",
+    supportMailboxLabelMessage: "Inhalt Ihrer Nachricht:",
+    supportMailboxPlaceholderMessage: "Schreiben Sie hier völlig frei Ihre Ideen, Vorschläge oder Kommentare...",
+    supportMailboxBtnSend: "Anonyme Nachricht senden",
+    supportMailboxBtnSending: "Sicheres Senden läuft...",
+    supportMailboxSuccessTitle: "Nachricht erfolgreich gesendet!",
+    supportMailboxSuccessText: "Vielen Dank für Ihren Beitrag. Ihre Nachricht wurde sicher in unsere Verwaltungstabelle integriert und wird vom technischen Team mit tiefem Respekt analysiert. Ihr Beitrag hilft uns, die Erfahrung für alle zu verbessern.",
+    supportMailboxBtnSendAnother: "Eine weitere Nachricht senden",
+
+    // Download Output File Format
+    downloadHeader: "DIE PRAXIS DER GOLDENEN REGEL",
+    downloadPracticeTitle: "Titel der Reflexion: ",
+    downloadDate: "Download-Datum: ",
+    downloadResponsesHeader: "ANTWORTEN AUF DEN FRAGEBOGEN:",
+    downloadAforismosHeader: "GENERIERTE LEITGEDANKEN UND APHORISMEN:",
+    downloadNotesHeader: "PERSÖNLICHE NOTIZEN / ARBEITSTAGEBUCH:",
+    downloadNotesEmpty: "Keine zusätzlichen Notizen.",
+    downloadFooterQuote: "Wenn Sie andere so behandeln, wie Sie selbst behandelt werden möchten, befreien Sie sich. — Silo"
+  },
+  pt: {
+    logoTitle: "A Regra de Ouro",
+    logoSubtitle: "Prática Interativa",
+    tabIntro: "Introdução",
+    tabPractice: "Prática",
+    tabHistory: "Histórico",
+    tabSupport: "Biblioteca & Links",
+    themeToggleDark: "Mudar para Tema Escuro",
+    themeToggleLight: "Mudar para Tema Claro",
+    toastThemeChanged: "Tema alterado para: ",
+    toastFormReset: "Formulário reiniciado com sucesso.",
+    toastPracticeSaved: "Prática guardada com sucesso no seu histórico!",
+    toastPracticeLoaded: "Prática carregada: ",
+    toastPracticeDeleted: "Prática eliminada do seu histórico.",
+    toastExampleLoaded: "Um exemplo resolvido completo foi carregado. Reveja o mapa e as ideias-força.",
+    toastPracticeReady: "Exemplo carregado com sucesso no seu espaço de trabalho. Compare-o no mapa!",
+    toastFormCheck: "Por favor, responda a pelo menos as primeiras perguntas antes de guardar.",
+    toastDownloadSuccess: "Ficheiro de texto descarregado com sucesso.",
+    
+    // Intro section
+    introTagline: "Transformação Pessoal e Não-Violência",
+    introTitle: "A Prática da Regra de Ouro",
+    introSubtitle: "Um caminho prático para superar a reação mecânica, compreender os seus estados internos e escolher o bom trato de forma consciente.",
+    introPrivacyTitle: "🔒 Espaço 100% Seguro e Privado",
+    introPrivacyText: "Este exercício é uma ferramenta de autoconhecimento estritamente pessoal. Para a sua total tranquilidade, as respostas que introduzir ao longo destes pontos não são armazenadas em nenhum servidor externo nem ficam registadas em nenhuma base de dados acessível por terceiros. Tudo o que escrever é processado de forma temporária e local no seu ecrã para o seu próprio trabalho interior. Pratique com absoluta liberdade.",
+    introPrincipleTitle: "Princípio Central",
+    introSiloQuote: "Quando tratas os outros como queres que te tratem, libertas-te.",
+    introInspiration: "Esta prática inspira-se na Regra de Ouro do Novo Humanismo, recolhida em \"A Regra de Ouro da Não-Violência\" de Roberto Kohanoff e Isabel Lazzaroni.",
+    introSiloAuthor: "— Silo, Humanismo Universalista",
+    introBenefitsTitle: "A prática da Regra de Ouro ajuda-nos a:",
+    introBenefits: [
+      "Deter a reação compulsiva e escolher como queremos agir (resposta diferida).",
+      "Compreender por que razão certas atitudes ou comportamentos dos outros nos afetam tanto.",
+      "Libertar-nos de tensões internas, contradições e estados de espírito (climas) negativos.",
+      "Melhorar as nossas relações, porque deixamos de pedir que o outro mude e começamos a mudar nós mesmos.",
+      "Construir um estilo de vida mais coerente, mais amável e mais livre.",
+      "Não se trata de ser perfeito nem de \"comportar-se bem\". Trata-se de aprender a viver com mais consciência e menos violência interna, passo a passo."
+    ],
+    introPurposeTitle: "Esta prática serve para:",
+    introPurposes: [
+      "Compreender-nos melhor e reconhecer o que nos magoa e porquê.",
+      "Detetar padrões repetidos que provêm da nossa história pessoal.",
+      "Quebrar a cadeia de violência interna e externa.",
+      "Agir a partir das nossas melhores virtudes, não do impulso do momento.",
+      "Elevar o nosso nível de consciência, o que melhora a nossa vida e a das pessoas ao nosso redor.",
+      "Com o tempo, esta prática torna-se uma ferramenta para viver com mais unidade interna: pensar, sentir e agir na mesma direção.",
+      "Esta aplicação irá acompanhar-te passo a passo para que possas praticá-la de forma simples, profunda e acessível. Não importa a tua idade, cultura, história ou situação atual: todos podemos aprender a viver com menos violência e mais liberdade interna."
+    ],
+    introExplanation: "Todas as pessoas experimentam momentos de tensão, raiva, frustração ou confusão. Às vezes reagimos de forma puramente mecânica ou compulsiva a partir de um baixo nível de consciência. Esta prática é uma ferramenta de autoconhecimento e transformação pessoal desenhada para te ajudar a deter a reação automática, compreender os teus estados internos e escolher o bom trato de forma consciente. Não é uma norma rígida nem uma obrigação moral, mas sim um caminho para uma vida com menos sofrimento, mais unidade interna e verdadeira liberdade.",
+    introPurposesExtra: "Esta aplicação irá acompanhar-te passo a passo para que possas praticá-la de forma simples, profunda e acessível. Não importa a tua idade, cultura, história ou situação atual: todos podemos aprender a viver com menos violência e mais liberdade interna.",
+    introBtnStart: "Iniciar Nova Prática",
+    introBtnExample: "Ver um Exemplo Resolvido",
+
+    // Practice Section
+    practiceTitleLabel: "Prática em curso",
+    practiceTitlePlaceholder: "Atribui um título à tua reflexão (Ex: Superação de conflito de trabalho)",
+    practiceProgressLabel: "Progresso global:",
+    practiceCompletedCount: " completados",
+    practicePrivacyTitle: "Garantia de Confidencialidade e Privacidade Absoluta",
+    practicePrivacyText: "A tua prática de reflexão é absolutamente privada. Tudo o que escreves é guardado localmente e de forma encriptada na base de dados do teu próprio navegador (localStorage). Nenhum dado pessoal, reflexão ou resposta é enviado para servidores externos ou bases de dados na nuvem. A tua intimidade emocional está completamente protegida.",
+    practiceQuestionLabel: "Pergunta ",
+    practiceTypeLuminous: "Espaço Luminoso",
+    practiceTypeDark: "Espaço Perturbado",
+    practiceTypeTransition: "Transição",
+    practiceInputWordLabel: "A tua palavra ou frase curta:",
+    practiceBtnPrev: "Anterior",
+    practiceBtnNext: "Seguinte",
+    practiceBtnLastPrompt: "Última pergunta!",
+    practiceHelpPrompt: "Se não encontrares a palavra adequada, podes procurar sugestões neste painel de ajuda.",
+    practiceBtnHelp: "Ver ajuda",
+    practiceBtnHideHelp: "Ocultar sugestões de ajuda",
+    practiceHelpSuffix: " Clica em qualquer uma destas sugestões para a selecionar:",
+    practiceHelpOptional: "Também podes escrever qualquer outra palavra que represente melhor o teu sentir.",
+    
+    // Simultaneous Preview
+    previewTitle: "Ideia-Força em Construção",
+    previewMainTitle: "Aforismo Principal (Caminhos de Subida 6 + 8):",
+    previewGoldenTitle: "Fórmula de Superação (Opcional I):",
+    previewGoldenTemplate: "Para evitar {p2} perante {p1}, dou o trato de {p3}, fazendo {p4}.",
+    previewHint: "✨ Vê como as tuas reflexões se integram dinamicamente em tempo real nestas sentenças lógicas.",
+
+    // Workspace Actions
+    actionTitle: "Queres conservar a tua sessão?",
+    actionSubtitle: "Guarda as tuas respostas no teu histórico privado para as reveres mais tarde.",
+    actionBtnReset: "Reiniciar",
+    actionBtnSave: "Guardar Prática",
+    actionResetConfirm: "Tens a certeza de que desejas reiniciar as respostas atuais? O teu rascunho ativo será perdido.",
+
+    // Results Section
+    resultsCompletedTitle: "Completaste todos os 8 pontos da prática!",
+    resultsCompletedSubtitle: "A tua mente transitou da reatividade para a autoconsciência. Abaixo podes contemplar os teus aforismos finais.",
+    resultsBtnSaveHistory: "Guardar no Histórico",
+    resultsSynthesisTitle: "A tua síntese está a caminho",
+    resultsSynthesisSubtitle: "Responde às {totalSteps} perguntas do questionário para gerares o conjunto de aforismos interativos e de superação pessoal. Atualmente levas {answeredCount} de {totalSteps}.",
+
+    // Aforismos Display
+    aforismosTitle: "As Tuas Ideias-Força e Aforismos Gerados",
+    aforismosSubtitle: "Fórmulas e sentenças lógicas construídas de forma simultânea a partir da tua reflexão.",
+    aforismosBtnDownload: "Descarregar Todas",
+    aforismosCopiedTitle: "Copiar aforismo",
+    aforismosCopiedMessage: "Aforismo copiado para a área de transferência",
+
+    // History Section
+    historyTitle: "O Teu Histórico de Práticas Guardadas",
+    historySubtitle: "Aqui residem os teus trabalhos anteriores de autoconhecimento. São guardados localmente no teu próprio dispositivo.",
+    historyEmptyTitle: "Histórico de Práticas Vazio",
+    historyEmptyText: "Ainda não tens reflexões guardadas no teu navegador. Completa o questionário no separador Prática e clica em 'Guardar Prática' para começares a construir a tua bitácula pessoal.",
+    historyBtnStartNew: "Começar Primeira Prática",
+    historyCardDate: "Data de registo: ",
+    historyBtnLoad: "Carregar no Espaço de Trabalho",
+    historyBtnDelete: "Eliminar",
+    historyDeleteConfirm: "Tens a certeza de que desejas eliminar esta prática do histórico? Esta ação não pode ser desfeita.",
+
+    // Support Section
+    supportTitle: "Biblioteca e Material de Apoio",
+    supportSubtitle: "Aprofunda a tua compreensão da Regra de Ouro com as referências bibliográficas originais e o glossário de termos do Novo Humanismo.",
+    supportTabExamples: "Exemplos & Testemunhos",
+    supportTabGlossary: "Glossário de Termos",
+    supportTabResources: "Biblioteca de Links",
+    supportTabMailbox: "Caixa de Correio & Contacto",
+    
+    // Support Examples
+    supportExamplesTitle: "Casos de Estudo e Práticas de Inspiração",
+    supportExamplesSubtitle: "Reveja estes exercícios reais e anónimos resolvidos para te guiar na tua própria reflexão interior.",
+    supportExamplesBtnLoad: "Carregar este Exemplo no Espaço de Trabalho",
+    supportExamplesAforismoLabel: "Aforismo-chave resultante:",
+    supportExamplesCommentaryLabel: "Comentário do exercício:",
+
+    // Support Glossary
+    supportGlossarySearchPlaceholder: "Procurar termo ou definição...",
+    supportGlossaryEmpty: "Não foram encontrados termos para a pesquisa.",
+
+    // Support Resources
+    supportResourcesTitle: "Livros e Conferências de Consulta",
+    supportResourcesSubtitle: "Acede de forma direta à literatura fundacional do pensamento humanista e à metodologia da não-violência ativa.",
+    supportResourcesAuthor: "Autor: ",
+    supportResourcesPublisher: "Editora: ",
+    supportResourcesYear: "Ano: ",
+    supportResourcesTypeBook: "Livro",
+    supportResourcesTypeConference: "Conferência",
+    supportResourcesTypeSpeech: "Discurso de Silo",
+    supportResourcesTypeManual: "Manual",
+    supportResourcesTypeVideo: "Canal de YouTube",
+    supportResourcesTypePdf: "Livro em PDF",
+
+    // Support Mailbox
+    supportMailboxTitle: "Caixa de Correio e Sugestões",
+    supportMailboxSubtitle: "Envia as tuas opiniões, dúvidas ou relatórios técnicos diretamente para a equipa de desenvolvimento de forma totalmente anónima.",
+    supportMailboxPrivateCheckTitle: "Garantia de Anonimato Completo",
+    supportMailboxPrivateCheckText: "A tua privacidade está protegida. Esta caixa de correio não recolhe o teu e-mail, o teu IP, a tua geolocalização, nem qualquer dado que te possa identificar. A mensagem é transmitida de forma encriptada diretamente para a folha de cálculo de gestão para revisão técnica e editorial. Se desejares uma resposta, por favor inclui opcionalmente um meio de contacto no final da tua mensagem.",
+    supportMailboxLabelCategory: "Categoria da mensagem:",
+    supportMailboxCategoryOpinion: "Opinião ou Sugestão",
+    supportMailboxCategoryError: "Reportar um erro técnico",
+    supportMailboxCategoryQuestion: "Dúvida conceptual ou metodológica",
+    supportMailboxCategoryOther: "Outro assunto",
+    supportMailboxLabelMessage: "Conteúdo da tua mensagem:",
+    supportMailboxPlaceholderMessage: "Escreve aqui as tuas ideias, sugestões ou comentários com total liberdade...",
+    supportMailboxBtnSend: "Enviar Mensagem Anónima",
+    supportMailboxBtnSending: "A enviar de forma segura...",
+    supportMailboxSuccessTitle: "Mensagem Enviada com Sucesso!",
+    supportMailboxSuccessText: "Muito obrigado pela tua contribuição. A tua mensagem foi integrada de forma segura na nossa folha de cálculo de gestão e será analisada com profundo respeito pela equipa técnica. O teu contributo ajuda-nos a melhorar a experiência de todos.",
+    supportMailboxBtnSendAnother: "Enviar Outra Mensagem",
+
+    // Download Output File Format
+    downloadHeader: "A PRÁTICA DA REGRA DE OURO",
+    downloadPracticeTitle: "Título da reflexão: ",
+    downloadDate: "Data de descarregamento: ",
+    downloadResponsesHeader: "RESPOSTAS AO QUESTIONÁRIO:",
+    downloadAforismosHeader: "IDEAS-FORÇA E AFORISMOS GERADOS:",
+    downloadNotesHeader: "NOTAS PESSOAIS / DIÁRIO DE TRABAHO:",
+    downloadNotesEmpty: "Sem notas adicionais.",
+    downloadFooterQuote: "Quando tratas os outros como queres que te tratem, libertas-te. — Silo"
   }
 };
 
@@ -833,6 +1352,627 @@ export const STEPS_EN: StepConfig[] = [
   }
 ];
 
+export const STEPS_FR: StepConfig[] = [
+  {
+    id: 1,
+    label: "Point 1 : Le mauvais traitement que je rejette",
+    shortName: "Mauvais traitement rejeté",
+    question: "Quel est le mauvais traitement que je rejette ?",
+    description: "Identifiez cette attitude, action ou comportement d'autrui que vous trouvez violent, douloureux ou inacceptable. C'est la situation externe qui perturbe votre bien-être.",
+    helpDescription: "Sélectionnez le type de mauvais traitement qui résonne le plus en vous, ou écrivez votre propre mot :",
+    placeholder: "Ex: Exclusion, Indifférence, Rejet...",
+    type: "dark",
+    categories: [
+      {
+        categoryName: "Exclusion et Indifférence",
+        words: ["Exclusion", "Indifférence", "Ignoré", "Rejet", "Isolement", "Mépris", "Oubli", "Marginalité", "Invisibilité"]
+      },
+      {
+        categoryName: "Agression et Dénigrement",
+        words: ["Agression", "Insultes", "Cris", "Humiliation", "Moqueries", "Dénigrement", "Critique", "Jugement", "Sous-estimation", "Dédain"]
+      },
+      {
+        categoryName: "Contrôle et Domination",
+        words: ["Assujettissement", "Manipulation", "Exigence", "Injustice", "Contrôle", "Abus de pouvoir", "Imposition", "Autoritarisme", "Mensonge", "Trahison"]
+      }
+    ]
+  },
+  {
+    id: 2,
+    label: "Point 2 : Ma réaction et mon état",
+    shortName: "Ma réaction / état",
+    question: "Comment est-ce que je me sens et que fais-je face à ce mauvais traitement ?",
+    description: "Reconnaissez votre réponse mécanique au Point 1. Elle reflète votre état perturbé, la réponse défensive, de colère ou de souffrance qui surgit automatiquement.",
+    helpDescription: "Sélectionnez comment vous réagissez ou vous vous sentez habituellement face à cette perturbation :",
+    placeholder: "Ex: Je souffre et je m'isole, Je crie de rage, Je me sens coupable...",
+    type: "dark",
+    categories: [
+      {
+        categoryName: "Retrait et Souffrance",
+        words: ["Je souffre et je m'isole", "Je m'isole", "Je déprime", "Je me tais avec rancœur", "Je me sens coupable", "Je me résigne", "Je me sens impuissant"]
+      },
+      {
+        categoryName: "Colère et Contre-attaque",
+        words: ["Je crie de rage", "J'attaque en retour", "Je cherche à me venger", "Je m'irrite", "Je proteste avec violence", "Je discute sans écouter", "Je rends la monnaie de la pièce"]
+      },
+      {
+        categoryName: "Anxiété et Paralysie",
+        words: ["Je ressens de la peur et je fuis", "Je me paralyse", "Je m'angoisse", "Je me crispe physiquement", "Je me sens abandonné", "Je cherche une approbation soumise"]
+      }
+    ]
+  },
+  {
+    id: 3,
+    label: "Point 3 : Le traitement que je demande et que je donne",
+    shortName: "Traitement demandé / donné",
+    question: "Quel traitement est-ce que je demande à ceux qui m'ont maltraité afin de pouvoir le donner moi-même ?",
+    description: "La vertu opposée au Point 1. C'est le traitement bienveillant que vous aimeriez recevoir et que vous vous engagez à donner en premier, élevant ainsi votre niveau de conscience.",
+    helpDescription: "Sélectionnez le traitement bienveillant inspirant qui s'oppose au mauvais traitement du Point 1 :",
+    placeholder: "Ex: Considération & inclusion, Appréciation sincère, Écoute active...",
+    type: "luminous",
+    categories: [
+      {
+        categoryName: "Inclusion et Accueil",
+        words: ["Considération et inclusion", "Acceptation", "Accueil sincère", "Écoute attentive", "Reconnaissance", "Intégration", "Proximité"]
+      },
+      {
+        categoryName: "Affection et Valorisation",
+        words: ["Appréciation sincère", "Respect profond", "Bienveillance", "Tolérance", "Soin mutuel", "Compassion", "Empathie", "Valorisation"]
+      },
+      {
+        categoryName: "Liberté et Paix",
+        words: ["Liberté", "Confiance absolue", "Soutien inconditionnel", "Justice", "Compréhension", "Sincérité", "Paix intérieure"]
+      }
+    ]
+  },
+  {
+    id: 4,
+    label: "Point 4 : Le traitement bienveillant alternatif",
+    shortName: "Traitement bienveillant alternatif",
+    question: "Comment faire ? (Traitement bienveillant opposé à ma réaction au Point 2)",
+    description: "La vertu opposée au Point 2. C'est l'action consciente et constructive que vous menez à bien au lieu de votre réponse réactive habituelle.",
+    helpDescription: "Sélectionnez l'action vertueuse qui neutralise la réaction négative du Point 2 :",
+    placeholder: "Ex: Je m'approche & apprécie les autres, Je dialogue calmement...",
+    type: "luminous",
+    categories: [
+      {
+        categoryName: "Approche et Valorisation",
+        words: ["Je m'approche et apprécie les autres", "Je dialogue honnêtement", "J'exprime mon affection", "J'accompagne avec patience", "Je valorise les vertus d'autrui"]
+      },
+      {
+        categoryName: "Calme et Sérénité",
+        words: ["Je respire calmement", "J'écoute avec ouverture", "J'agis sans hâte", "Je cherche à comprendre avant de juger", "Je pardonne sincèrement", "Je me réconcilie"]
+      },
+      {
+        categoryName: "Fermeté et Autoprotection",
+        words: ["Je pose des limites saines avec amour", "Je m'exprime avec fermeté et calme", "Je me valorise", "Je fais confiance à ma force intérieure", "Je m'ouvre sans crainte"]
+      }
+    ]
+  },
+  {
+    id: 5,
+    label: "Point 5 : Mon chemin de descente (De 3 à 2)",
+    shortName: "Chemin de descente 3 ➔ 2",
+    question: "Comment est-ce que je tombe du traitement vertueux (3) à la réaction mécanique (2) ?",
+    description: "Identifiez quelle attitude, croyance, peur, attente ou vulnérabilité sabote vos intentions bienveillantes et vous fait glisser à nouveau vers la souffrance ou la colère.",
+    helpDescription: "Sélectionnez le facteur interne qui vous fait descendre vers la réactivité du Point 2 :",
+    placeholder: "Ex: Insécurité, Attentes déçues, Orgueil...",
+    type: "transition",
+    direction: "down",
+    fromId: 3,
+    toId: 2,
+    categories: [
+      {
+        categoryName: "Insécurité et Doute",
+        words: ["Insécurité", "Méfiance", "Doutes de soi", "Jalousie", "Vulnérabilité blessée", "Peur du rejet"]
+      },
+      {
+        categoryName: "Attentes et Orgueil",
+        words: ["Attentes excessives", "Orgueil blessé", "Superbe/Arrogance", "Vanité", "Égoïsme", "Exigences perfectionnistes"]
+      },
+      {
+        categoryName: "Faiblesse et Peur",
+        words: ["Peur de l'échec", "Peur de la souffrance", "Lâcheté sociale", "Confort passif", "Paresse intérieure", "Apathie"]
+      }
+    ]
+  },
+  {
+    id: 6,
+    label: "Point 6 : Mon chemin de montée (De 2 à 3)",
+    shortName: "Chemin de montée 2 ➔ 3",
+    question: "Comment est-ce que je m'élève de l'état perturbé (2) au traitement vertueux (3) ?",
+    description: "Reconnaissez l'action intentionnelle qui vous permet d'élever votre niveau de conscience, de briser la boucle de souffrance ou de colère, et de vous reconnecter à la vertu.",
+    helpDescription: "Sélectionnez le pont qui vous aide à retourner à l'état lumineux du Point 3 :",
+    placeholder: "Ex: J'exprime ce que je ressens et pense, Je prends conscience...",
+    type: "transition",
+    direction: "up",
+    fromId: 2,
+    toId: 3,
+    categories: [
+      {
+        categoryName: "Communication Hononête",
+        words: ["J'exprime ce que je ressens et pense", "Je demande de l'aide avec humilité", "Je raconte ce qui se passe honnêtement", "Je dialogue avec franchise", "Je parle avec le cœur"]
+      },
+      {
+        categoryName: "Prise de Conscience",
+        words: ["Je réfléchis en silence", "Je me rends compte de la mécanicité", "Je respire profondément et j'observe", "J'accepte ma part", "Je médite dans le calme"]
+      },
+      {
+        categoryName: "Action Courageuse",
+        words: ["Je prends l'initiative de réparer", "Je prends le risque de changer", "J'agis avec courage", "Je me responsabilise", "Je décide de ne pas nuire"]
+      }
+    ]
+  },
+  {
+    id: 7,
+    label: "Point 7 : Mon chemin de descente (De 4 à 1)",
+    shortName: "Chemin de descente 4 ➔ 1",
+    question: "Comment est-ce que je tombe du traitement bienveillant alternatif (4) au mauvais traitement réactif (1) ?",
+    description: "Identifiez ce qui vous use ou vous frustre lorsque vous essayez de maintenir un traitement bienveillant, vous faisant perdre patience et retomber dans une attitude violente ou de rejet.",
+    helpDescription: "Sélectionnez ce qui émousse votre motivation et vous fait glisser à nouveau vers des comportements nuisibles :",
+    placeholder: "Ex: Lassitude, Fatigue extrême, Frustration...",
+    type: "transition",
+    direction: "down",
+    fromId: 4,
+    toId: 1,
+    categories: [
+      {
+        categoryName: "Fatigue et Saturation",
+        words: ["Lassitude", "Fatigue accumulée", "Saturation mentale", "Accablement de la routine", "Stress", "Épuisement énergétique"]
+      },
+      {
+        categoryName: "Frustration et Déception",
+        words: ["Déception envers l'autre", "Frustration de ne voir aucun changement", "Pessimisme", "Désintérêt", "Dépit", "Sentiment que cela n'en vaut pas la peine"]
+      },
+      {
+        categoryName: "Impatience et Irritabilité",
+        words: ["Impatience", "Colère contenue", "Tolérance zéro", "Agacement accumulé", "Irritation constante", "Désir de punir"]
+      }
+    ]
+  },
+  {
+    id: 8,
+    label: "Point 8 : Mon chemin de montée (De 1 à 4)",
+    shortName: "Chemin de montée 1 ➔ 4",
+    question: "Comment est-ce que je m'élève de l'attitude de rejet/mauvais traitement (1) au traitement bienveillant alternatif (4) ?",
+    description: "Découvrez l'intention ou l'action profonde qui vous permet de surmonter le rejet, de vous réconcilier et de vous engager dans l'action constructive du Point 4.",
+    helpDescription: "Sélectionnez le pont profond qui vous reconnecte au traitement bienveillant du Point 4 :",
+    placeholder: "Ex: Je me connecte à l'Humain en moi et en l'autre, Je pardonne...",
+    type: "transition",
+    direction: "up",
+    fromId: 1,
+    toId: 4,
+    categories: [
+      {
+        categoryName: "Connexion Humaine",
+        words: ["Je me connecte à l'Humain en moi et en l'autre", "Je regarde l'autre comme un égal", "Je ressens de l'empathie pour sa douleur", "Je cherche ce qui nous unit, non ce qui nous sépare"]
+      },
+      {
+        categoryName: "Réconciliation et Compassion",
+        words: ["Je pardonne et libère la rancœur", "Je me réconcilie intimement", "Je ressens de la compassion pour son ignorance", "J'accepte que nous faisons tous des erreurs"]
+      },
+      {
+        categoryName: "Amour en Action",
+        words: ["J'agis avec bienveillance", "Je souhaite le bien d'autrui de tout cœur", "Je cherche l'unité et la paix", "Je m'engage dans la non-violence"]
+      }
+    ]
+  }
+];
+
+export const STEPS_DE: StepConfig[] = [
+  {
+    id: 1,
+    label: "Punkt 1: Die Fehlbehandlung, die ich ablehne",
+    shortName: "Abgelehnte Fehlbehandlung",
+    question: "Welche Fehlbehandlung lehne ich ab?",
+    description: "Identifizieren Sie jene Haltung, Handlung oder Verhaltensweise anderer, die Sie als gewalttätig, schmerzhaft oder inakzeptabel empfinden. Es ist die äußere Situation, die Ihr Wohlbefinden stört.",
+    helpDescription: "Wählen Sie die Art der Fehlbehandlung aus, die Sie am meisten anspricht, oder schreiben Sie Ihr eigenes Wort:",
+    placeholder: "z.B. Ausgrenzung, Gleichgültigkeit, Abwertung...",
+    type: "dark",
+    categories: [
+      {
+        categoryName: "Ausgrenzung und Gleichgültigkeit",
+        words: ["Ausgrenzung", "Gleichgültigkeit", "Ignoriert-Werden", "Ablehnung", "Isolierung", "Verachtung", "Vernachlässigung", "Marginalisierung", "Unsichtbarkeit"]
+      },
+      {
+        categoryName: "Aggression und Abwertung",
+        words: ["Aggression", "Beleidigungen", "Schreien", "Demütigung", "Spott", "Abwertung", "Kritik", "Verurteilung", "Herabsetzung", "Geringschätzung"]
+      },
+      {
+        categoryName: "Kontrolle und Dominanz",
+        words: ["Unterwerfung", "Manipulation", "Forderung", "Ungerechtigkeit", "Kontrolle", "Machtmissbrauch", "Auferlegung", "Autoritarismus", "Lüge", "Verrat"]
+      }
+    ]
+  },
+  {
+    id: 2,
+    label: "Punkt 2: Meine Reaktion und mein Zustand",
+    shortName: "Meine Reaktion / Zustand",
+    question: "Wie fühle ich mich und was tue ich als Reaktion auf diese Fehlbehandlung?",
+    description: "Erkennen Sie Ihre mechanische Reaktion auf Punkt 1. Sie spiegelt Ihren gestörten Zustand wider – die defensive, wütende oder leidende Reaktion, die automatisch entsteht.",
+    helpDescription: "Wählen Sie aus, wie Sie gewöhnlich auf diese Störung reagieren oder sich dabei fühlen:",
+    placeholder: "z.B. Ich leide und ziehe mich zurück, Ich schreie vor Wut, Ich gebe mir die Schuld...",
+    type: "dark",
+    categories: [
+      {
+        categoryName: "Rückzug und Leiden",
+        words: ["Ich leide und ziehe mich zurück", "Ich isoliere mich", "Ich werde depressiv", "Ich schweige voller Groll", "Ich fühle mich schuldig", "Ich resigniere", "Ich fühle mich hilflos"]
+      },
+      {
+        categoryName: "Wut und Gegenangriff",
+        words: ["Ich schreie vor Wut", "Ich greife zurück an", "Ich suche Rache", "Ich werde gereizt", "Ich beklage mich heftig", "Ich streite, ohne zuzuhören", "Ich zahle mit gleicher Münze heim"]
+      },
+      {
+        categoryName: "Angst und Lähmung",
+        words: ["Ich fühle Angst und fliehe", "Ich erstarre", "Ich werde ängstlich", "Ich verkrampfe mich körperlich", "Ich fühle mich schutzlos", "Ich suche unterwürfige Anerkennung"]
+      }
+    ]
+  },
+  {
+    id: 3,
+    label: "Punkt 3: Die Behandlung, um die ich bitte und die ich gebe",
+    shortName: "Erbatene / gegebene Behandlung",
+    question: "Um welche Behandlung bitte ich diejenigen, die mich fehlbehandelt haben, damit ich sie selbst geben kann?",
+    description: "Die gegenteilige Tugend zu Punkt 1. Es ist die gütige Behandlung, die Sie gerne erhalten würden und die Sie sich verpflichtet, zuerst zu geben, um Ihr Bewusstseinsniveau zu erhöhen.",
+    helpDescription: "Wählen Sie die inspirierende gütige Behandlung aus, die der Fehlbehandlung in Punkt 1 entgegensteht:",
+    placeholder: "z.B. Rücksicht & Einbeziehung, Aufrichtige Wertschätzung, Aktives Zuhören...",
+    type: "luminous",
+    categories: [
+      {
+        categoryName: "Einbeziehung und Annahme",
+        words: ["Rücksicht und Einbeziehung", "Akzeptanz", "Aufrichtige Annahme", "Aufmerksames Zuhören", "Anerkennung", "Integration", "Nähe"]
+      },
+      {
+        categoryName: "Zuneigung und Wertschätzung",
+        words: ["Aufrichtige Wertschätzung", "Tiefen Respekt", "Freundlichkeit", "Toleranz", "Gegenseitige Fürsorge", "Mitgefühl", "Empathie", "Wertschätzung"]
+      },
+      {
+        categoryName: "Freiheit und Frieden",
+        words: ["Freiheit", "Absolutes Vertrauen", "Bedingungslose Unterstützung", "Gerechtigkeit", "Verständnis", "Aufrichtigkeit", "Inneren Frieden"]
+      }
+    ]
+  },
+  {
+    id: 4,
+    label: "Punkt 4: Die alternative gütige Behandlung",
+    shortName: "Alternative gütige Behandlung",
+    question: "Wie mache ich es? (Gütige Behandlung im Gegensatz zu meiner Reaktion in Punkt 2)",
+    description: "Die gegenteilige Tugend zu Punkt 2. Es ist die gütige und konstruktive Handlung, die Sie anstelle Ihrer üblichen reaktiven Antwort ausführen.",
+    helpDescription: "Wählen Sie die tugendhafte Handlung aus, die die negative Reaktion aus Punkt 2 neutralisiert:",
+    placeholder: "z.B. Ich gehe auf andere zu & schätze sie, Ich dialogisiere ruhig...",
+    type: "luminous",
+    categories: [
+      {
+        categoryName: "Annäherung und Wertschätzung",
+        words: ["Ich gehe auf andere zu und schätze sie", "Ich dialogisiere ehrlich", "Ich drücke meine Zuneigung aus", "Ich begleite mit Geduld", "Ich schätze die Tugenden anderer"]
+      },
+      {
+        categoryName: "Ruhe und Gelassenheit",
+        words: ["Ich atme ruhig", "Ich höre mit Offenheit zu", "Ich handle ohne Eile", "Ich suche zu verstehen, bevor ich urteile", "Ich vergebe aufrichtig", "Ich versöhne mich"]
+      },
+      {
+        categoryName: "Festigkeit und Selbstfürsorge",
+        words: ["Ich setze gesunde Grenzen mit Liebe", "Ich drücke mich bestimmt und ruhig aus", "Ich schätze mich selbst", "Ich vertraue auf meine innere Kraft", "Ich öffne mich ohne Angst"]
+      }
+    ]
+  },
+  {
+    id: 5,
+    label: "Punkt 5: Mein absteigender Pfad (Von 3 nach 2)",
+    shortName: "Absteigender Pfad 3 ➔ 2",
+    question: "Wie falle ich von der tugendhaften Behandlung (3) in die mechanische Reaktion (2) zurück?",
+    description: "Identifizieren Sie, welche Einstellung, welcher Glaube, welche Angst, welche Erwartung oder welche Verwundbarkeit Ihre gütigen Absichten sabotiert und Sie wieder in Leiden oder Wut abgleiten lässt.",
+    helpDescription: "Wählen Sie den inneren Faktor, der Sie zur Reaktivität von Punkt 2 absteigen lässt:",
+    placeholder: "z.B. Unsicherheit, Enttäuschte Erwartungen, Stolz...",
+    type: "transition",
+    direction: "down",
+    fromId: 3,
+    toId: 2,
+    categories: [
+      {
+        categoryName: "Unsicherheit und Zweifel",
+        words: ["Unsicherheit", "Misstrauen", "Selbstzweifel", "Eifersucht", "Verletzte Verwundbarkeit", "Angst vor Ablehnung"]
+      },
+      {
+        categoryName: "Erwartungen und Stolz",
+        words: ["Übermäßige Erwartungen", "Verletzter Stolz", "Stolz/Arroganz", "Eitelkeit", "Egoismus", "Perfektionistische Ansprüche"]
+      },
+      {
+        categoryName: "Schwäche und Angst",
+        words: ["Angst vor dem Scheitern", "Angst vor Schmerz", "Soziale Feigheit", "Passive Bequemlichkeit", "Innere Trägheit", "Apathie"]
+      }
+    ]
+  },
+  {
+    id: 6,
+    label: "Punkt 6: Mein aufsteigender Pfad (Von 2 nach 3)",
+    shortName: "Aufsteigender Pfad 2 ➔ 3",
+    question: "Wie erhebe ich mich aus dem gestörten Zustand (2) zur tugendhaften Behandlung (3)?",
+    description: "Erkennen Sie die absichtliche Handlung, die es Ihnen ermöglicht, Ihr Bewusstseinsniveau zu erhöhen, die Schleife von Leiden oder Wut zu durchbrechen und sich wieder mit der Tugend zu verbinden.",
+    helpDescription: "Wählen Sie die Brücke, die Ihnen hilft, in den lichten Zustand von Punkt 3 zurückzukehren:",
+    placeholder: "z.B. Ich drücke aus, was ich fühle und denke, Ich werde mir bewusst...",
+    type: "transition",
+    direction: "up",
+    fromId: 2,
+    toId: 3,
+    categories: [
+      {
+        categoryName: "Ehrliche Kommunikation",
+        words: ["Ich drücke aus, was ich fühle und denke", "Ich bitte mit Demut um Hilfe", "Ich erzähle ehrlich, was los ist", "Ich dialogisiere mit Offenheit", "Ich spreche von Herzen"]
+      },
+      {
+        categoryName: "Bewusstsein und Reflexion",
+        words: ["Ich reflektiere in Stille", "Ich erkenne die Mechanik", "Ich atme tief durch und beobachte", "Ich akzeptiere meinen Teil", "Ich meditiere in aller Ruhe"]
+      },
+      {
+        categoryName: "Mutiges Handeln",
+        words: ["Ich ergreife die Initiative zur Wiedergutmachung", "Ich riskiere es, mich zu verändern", "Ich handle mit Mut", "Ich übernehme Verantwortung für mich", "Ich entscheide mich, nicht zu schaden"]
+      }
+    ]
+  },
+  {
+    id: 7,
+    label: "Punkt 7: Mein absteigender Pfad (Von 4 nach 1)",
+    shortName: "Absteigender Pfad 4 ➔ 1",
+    question: "Wie falle ich von der alternativen gütigen Behandlung (4) in die reaktive Fehlbehandlung (1) zurück?",
+    description: "Identifizieren Sie, was Sie ermüdet oder frustriert, wenn Sie versuchen, eine gütige Behandlung aufrechtzuerhalten, sodass Sie die Geduld verlieren und wieder in eine gewalttätige oder ablehnende Haltung verfallen.",
+    helpDescription: "Wählen Sie aus, was Ihre Motivation dämpft und Sie wieder in schädliche Verhaltensweisen abgleiten lässt:",
+    placeholder: "z.B. Erschöpfung, Extreme Müdigkeit, Frustration...",
+    type: "transition",
+    direction: "down",
+    fromId: 4,
+    toId: 1,
+    categories: [
+      {
+        categoryName: "Müdigkeit und Sättigung",
+        words: ["Erschöpfung", "Angestaute Müdigkeit", "Mentale Sättigung", "Überforderung durch Routine", "Stress", "Energieverlust"]
+      },
+      {
+        categoryName: "Frustration und Enttäuschung",
+        words: ["Enttäuschung über den anderen", "Frustration, keine Veränderung zu sehen", "Pessimismus", "Desinteresse", "Groll/Trotz", "Das Gefühl, dass es sich nicht lohnt"]
+      },
+      {
+        categoryName: "Ungeduld und Reizbarkeit",
+        words: ["Ungeduld", "Unterdrückte Wut", "Null Toleranz", "Angestauter Ärger", "Ständige Reizung", "Wunsch zu bestrafen"]
+      }
+    ]
+  },
+  {
+    id: 8,
+    label: "Punkt 8: Mein aufsteigender Pfad (Von 1 nach 4)",
+    shortName: "Aufsteigender Pfad 1 ➔ 4",
+    question: "Wie erhebe ich mich aus der ablehnenden Haltung/Fehlbehandlung (1) zur alternativen gütigen Behandlung (4)?",
+    description: "Entdecken Sie die tiefe Absicht oder Handlung, die es Ihnen ermöglicht, Ablehnung zu überwinden, sich zu versöhnen und sich auf die konstruktive Handlung von Punkt 4 einzulassen.",
+    helpDescription: "Wählen Sie die tiefe Brücke aus, die Sie wieder mit der wohlwollenden Behandlung von Punkt 4 verbindet:",
+    placeholder: "z.B. Ich verbinde mich mit dem Menschlichen in mir und anderen, Ich vergebe...",
+    type: "transition",
+    direction: "up",
+    fromId: 1,
+    toId: 4,
+    categories: [
+      {
+        categoryName: "Menschliche Verbindung",
+        words: ["Ich verbinde mich mit dem Menschlichen in mir und anderen", "Ich betrachte den anderen als ebenbürtig", "Ich fühle Empathie für seinen Schmerz", "Ich suche das, was uns verbindet, nicht was uns trennt"]
+      },
+      {
+        categoryName: "Versöhnung und Mitgefühl",
+        words: ["Ich vergebe und lasse den Groll los", "Ich versöhne mich innerlich zutiefst", "Ich empfinde Mitgefühl für seine Unwissenheit", "Ich akzeptiere, dass wir alle Fehler machen"]
+      },
+      {
+        categoryName: "Liebe in Aktion",
+        words: ["Ich handle mit Wohlwollen", "Ich wünsche dem anderen von Herzen alles Gute", "Ich suche Einheit und Frieden", "Ich verpflichte mich zur Gewaltfreiheit"]
+      }
+    ]
+  }
+];
+
+export const STEPS_PT: StepConfig[] = [
+  {
+    id: 1,
+    label: "Ponto 1: O maltrato que rejeito",
+    shortName: "Maltrato que rejeito",
+    question: "Qual é o maltrato que rejeito?",
+    description: "Identifique aquela atitude, ação ou comportamento alheio que considera violento, doloroso ou inaceitável. É a situação externa que perturba o seu bem-estar.",
+    helpDescription: "Selecione o tipo de maltrato que mais ressoa consigo, ou escreva a sua própria palavra:",
+    placeholder: "Ex: Exclusão, Indiferença, Desqualificação...",
+    type: "dark",
+    categories: [
+      {
+        categoryName: "Exclusão e Indiferença",
+        words: ["Exclusão", "Indiferença", "Ignorado", "Rejeição", "Isolamento", "Desprezo", "Esquecimento", "Marginalidade", "Invisibilidade"]
+      },
+      {
+        categoryName: "Agressão e Desqualificação",
+        words: ["Agressão", "Insultos", "Gritos", "Humilhação", "Burlas", "Desqualificação", "Crítica", "Julgamento", "Menosprezo", "Desdém"]
+      },
+      {
+        categoryName: "Controlo e Dominação",
+        words: ["Submissão", "Manipulação", "Exigência", "Injustiça", "Controlo", "Abuso de poder", "Imposição", "Autoritarismo", "Mentira", "Traição"]
+      }
+    ]
+  },
+  {
+    id: 2,
+    label: "Ponto 2: Minha reação e estado",
+    shortName: "Minha reação / estado",
+    question: "Como me sinto e o que faço face a esse maltrato?",
+    description: "Reconheça a sua resposta mecânica perante o Ponto 1. Reflete o seu estado perturbado, a resposta defensiva, de raiva ou de sofrimento que surge automaticamente.",
+    helpDescription: "Selecione como costuma reagir ou sentir-se perante essa perturbação:",
+    placeholder: "Ex: Sofro e afasto-me, Grito com fúria, Culpo-me...",
+    type: "dark",
+    categories: [
+      {
+        categoryName: "Retraimento e Sofrimento",
+        words: ["Sofro e afasto-me", "Isolo-me", "Fico deprimido", "Calo-me com rancor", "Sinto culpa", "Resigno-me", "Sinto-me impotente"]
+      },
+      {
+        categoryName: "Raiva e Contra-ataque",
+        words: ["Grito com fúria", "Ataco de volta", "Busco vingança", "Irrito-me", "Reclamo com violência", "Discuto sem escutar", "Pago com a mesma moeda"]
+      },
+      {
+        categoryName: "Ansiedade e Paralisia",
+        words: ["Sinto medo e fujo", "Paraliso-me", "Fico angustiado", "Tensiono-me corporalmente", "Sinto desamparo", "Busco aprovação submissa"]
+      }
+    ]
+  },
+  {
+    id: 3,
+    label: "Ponto 3: O trato que peço e dou",
+    shortName: "O trato que peço / dou",
+    question: "Que trato peço a quem me maltratou para eu próprio o dar?",
+    description: "A virtude oposta ao Ponto 1. É o bom trato que gostaria de receber e que se compromete a dar primeiro, elevando o seu nível de consciência.",
+    helpDescription: "Selecione o bom trato inspirador que se opõe ao maltrato do Ponto 1:",
+    placeholder: "Ex: Consideração & inclusão, Apreço genuíno, Escuta ativa...",
+    type: "luminous",
+    categories: [
+      {
+        categoryName: "Inclusão e Acolhimento",
+        words: ["Consideração e inclusão", "Aceitação", "Acolhimento sincero", "Escuta atenta", "Reconhecimento", "Integração", "Proximidade"]
+      },
+      {
+        categoryName: "Afeto e Valorização",
+        words: ["Apreço genuíno", "Respeito profundo", "Amabilidade", "Tolerância", "Cuidado mútuo", "Compaixão", "Empatia", "Valorização"]
+      },
+      {
+        categoryName: "Liberdade e Paz",
+        words: ["Liberdade", "Confiança absoluta", "Apoio incondicional", "Justiça", "Compreensão", "Sinceridade", "Paz interior"]
+      }
+    ]
+  },
+  {
+    id: 4,
+    label: "Ponto 4: O bom trato alternativo",
+    shortName: "Bom trato alternativo",
+    question: "Como o faço? (Bom trato oposto à minha reação do Ponto 2)",
+    description: "A virtude oposta ao Ponto 2. É a ação consciente e construtiva que realiza em vez da sua reação mecânica habitual.",
+    helpDescription: "Selecione a ação virtuosa que neutraliza a reação negativa do Ponto 2:",
+    placeholder: "Ex: Aproximo-me & aprecio os outros, Dialogo com calma...",
+    type: "luminous",
+    categories: [
+      {
+        categoryName: "Aproximação e Valorização",
+        words: ["Aproximo-me e aprecio os outros", "Dialogo com honestidade", "Expresso o meu afeto", "Acompanho com paciência", "Valoro as virtudes do outro"]
+      },
+      {
+        categoryName: "Calma e Serenidade",
+        words: ["Respiro com calma", "Escuto com abertura", "Ajo sem pressa", "Procuro compreender antes de julgar", "Perdoo sinceramente", "Reconcilio-me"]
+      },
+      {
+        categoryName: "Firmeza e Autocuidado",
+        words: ["Defino limites saudáveis com amor", "Expresso-me com firmeza e calma", "Valoro-me a mim mesmo", "Confio na minha força interior", "Abro-me sem medo"]
+      }
+    ]
+  },
+  {
+    id: 5,
+    label: "Ponto 5: Meu caminho de queda (De 3 para 2)",
+    shortName: "Caminho de queda 3 ➔ 2",
+    question: "Como caio do trato virtuoso (3) para a reação mecânica (2)?",
+    description: "Identifique que atitude, crença, temor, expectativa ou vulnerabilidade sabota as suas boas intenções de trato e o faz cair de novo no sofrimento ou raiva.",
+    helpDescription: "Selecione o fator interno que o faz descender para a reatividade do Ponto 2:",
+    placeholder: "Ex: Insegurança, Expectativas frustradas, Orgulho...",
+    type: "transition",
+    direction: "down",
+    fromId: 3,
+    toId: 2,
+    categories: [
+      {
+        categoryName: "Insegurança e Dúvida",
+        words: ["Insegurança", "Desconfiança", "Dúvidas sobre mim mesmo", "Ciúmes", "Vulnerabilidade ferida", "Temor de rejeição"]
+      },
+      {
+        categoryName: "Expectativas e Orgulho",
+        words: ["Expectativas excessivas", "Orgulho ferido", "Soberba/Arrogância", "Vaidade", "Egoísmo", "Exigência perfeccionista"]
+      },
+      {
+        categoryName: "Fraqueza e Medo",
+        words: ["Medo de falhar", "Medo da dor", "Cobardia social", "Comodismo passivo", "Preguiça interna", "Apatia"]
+      }
+    ]
+  },
+  {
+    id: 6,
+    label: "Ponto 6: Meu caminho de subida (De 2 para 3)",
+    shortName: "Caminho de subida 2 ➔ 3",
+    question: "Como subo do estado perturbado (2) para o trato virtuoso (3)?",
+    description: "Reconheça a ação intencional que lhe permite elevar o seu nível de consciência, quebrar o ciclo de sofrimento ou raiva e reconectar-se com a virtude.",
+    helpDescription: "Selecione a ponte que o ajuda a voltar ao estado luminoso do Ponto 3:",
+    placeholder: "Ex: Expresso o que sinto e penso, Tomo consciência...",
+    type: "transition",
+    direction: "up",
+    fromId: 2,
+    toId: 3,
+    categories: [
+      {
+        categoryName: "Comunicação Honesta",
+        words: ["Expresso o que sinto e penso", "Peço ajuda com humildade", "Digo o que se passa com honestidade", "Dialogo com franqueza", "Falo a partir do coração"]
+      },
+      {
+        categoryName: "Consciência e Reflexão",
+        words: ["Reflicto em silêncio", "Dou-me conta da mecanicidade", "Respiro fundo e observo", "Aceito a minha parte", "Medito em calma"]
+      },
+      {
+        categoryName: "Ação Corajosa",
+        words: ["Tomo a iniciativa para reparar", "Arrisco-me a mudar", "Ajo com coragem", "Responsabilizo-me por mim", "Decido não causar dano"]
+      }
+    ]
+  },
+  {
+    id: 7,
+    label: "Ponto 7: Meu caminho de queda (De 4 para 1)",
+    shortName: "Caminho de queda 4 ➔ 1",
+    question: "Como caio do bom trato alternativo (4) para o maltrato reativo (1)?",
+    description: "Identifique o que o desgasta ou frustra quando tenta manter um bom trato, fazendo-o perder a paciência e cair de novo numa atitude violenta ou de rejeição.",
+    helpDescription: "Selecione o que desgasta a sua motivação e o faz cair de novo em condutas nocivas:",
+    placeholder: "Ex: Saturação, Cansaço extremo, Frustração...",
+    type: "transition",
+    direction: "down",
+    fromId: 4,
+    toId: 1,
+    categories: [
+      {
+        categoryName: "Cansaço e Saturação",
+        words: ["Saturação", "Cansaço acumulado", "Saturação mental", "Sobrecarga da rotina", "Stresse", "Desgaste de energia"]
+      },
+      {
+        categoryName: "Frustração e Deceção",
+        words: ["Deceção com o outro", "Frustração por não ver mudanças", "Pessimismo", "Desinteresse", "Rancor", "Sinto que não vale a pena"]
+      },
+      {
+        categoryName: "Impaciência e Irritabilidade",
+        words: ["Impaciência", "Ira contida", "Tolerância zero", "Aborrecimento acumulado", "Irritação constante", "Vontade de castigar"]
+      }
+    ]
+  },
+  {
+    id: 8,
+    label: "Ponto 8: Meu caminho de subida (De 1 para 4)",
+    shortName: "Caminho de subida 1 ➔ 4",
+    question: "Como subo da atitude de rejeição/maltrato (1) para o bom trato alternativo (4)?",
+    description: "Descubra a intenção ou ação profunda que lhe permite superar a rejeição, reconciliar-se e comprometer-se com a ação construtiva do Ponto 4.",
+    helpDescription: "Selecione a ponte profunda que o reconecta com o trato benevolente do Ponto 4:",
+    placeholder: "Ex: Conecto-me com o Humano em mim e nos outros, Perdoo...",
+    type: "transition",
+    direction: "up",
+    fromId: 1,
+    toId: 4,
+    categories: [
+      {
+        categoryName: "Conexão Humana",
+        words: ["Conecto-me com o Humano em mim e nos outros", "Miro o outro como um igual", "Sinto empatia com a sua dor", "Procuro o que nos une e não o que nos separa"]
+      },
+      {
+        categoryName: "Reconciliação e Compaixão",
+        words: ["Perdoo e liberto o rancor", "Reconcilio-me intimamente", "Sinto compaixão pela sua ignorância", "Aceito que todos falhamos"]
+      },
+      {
+        categoryName: "Amor em Ação",
+        words: ["Ajo com benevolência", "Desejo o bem-estar alheio de coração", "Procuro a unidade e a paz", "Comprometo-me com a não-violência"]
+      }
+    ]
+  }
+];
+
 export const RESOURCES_LIST_EN = [
   {
     type: "Book",
@@ -992,6 +2132,894 @@ export const EXAMPLES_LIST_EN = [
     },
     aforismo: "I act with direction instead of expectations, gaining serenity and elevating desire.",
     commentary: "It shows us that behavioral expectations disappear when we are in our center of gravity. We stop waiting for the other to change —or for ourselves to behave in a certain way— and we change ourselves, directing our actions and becoming protagonists."
+  },
+  {
+    id: "ex3_nuevo_libro",
+    title: "Anonymous Example 3: Overcoming Exclusion",
+    subtitle: "From an excluding attitude to considering and including by connecting with humanity",
+    description: "Resolved anonymous example on the Golden Rule. Explores how to free oneself from the tension of being excluded, replacing isolation with approaching and appreciating others.",
+    answers: {
+      1: "Excluding behavior",
+      2: "Suffering and withdrawing / isolating myself",
+      3: "Consideration and inclusion (Consider and include others)",
+      4: "Approaching and appreciating others",
+      5: "Insecurity",
+      6: "Expressing what I feel and think",
+      7: "Exhaustion / Weariness",
+      8: "Connecting with the Human in myself and others"
+    },
+    aforismo: "I express what I feel and think, connecting with the Human in myself and others.",
+    commentary: "In this solved anonymous example, the person transforms the rejection of others' exclusion (1) by identifying the treatment they want to receive and give (3. Consideration and inclusion). Instead of isolating themselves (2), they choose to approach and appreciate others (4)."
+  },
+  {
+    id: "ex4_nuevo_libro",
+    title: "Anonymous Example 4: Overcoming Demanding Behavior",
+    subtitle: "From a demanding attitude to flexibility, affection, and pedagogical action",
+    description: "Resolved anonymous example on the Golden Rule. Addresses the rejection of demanding behavior and the angry reaction, converting it into flexibility, affection, and pedagogical attitude.",
+    answers: {
+      1: "Demanding behavior",
+      2: "Angry / Expressing anger",
+      3: "Flexible and free (Giving flexibility and respecting freedom)",
+      4: "Acting with affection and kindness",
+      5: "Picky / Fussy",
+      6: "Breathing deeply (pausing the mechanical reaction)",
+      7: "Impatient",
+      8: "Acting pedagogically"
+    },
+    aforismo: "I breathe deeply and act pedagogically.",
+    commentary: "In this second anonymous example, faced with others' demands (1), the person pauses their angry response (2) by breathing deeply (6) and chooses to give flexibility and freedom (3), treating others with affection and kindness (4). They overcome demanding behavior by acting pedagogically (8)."
+  }
+];
+
+export const EXAMPLES_LIST_FR = [
+  {
+    id: "ex1",
+    title: "Exemple d'exercice anonyme 1",
+    subtitle: "Femme anonyme — Maltraitance et 'Nuisibles'",
+    description: "Dans cet exemple d'une femme anonyme, la maltraitance qu'elle rejette provient de 'ceux qui font du mal sans raison', qu'elle appelle les nuisibles (point 1). Face à eux, elle ressent de la peur et préfère passer inaperçue (point 2).",
+    answers: {
+      1: "Les nuisibles (faire du mal sans raison)",
+      2: "Craintive (peur, passer inaperçue)",
+      3: "Être protégée (me placer en protectrice)",
+      4: "Les apaiser",
+      5: "Dévalorisation (penser ne pas être nécessaire)",
+      6: "Dévouement et disponibilité",
+      7: "Bruit mental (ne pas penser ni réaliser)",
+      8: "Méditation, attention"
+    },
+    aforismo: "Je prends soin (de moi et des autres) en apaisant, disponible et attentive.",
+    commentary: "Cet exercice illustre la conversion des images : pour ne pas réagir avec peur face aux nuisibles, elle a besoin de se placer en personne bienveillante et protectrice."
+  },
+  {
+    id: "ex2",
+    title: "Exemple anonyme 2, sur les attentes",
+    subtitle: "Attentes, prudence et direction",
+    description: "Face à une situation donnée, j'agis parfois de manière insensée (point 1) et d'autres fois je me bloque par lâcheté (point 2).",
+    answers: {
+      1: "Agir de manière insensée",
+      2: "Se bloquer par lâcheté",
+      3: "Que l'insensé soit prudent",
+      4: "Agir avec courage",
+      5: "Peur",
+      6: "Sérénité",
+      7: "Désirs grossiers",
+      8: "Élever le désir"
+    },
+    aforismo: "J'agis avec direction plutôt qu'avec des attentes, gagnant en sérénité et élevant le désir.",
+    commentary: "Il nous montre que les attentes comportementales disparaissent lorsque nous sommes dans notre centre de gravité."
+  },
+  {
+    id: "ex3_nuevo_libro",
+    title: "Exemple anonyme 3 : Surpasser l'Exclusion",
+    subtitle: "D'une attitude d'exclusion à la considération et l'inclusion en se connectant à l'humain",
+    description: "Exemple anonyme résolu sur la Règle d'Or. Explore comment se libérer de la tension d'être exclu, en remplaçant l'isolement par le rapprochement et l'appréciation des autres.",
+    answers: {
+      1: "Comportement d'exclusion",
+      2: "Souffrir et me retirer / m'isoler",
+      3: "Considération et inclusion (Considérer et inclure les autres)",
+      4: "S'approcher et apprécier les autres",
+      5: "Insécurité",
+      6: "Exprimer ce que je ressens et pense",
+      7: "Épuisement / Lassitude",
+      8: "Connecter avec l'Humain en moi et chez les autres"
+    },
+    aforismo: "J'exprime ce que je ressens et pense, en me connectant avec l'Humain en moi et chez les autres.",
+    commentary: "Dans cet exemple anonyme résolu, la personne transforme le rejet de l'exclusion des autres (1) en identifiant le traitement qu'elle souhaite recevoir et donner (3. Considération et inclusion)."
+  },
+  {
+    id: "ex4_nuevo_libro",
+    title: "Exemple anonyme 4 : Surpasser l'Exigence",
+    subtitle: "D'une attitude d'exigence à la flexibilité, la bienveillance et l'attitude pédagogique",
+    description: "Exemple anonyme résolu sur la Règle d'Or. Aborde le rejet de l'exigence des autres et la réaction de colère, la convertissant en flexibilité, affection et attitude pédagogique.",
+    answers: {
+      1: "Comportement exigeant",
+      2: "En colère / Exprimer la colère",
+      3: "Flexible et libre (Donner de la flexibilité et respecter la liberté)",
+      4: "Agir avec affection et bienveillance",
+      5: "Pilleur / Exigeant",
+      6: "Respirer profondément (arrêter la réaction mécanique)",
+      7: "Impatient",
+      8: "Agir de manière pédagogique"
+    },
+    aforismo: "Je respire profondément et j'agis de manière pédagogique.",
+    commentary: "Dans ce second exemple anonyme, face aux exigences des autres (1), la personne stoppe sa réaction de colère (2) en respirant profondément (6) et choisit la flexibilité et la liberté (3)."
+  }
+];
+
+export const EXAMPLES_LIST_DE = [
+  {
+    id: "ex1",
+    title: "Anonymes Übungsbeispiel 1",
+    subtitle: "Anonyme Frau — Fehlbehandlung und 'Schädiger'",
+    description: "In diesem Beispiel einer anonymen Frau lehnt sie die Fehlbehandlung durch 'jene, die grundlos schaden' ab (Punkt 1). Ihnen gegenüber empfindet sie Angst und möchte unbemerkt bleiben (Punkt 2).",
+    answers: {
+      1: "Die Schädiger (grundloser Schaden)",
+      2: "Ängstlich (Angst, unbemerkt bleiben)",
+      3: "Beschützt werden (mich als Fürsorgende einsetzen)",
+      4: "Sie beruhigen",
+      5: "Entwertung (denken, nicht nötig zu sein)",
+      6: "Hingabe und Verfügbarkeit",
+      7: "Mentaler Lärm (weder denken noch bemerken)",
+      8: "Meditation, Aufmerksamkeit"
+    },
+    aforismo: "Ich sorge (für mich und andere), indem ich beruhige, verfügbar und aufmerksam bin.",
+    commentary: "Diese Übung illustriert die Wandlung von Bildern: Um nicht mit Angst auf Schädiger zu reagieren, muss sie sich als fürsorglich und gut einsetzen."
+  },
+  {
+    id: "ex2",
+    title: "Anonymes Beispiel 2, über Erwartungen",
+    subtitle: "Erwartungen, Umsicht und Ausrichtung",
+    description: "In einer gegebenen Situation handle ich manchmal unvernünftig (Punkt 1) und blockiere mich ein anderes Mal aus Feigheit (Punkt 2).",
+    answers: {
+      1: "Unvernünftig handeln",
+      2: "Aus Feigheit blockieren",
+      3: "Dass der Unvernünftige umsichtig sei",
+      4: "Mit Mut handeln",
+      5: "Angst",
+      6: "Gelassenheit",
+      7: "Grobe Wünsche",
+      8: "Den Wunsch erheben"
+    },
+    aforismo: "Ich handle mit Ausrichtung statt mit Erwartungen, gewinne Gelassenheit und erhebe den Wunsch.",
+    commentary: "Es zeigt uns, dass Verhaltenserwartungen verschwinden, wenn wir uns in unserem Schwergewicht befinden."
+  },
+  {
+    id: "ex3_nuevo_libro",
+    title: "Anonymes Beispiel 3: Überwindung von Ausschluss",
+    subtitle: "Von einer ausschließenden Haltung zu Berücksichtigung und Einbeziehung",
+    description: "Gelöstes anonymes Beispiel zur Goldenen Regel. Erkundet, wie man sich von der Spannung des Ausgeschlossenseins befreit, indem man Isolation durch Annäherung ersetzt.",
+    answers: {
+      1: "Ausschließendes Verhalten",
+      2: "Leiden und mich zurückziehen / isolieren",
+      3: "Rücksicht und Einbeziehung (Andere berücksichtigen)",
+      4: "Sich annähern und andere schätzen",
+      5: "Unsicherheit",
+      6: "Ausdrücken, was ich fühle und denke",
+      7: "Erschöpfung / Überdruss",
+      8: "Verbindung mit dem Menschlichen in mir und anderen"
+    },
+    aforismo: "Ich drücke aus, was ich fühle und denke, und verbinde mich mit dem Menschlichen in mir und anderen.",
+    commentary: "In diesem gelösten anonymen Beispiel verwandelt die Person die Ablehnung fremden Ausschlusses (1), indem sie die Behandlung identifiziert, die sie geben und empfangen möchte (3)."
+  },
+  {
+    id: "ex4_nuevo_libro",
+    title: "Anonymes Beispiel 4: Überwindung von Forderung",
+    subtitle: "Von fordernder Haltung zu Flexibilität, Freundlichkeit und pädagogischem Handeln",
+    description: "Gelöstes anonymes Beispiel zur Goldenen Regel. Behandelt die Ablehnung fremder Forderungen und wütender Reaktionen und wandelt sie in Flexibilität und pädagogische Haltung.",
+    answers: {
+      1: "Forderndes Verhalten",
+      2: "Wütend / Wut ausdrücken",
+      3: "Flexibel und frei (Flexibilität geben und Freiheit achten)",
+      4: "Mit Zuneigung und Freundlichkeit handeln",
+      5: "Kleinlich",
+      6: "Tief durchatmen (mechanische Reaktion stoppen)",
+      7: "Ungeduldig",
+      8: "Pädagogisch handeln"
+    },
+    aforismo: "Ich atme tief durch und handle pädagogisch.",
+    commentary: "In diesem zweiten anonymen Beispiel stoppt die Person angesichts fremder Forderungen (1) ihre wütende Reaktion (2) durch tiefes Durchatmen (6) und wählt Flexibilität und Freiheit (3)."
+  }
+];
+
+export const EXAMPLES_LIST_PT = [
+  {
+    id: "ex1",
+    title: "Exemplo de Exercício Anônimo 1",
+    subtitle: "Mulher anônima — Maltrato e 'Prejudicadores'",
+    description: "Neste exemplo de uma mulher anônima, o maltrato que ela rejeita vem de 'aqueles que fazem mal sem motivo' (ponto 1). Diante deles, sente medo e prefere passar despercebida (ponto 2).",
+    answers: {
+      1: "Os perjudicadores (fazer mal sem motivo)",
+      2: "Com medo (temor, passar despercebida)",
+      3: "Ser cuidada (posicionar-me como cuidadora)",
+      4: "Acalmá-los",
+      5: "Desvalorização (pensar não ser necessária)",
+      6: "Entrega e disponibilidade",
+      7: "Ruído mental (nem pensar nem perceber)",
+      8: "Meditação, atenção"
+    },
+    aforismo: "Cuido (de mim e dos outros) acalmando, disponível e atenta.",
+    commentary: "Este exercício ilustra a conversão de imagens: para não reagir com medo diante dos perjudicadores, ela precisa se posicionar como cuidadora e boa."
+  },
+  {
+    id: "ex2",
+    title: "Exemplo Anônimo 2, sobre Expectativas",
+    subtitle: "Expectativas, prudência e direção",
+    description: "Diante de uma situação, às vezes me comporto de forma sensata (ponto 1) e outras vezes me bloqueio por covardia (ponto 2).",
+    answers: {
+      1: "Agir de forma insensata",
+      2: "Bloquear-me por covardia",
+      3: "Que o insensato seja prudente",
+      4: "Comportar-me com coragem",
+      5: "Medo",
+      6: "Serenidade",
+      7: "Desejos grosseiros",
+      8: "Elevar o desejo"
+    },
+    aforismo: "Agrejo com direção em vez de expectativas, ganhando serenidade e elevando o desejo.",
+    commentary: "Mostra-nos que as expectativas comportamentais desaparecem quando estamos no nosso centro de gravidade."
+  },
+  {
+    id: "ex3_nuevo_libro",
+    title: "Exemplo Anônimo 3: Superação da Exclusão",
+    subtitle: "Da atitude de exclusão para considerar e incluir conectando com o humano",
+    description: "Exemplo anônimo resolvido sobre a Regra de Ouro. Explora como libertar-se da tensão de ser excluído, substituindo o isolamento pela aproximação e apreço pelos outros.",
+    answers: {
+      1: "Comportamento de exclusão",
+      2: "Sofrer e afastar-me / isolar-me",
+      3: "Consideração e inclusão (Considerar e incluir outros)",
+      4: "Aproximar-me e apreciar os outros",
+      5: "Insegurança",
+      6: "Expresso o que sinto e penso",
+      7: "Cansaço / Esgotamento",
+      8: "Conectar com o Humano em mim e nos outros"
+    },
+    aforismo: "Expresso o que sinto e penso, conectando com o Humano em mim e nos outros.",
+    commentary: "Neste exemplo anônimo resolvido, a pessoa transforma a rejeição da exclusão alheia (1) identificando o tratamento que deseja receber e dar (3. Consideração e inclusão)."
+  },
+  {
+    id: "ex4_nuevo_libro",
+    title: "Exemplo Anônimo 4: Superação da Exigência",
+    subtitle: "Da atitude de exigência para a flexibilidade, afeto e atitude pedagógica",
+    description: "Exemplo anônimo resolvido sobre a Regra de Ouro. Aborda a rejeição da exigência alheia e a reação irada, convertendo-a em flexibilidade, afeto e atitude pedagógica.",
+    answers: {
+      1: "Comportamento de exigência",
+      2: "Irritado / Expressar raiva",
+      3: "Flexível e livre (Dar flexibilidade e respeitar a liberdade)",
+      4: "Agir com afeto e gentileza",
+      5: "Exigente / Exagerado",
+      6: "Respirar profundamente (pausar a reação mecânica)",
+      7: "Impaciente",
+      8: "Agir pedagogicamente"
+    },
+    aforismo: "Respiro profundamente e agindo pedagogicamente.",
+    commentary: "Neste segundo exemplo anônimo, diante da exigência alheia (1), a pessoa pausa sua resposta irada (2) respirando profundamente (6) e escolhe dar flexibilidade e liberdade (3)."
+  }
+];
+
+export const TESTIMONIALS_LIST_FR = [
+  {
+    author: "T. R.",
+    title: "Ce que je ne voulais pas voir",
+    tag: "Découverte",
+    content: "À partir d'un exercice posant une question sur une situation douloureuse, j'ai compris que cette attitude était aussi en moi. J'ai réalisé que l'autre me montrait ce que je ne voulais pas voir en moi-même. En appliquant la Règle d'Or, j'ai gagné en paix et en réconciliation."
+  },
+  {
+    author: "G. T.",
+    title: "Transformateur",
+    tag: "Sens",
+    content: "D'après mon expérience, l'application de la Règle d'Or est véritablement transformatrice. Reconnaître comme violence en moi le même mauvais traitement que je rejette chez l'autre m'a permis d'évoluer profondément."
+  },
+  {
+    author: "N. M.",
+    title: "Paysage Intérieur",
+    tag: "Réflexion",
+    content: "Ce travail m'a conduit à comprendre que les conflits vécus avec autrui sont liés à mon paysage intérieur et non à des causes extérieures hors de contrôle. Le travail en groupe crée une véritable inspiration mutuelle."
+  },
+  {
+    author: "F. F.",
+    title: "Un cadeau de la vie",
+    tag: "Intégration",
+    content: "L'autre est un cadeau que la vie m'offre pour grandir, me libérer et apprendre à traiter les autres comme je veux être traité. Je me réconcilie avec moi-même et je me libère des tensions."
+  },
+  {
+    author: "G. R.",
+    title: "Une autre réalité est possible",
+    tag: "Paix Intérieure",
+    content: "La Règle d'Or m'a fait découvrir qu'une autre réalité est possible. En orientant mon comportement vers le bon traitement reciproque, j'ai gagné en sérénité et en sécurité intérieure."
+  },
+  {
+    author: "G. G.",
+    title: "Compréhension et Réconciliation",
+    tag: "Réconciliation",
+    content: "Cet exercice a été un cadre idéal pour traiter mon monde intérieur. Il m'a aidé à découvrir les vertus des autres et à transformer mes défauts en opportunités de croissance."
+  },
+  {
+    author: "C. E.",
+    title: "L'aide des rêves",
+    tag: "Rêve",
+    content: "L'exercice de la Règle d'Or a été essentiel dans ma vie. Reconnaître que ce que je rejette chez les autres est en moi a été une étape clé, parfois facilitée par la prise de conscience dans les rêves."
+  },
+  {
+    author: "A. C.",
+    title: "S'appuyer sur les Vertus",
+    tag: "Vertus",
+    content: "Cette pratique m'a permis de développer une empathie profonde, de me mettre à la place de l'autre et d'être fière de mes vertus. Elle me donne une force intérieure inestimable."
+  },
+  {
+    author: "M. K.",
+    title: "Quatre Apprentissages Profonds",
+    tag: "Apprentissage",
+    content: "Cet exercice a littéralement changé ma vie. Prendre conscience de mes projections m'a libérée de la victimisation et m'a permis une réconciliation profonde avec moi-même."
+  }
+];
+
+export const TESTIMONIALS_LIST_DE = [
+  {
+    author: "T. R.",
+    title: "Was ich nicht sehen wollte",
+    tag: "Entdeckung",
+    content: "Durch eine Übung verstand ich, dass das Verhalten, das ich am anderen ablehnte, auch in mir existierte. Die Goldene Regel half mir, mich zu versöhnen und voller Aufmerksamkeit zu handeln."
+  },
+  {
+    author: "G. T.",
+    title: "Transformierend",
+    tag: "Sinn",
+    content: "Die Anwendung der Goldenen Regel ist wirklich transformierend. Zu erkennen, dass dieselbe Gewalt in mir liegt, die ich beim anderen ablehne, hat meine Perspektive verändert."
+  },
+  {
+    author: "N. M.",
+    title: "Innere Landschaft",
+    tag: "Reflexion",
+    content: "Diese Arbeit führte mich zu dem Verständnis, dass Konflikte mit meiner inneren Landschaft zusammenhängen. Die Gruppenarbeit war dabei eine große gegenseitige Inspiration."
+  },
+  {
+    author: "F. F.",
+    title: "Ein Geschenk des Lebens",
+    tag: "Integration",
+    content: "Der andere ist ein Geschenk des Lebens, um zu wachsen und zu lernen, andere so zu behandeln, wie ich behandelt werden möchte. Ich versöhne mich mit mir selbst."
+  },
+  {
+    author: "G. R.",
+    title: "Eine andere Realität ist möglich",
+    tag: "Innerer Frieden",
+    content: "Die Goldene Regel ließ mich erkennen, dass eine andere Realität möglich ist. Ich habe inneren Frieden gewonnen und sehe andere als ein anderes Ich."
+  },
+  {
+    author: "G. G.",
+    title: "Verständnis und Versöhnung",
+    tag: "Versöhnung",
+    content: "Diese Übung war ein Rahmen zur Verarbeitung meiner inneren Welt. Sie half mir bei der Versöhnung mit mir selbst und verbesserte meine Beziehungen."
+  },
+  {
+    author: "C. E.",
+    title: "Die Hilfe der Träume",
+    tag: "Traum",
+    content: "Zu erkennen, dass das, was ich an anderen ablehne, in mir ist, war ein Durchbruch. Träume halfen mir in den ersten Phasen der Praxis."
+  },
+  {
+    author: "A. C.",
+    title: "Sich auf Tugenden stützen",
+    tag: "Tugenden",
+    content: "Die Goldene Regel ermöglicht mir tiefes Einfühlungsvermögen und zeigt mir meine eigenen Tugenden, auf die ich stolz sein kann."
+  },
+  {
+    author: "M. K.",
+    title: "Vier tiefe Erkenntnisse",
+    tag: "Lernen",
+    content: "Diese Übung hat mein Leben verändert. Die Opferrolle abzulegen und mich auf meine Tugenden zu konzentrieren, brachte tiefe Befreiung."
+  }
+];
+
+export const TESTIMONIALS_LIST_PT = [
+  {
+    author: "T. R.",
+    title: "O que eu não queria ver",
+    tag: "Descoberta",
+    content: "A partir de um exercício, compreendi que a atitude que eu criticava no outro também estava em mim. A Regra de Ouro abriu o futuro e me ajudou na reconciliação."
+  },
+  {
+    author: "G. T.",
+    title: "Transformadora",
+    tag: "Sentido",
+    content: "A aplicação da Regra de Ouro é verdadeiramente transformadora. Reconhecer a violência em mim mesma me permitiu fortalecer atitudes de paz."
+  },
+  {
+    author: "N. M.",
+    title: "Paisagem Interna",
+    tag: "Reflexão",
+    content: "Compreendi que os conflitos com os outros têm a ver com minha paisagem interna. O trabalho em grupo foi essencial para essa transformação."
+  },
+  {
+    author: "F. F.",
+    title: "Um presente da vida",
+    tag: "Integração",
+    content: "O outro é um presente da vida para crescer, libertar-me e tratar os outros como quero ser tratado. Reconcilio-me e acalmo o espírito."
+  },
+  {
+    author: "G. R.",
+    title: "Outra realidade é possível",
+    tag: "Paz Interior",
+    content: "A Regra de Ouro me fez ver que outra realidade é possível. Ganhei paz interior e passei a ver os outros como outro eu."
+  },
+  {
+    author: "G. G.",
+    title: "Compreensão e Reconciliação",
+    tag: "Reconciliação",
+    content: "Este exercício ajudou no meu processo de reconciliação interna e permitiu transformar defeitos em virtudes ativas."
+  },
+  {
+    author: "C. E.",
+    title: "A ajuda dos sonhos",
+    tag: "Onírico",
+    content: "Compreender que o que rejeito no outro está em mim foi fundamental para meu autoconhecimento e crescimento pessoal."
+  },
+  {
+    author: "A. C.",
+    title: "Apoiar-me nas Virtudes",
+    tag: "Virtudes",
+    content: "Permite-me empatizar, colocar-me no lugar do outro e sentir orgulho das minhas virtudes para crescer com força interna."
+  },
+  {
+    author: "M. K.",
+    title: "Quatro Aprendizados Profundos",
+    tag: "Aprendizado",
+    content: "Mudou literalmente minha vida. Parar de me sentir vítima e focar na reconciliação e nas virtudes me trouxe profunda libertação."
+  }
+];
+
+export const GLOSSARY_TERMS_FR = [
+  { term: "Aphorisme", definition: "Phrase ou déclaration courte servant de guide d'action pour surmonter la contradiction et la souffrance. Silo dit : 'Les pensées répétées avec foi produisent et attirent le maximum de force dans les actions'.", tag: "Action" as const },
+  { term: "Cénesthésie", definition: "Sens interne (ou interoception) qui fournit des données sur la pression, la température, la tension, la relaxation et l'état interne de l'organisme.", tag: "States" as const },
+  { term: "Centres de réponses", definition: "Mécanismes du psychisme répondant aux sensations : intellectuel, moteur, émotif, sexuel et végétatif.", tag: "Methodology" as const },
+  { term: "Climat", definition: "Arrière-plan émotif dans lequel tout objet ou situation prend la couleur de cet état d'esprit.", tag: "States" as const },
+  { term: "Compulsion", definition: "Impulsion ou désir intense d'accomplir une action sans motif rationnel.", tag: "States" as const },
+  { term: "Conscience (niveaux de)", definition: "Différents modes de travail du circuit conscience-sens-mémoire : sommeil profond, demi-sommeil et veille.", tag: "States" as const },
+  { term: "Rêveries (Ensueños)", definition: "Images et pensées qui apparaissent dans l'état de veille et entravent le travail de l'attention.", tag: "States" as const },
+  { term: "Guide intérieur", definition: "Allégorie concrétisant des attributs de bonté, sagesse et force pour orienter l'action inspirée.", tag: "Action" as const },
+  { term: "Humanisme Universaliste", definition: "Aussi appelé Nouvel Humanisme, caractérisé par l'attitude humaniste et la non-violence active.", tag: "Methodology" as const },
+  { term: "Kinesthésie", definition: "Sens interne (proprioception) fournissant des données sur le mouvement, la posture et l'équilibre physique.", tag: "States" as const },
+  { term: "Mécanicité", definition: "Attitude répétitive et automatique qui transforme l'être humain en automate privé de réflexion.", tag: "States" as const },
+  { term: "Noyau de rêverie", definition: "Climat mental fixe et répétitif qui oriente inconsciemment les actions et la conduite.", tag: "States" as const },
+  { term: "Nœud biographique", definition: "Conflit interne apparu durant l'enfance, souvent associé à une douleur non résolue.", tag: "States" as const },
+  { term: "Opérative", definition: "Ensemble d'opérations techniques permettant de modifier, convertir ou réorienter le comportement.", tag: "Action" as const },
+  { term: "Paysage de formation", definition: "Ensemble des événements et croyances vécus depuis l'enfance formant l'arrière-plan d'interprétation.", tag: "Methodology" as const },
+  { term: "Paysage externe", definition: "Configuration de la réalité extérieure perçue par les sens et structurée par la conscience.", tag: "Methodology" as const },
+  { term: "Paysage humain", definition: "Perception des autres êtres humains, de la société et des intentions qui s'y expriment.", tag: "Methodology" as const },
+  { term: "Paysage interne", definition: "Configuration de la réalité intérieure correspondant à la perception des sens internes et de la mémoire.", tag: "Methodology" as const },
+  { term: "Perception", definition: "Structure associant la donnée sensorielle à l'activité structurante du sens.", tag: "Methodology" as const },
+  { term: "Projection", definition: "Mécanisme consistant à attribuer aux autres des sentiments ou aspects de soi non acceptés.", tag: "States" as const },
+  { term: "Registre", definition: "Expérience de la sensation produite par des stimulations externes, internes ou mnésiques.", tag: "Methodology" as const },
+  { term: "Représentation", definition: "Phénomène de mémoire réapparaissant dans le champ de présence de la conscience.", tag: "Methodology" as const },
+  { term: "Réversibilité", definition: "Faculté de la conscience à diriger son attention vers ses propres sources d'information.", tag: "Methodology" as const },
+  { term: "Siloïsme", definition: "Système de pensée et d'action développé par Silo (Mario Rodríguez Cobos), fondé sur le Nouvel Humanisme.", tag: "Methodology" as const },
+  { term: "Psychisme", definition: "Système intégré et autorégulé comprenant sens, mémoire, coordinateur, niveaux et centres.", tag: "Methodology" as const },
+  { term: "Transfert", definition: "Technique opérative permettant de décharger les tensions internes et de réorienter les charges psychiques.", tag: "Action" as const }
+];
+
+export const GLOSSARY_TERMS_DE = [
+  { term: "Leitgedanke (Aphorismus)", definition: "Kurzer Satz als Handlungserklärung zur Überwindung von Widerspruch und Leiden. Silo sagt: 'Mit Glauben wiederholte Gedanken erzeugen und ziehen die maximale Kraft in Handlungen an'.", tag: "Action" as const },
+  { term: "Coenästhesie", definition: "Innerer Sinn (Interozeption), der Daten über Druck, Temperatur, Spannung, Entspannung und den inneren Zustand liefert.", tag: "States" as const },
+  { term: "Antwortzentren", definition: "Mechanismen der Psyche, die auf Empfindungen antworten: intellektuell, motorisch, emotional, virtuell und vegetativ.", tag: "Methodology" as const },
+  { term: "Klima", definition: "Emotionaler Hintergrund, in dem jedes Objekt oder jede Situation die Farbe dieser Stimmung annimmt.", tag: "States" as const },
+  { term: "Zwang (Kompulsion)", definition: "Intensiver Impuls oder Drang, eine Handlung ohne rationalen Grund auszuführen.", tag: "States" as const },
+  { term: "Bewusstsein (Ebenen des)", definition: "Verschiedene Arbeitsweisen des Bewusstseinskreises: Tiefschlaf, Halbschlaf und Wachbewusstsein.", tag: "States" as const },
+  { term: "Tagträume (Ensueños)", definition: "Bilder und Gedanken im Wachzustand, die die Aufmerksamkeit beeinträchtigen.", tag: "States" as const },
+  { term: "Innerer Führer", definition: "Allegorie, die Güte, Weisheit und Kraft zur Orientierung inspirierter Handlungen verkörpert.", tag: "Action" as const },
+  { term: "Universalistischer Humanismus", definition: "Auch Neuer Humanismus genannt, geprägt durch die humanistische Haltung und aktive Gewaltfreiheit.", tag: "Methodology" as const },
+  { term: "Kinästhesie", definition: "Innerer Sinn (Propriozeption) für Bewegung, Körperhaltung und physisches Gleichgewicht.", tag: "States" as const },
+  { term: "Mechanizität", definition: "Automatische und wiederholende Haltung, die den Menschen in einen Roboter ohne Reflexion verwandelt.", tag: "States" as const },
+  { term: "Tagtraumkern", definition: "Fester emotionaler Hintergrund, der unbewusst Handlungen und Verhalten orientiert.", tag: "States" as const },
+  { term: "Biografischer Knoten", definition: "Innerer Konflikt aus der Kindheit, oft mit ungelöstem Schmerz verbunden.", tag: "States" as const },
+  { term: "Operativik", definition: "Methodische Operationen zur Umwandlung und Neuausrichtung des Verhaltens.", tag: "Action" as const },
+  { term: "Prägungslandschaft", definition: "Erlebnisse und Überzeugungen seit der Kindheit, die als Interpretationshintergrund dienen.", tag: "Methodology" as const },
+  { term: "Äußere Landschaft", definition: "Konfiguration der äußeren Realität, wahrgenommen durch die Sinne und strukturiert vom Bewusstsein.", tag: "Methodology" as const },
+  { term: "Menschliche Landschaft", definition: "Wahrnehmung anderer Menschen, der Gesellschaft und der darin ausgedrückten Absichten.", tag: "Methodology" as const },
+  { term: "Innere Landschaft", definition: "Konfiguration der inneren Realität entsprechend den inneren Sinnen und Erinnerungen.", tag: "Methodology" as const },
+  { term: "Wahrnehmung", definition: "Struktur, die Sinnesdaten mit der strukturierenden Aktivität des Sinnes verbindet.", tag: "Methodology" as const },
+  { term: "Projektion", definition: "Mechanismus, eigene unangenommene Gefühle oder Eigenschaften auf andere zu übertragen.", tag: "States" as const },
+  { term: "Registrierzeugnis", definition: "Erfahrung der Empfindung durch äußere, innere oder Erinnerungsreize.", tag: "Methodology" as const },
+  { term: "Repräsentation", definition: "Erinnerungsphänomen, das im Präsenzfeld des Bewusstseins wieder auftaucht.", tag: "Methodology" as const },
+  { term: "Reversibilität", definition: "Fähigkeit des Bewusstseins, seine Aufmerksamkeit auf die eigenen Informationsquellen zu richten.", tag: "Methodology" as const },
+  { term: "Siloissoismus", definition: "Denk- und Handlungssystem von Silo (Mario Rodríguez Cobos) auf der Grundlage des Neuen Humanismus.", tag: "Methodology" as const },
+  { term: "Psyche (Psiquismo)", definition: "Integriertes und selbstregulierendes System aus Sinnen, Gedächtnis, Koordinator und Zentren.", tag: "Methodology" as const },
+  { term: "Übertragung (Transferenz)", definition: "Operative Technik zur Entladung innerer Spannungen und Neuausrichtung psychischer Ladungen.", tag: "Action" as const }
+];
+
+export const GLOSSARY_TERMS_PT = [
+  { term: "Aforismo", definition: "Frase ou declaração curta que funciona como guia de ação para superar a contradição e o sofrimento. Silo diz: 'Os pensamentos repetidos com fé produzem e atraem o máximo de força nas ações'.", tag: "Action" as const },
+  { term: "Cenestesia", definition: "Sentido interno (interocepção) que fornece dados sobre pressão, temperatura, tensão, relaxamento e estado interno do organismo.", tag: "States" as const },
+  { term: "Centros de respostas", definition: "Mecanismos do psiquismo que respondem às sensações: intelectual, motor, emotivo, sexual e vegetativo.", tag: "Methodology" as const },
+  { term: "Clima", definition: "Pano de fundo emotivo no qual qualquer objeto ou situação ganha a cor desse estado de espírito.", tag: "States" as const },
+  { term: "Compulsão", definition: "Impulso ou desejo intenso de realizar uma ação sem motivo racional.", tag: "States" as const },
+  { term: "Consciência (níveis de)", definition: "Diferentes modos de trabalho do circuito consciência-sentidos-memória: sono profundo, semissono e vigília.", tag: "States" as const },
+  { term: "Ensonhos", definition: "Imagens e pensamentos no estado de vigília que dificultam o trabalho da atenção.", tag: "States" as const },
+  { term: "Guia interior", definition: "Alegoria que concretiza atributos de bondade, sabedoria e força para orientar a ação inspirada.", tag: "Action" as const },
+  { term: "Humanismo Universalista", definition: "Também chamado Novo Humanismo, caracterizado pela atitude humanista e não-violência ativa.", tag: "Methodology" as const },
+  { term: "Cinestesia", definition: "Sentido interno (propriocepção) para movimento, postura e equilíbrio físico.", tag: "States" as const },
+  { term: "Mecanicidade", definition: "Atitude repetitiva e automática que transforma o ser humano num autómato sem reflexão.", tag: "States" as const },
+  { term: "Núcleo de ensonho", definition: "Clima mental fixo e repetitivo que orienta inconscientemente ações e condutas.", tag: "States" as const },
+  { term: "Nó biográfico", definition: "Conflito interno surgido na infância, frequentemente associado a uma dor não resolvida.", tag: "States" as const },
+  { term: "Operativa", definition: "Conjunto de operações técnicas para modificar, converter ou reorientar o comportamento.", tag: "Action" as const },
+  { term: "Paisagem de formação", definition: "Acontecimentos e crenças vividos desde a infância que formam o pano de fundo de interpretação.", tag: "Methodology" as const },
+  { term: "Paisagem externa", definition: "Configuração da realidade externa percebida pelos sentidos e estruturada pela consciência.", tag: "Methodology" as const },
+  { term: "Paisagem humana", definition: "Percepção dos outros seres humanos, da sociedade e das intenções aí expressas.", tag: "Methodology" as const },
+  { term: "Paisagem interna", definition: "Configuração da realidade interna correspondente à percepção dos sentidos internos e da memória.", tag: "Methodology" as const },
+  { term: "Percepção", definition: "Estrutura que associa o dado sensorial à atividade estruturante do sentido.", tag: "Methodology" as const },
+  { term: "Projeção", definition: "Mecanismo que consiste em atribuir aos outros sentimentos ou aspetos não aceites de si mesmo.", tag: "States" as const },
+  { term: "Registo", definition: "Experiência da sensação produzida por estímulos externos, internos ou de memória.", tag: "Methodology" as const },
+  { term: "Representação", definition: "Fenómeno de memória que reaparece no campo de presença da consciência.", tag: "Methodology" as const },
+  { term: "Reversibilidade", definition: "Faculdade da consciência de dirigir a sua atenção para as suas próprias fontes de informação.", tag: "Methodology" as const },
+  { term: "Siloismo", definition: "Sistema de pensamento e ação desenvolvido por Silo (Mario Rodríguez Cobos), baseado no Novo Humanismo.", tag: "Methodology" as const },
+  { term: "Psiquismo", definition: "Sistema integrado e autorregulado composto por sentidos, memória, coordenador e centros.", tag: "Methodology" as const },
+  { term: "Transferência", definition: "Técnica operativa para descarregar tensões internas e reorientar cargas psíquicas.", tag: "Action" as const }
+];
+
+export const RESOURCES_LIST_FR = [
+  {
+    type: "Livre",
+    title: "La Règle d'Or de la Non-Violence",
+    author: "Roberto Kohanoff et Isabel Lazzaroni",
+    publisher: "Ediciones León Alado",
+    year: "2023",
+    description: "Ouvrage de référence fruit de 30 ans de recherches et d'expérimentation sur la Règle d'Or et la méthode d'autoréflexion.",
+    url: "http://edicionesleonalado.net"
+  },
+  {
+    type: "Livre",
+    title: "Le Regard Intérieur",
+    author: "Silo",
+    publisher: "Editorial ATE, Barcelone",
+    year: "1979",
+    description: "Œuvre fondatrice de la pensée de Silo, invitant à l'introspection profonde et au sens de l'existence."
+  },
+  {
+    type: "Livre",
+    title: "Le Message de Silo",
+    author: "Silo",
+    publisher: "Editorial EDAF, Madrid",
+    year: "2008",
+    description: "Synthèse de la dimension spirituelle de sa pensée, proposant une voie de réconciliation et de réalisation."
+  },
+  {
+    type: "Livre",
+    title: "Dictionnaire du Nouvel Humanisme",
+    author: "Silo",
+    publisher: "Ediciones León Alado, Madrid",
+    year: "2014",
+    description: "Outil de référence indispensable pour comprendre la terminologie philosophique du Nouvel Humanisme."
+  },
+  {
+    type: "Conférence",
+    title: "Commentaires sur la Règle d'Or",
+    author: "Silo",
+    year: "17 Décembre 1995",
+    description: "Conférence prononcée à Mendoza (Argentine) détaillant la portée de la réciprocité et les lois de l'action valide."
+  },
+  {
+    type: "Discours",
+    title: "La Guérison de la Souffrance",
+    author: "Silo",
+    year: "4 Mai 1969",
+    description: "Discours historique prononcé à Punta de Vacas (Mendoza) posant les bases du dépassement de la violence et de la douleur."
+  },
+  {
+    type: "Livre",
+    title: "Auto-libération",
+    author: "L.A. Ammann",
+    publisher: "Editorial ATE, Barcelone",
+    year: "1980",
+    description: "Manuel pratique de connaissance de soi, de relaxation et de techniques psychophysiques."
+  },
+  {
+    type: "Livre",
+    title: "Notes de Psychologie",
+    author: "Silo",
+    publisher: "Ediciones León Alado, Madrid",
+    year: "2014",
+    description: "Étude approfondie du psychisme humain, des représentations et des niveaux de conscience."
+  },
+  {
+    type: "Livre",
+    title: "Apprends à résister à la violence",
+    author: "H. Roig, D. Tormen et M. Barberena",
+    publisher: "Édition Deborah Tormen, Buenos Aires",
+    year: "2006",
+    description: "Manuel complet avec dynamiques pratiques et exercices appliquant directement la Règle d'Or."
+  },
+  {
+    type: "Conférence",
+    title: "Les Conditions du Dialogue",
+    author: "Silo",
+    year: "6 Octobre 1993",
+    description: "Conférence prononcée à l'Académie des Sciences de Moscou, explorant les clés de la communication non-violente."
+  },
+  {
+    type: "Conférence",
+    title: "Mission des années 80",
+    author: "Silo",
+    year: "27 Septembre 1981",
+    description: "Conférence prononcée à Madrid analysant les défis collectifs de la non-violence active face au militarisme."
+  },
+  {
+    type: "Livre",
+    title: "Lettres à mes amis",
+    author: "Silo",
+    publisher: "Ediciones León Alado, Madrid",
+    year: "2013",
+    description: "Réflexions épistolaires fondamentales sur la transformation personnelle et sociale simultanée."
+  },
+  {
+    type: "Livre",
+    title: "Le Jour du Lion Ailé",
+    author: "Silo",
+    publisher: "Ediciones León Alado, Madrid",
+    year: "2013",
+    description: "Contes allégoriques décrivant des états de conscience élevés et le sens existentiel."
+  },
+  {
+    type: "Manuel",
+    title: "Manuel de thèmes de formation pour messagers",
+    author: "Auteurs Divers",
+    publisher: "Ediciones León Alado, Madrid",
+    description: "Manuel pratique regroupant les principales dynamiques de méditation et d'action humaniste."
+  },
+  {
+    type: "Chaîne YouTube",
+    title: "Chaîne YouTube León Alado",
+    description: "Vidéos de pratiques avec la Règle d'Or et conférences éducatives.",
+    url: "https://www.youtube.com/@leonalado7780/videos"
+  },
+  {
+    type: "Livre Numérique",
+    title: "Apprends à résister à la violence (Digital)",
+    description: "Lien pour lire en ligne le livre complet édité par Deborah Tormen.",
+    url: "https://psicologiadelnuevohumanismo.org"
+  }
+];
+
+export const RESOURCES_LIST_DE = [
+  {
+    type: "Buch",
+    title: "Die Goldene Regel der Gewaltfreiheit",
+    author: "Roberto Kohanoff und Isabel Lazzaroni",
+    publisher: "Ediciones León Alado",
+    year: "2023",
+    description: "Referenzwerk als Ergebnis von 30 Jahren Forschung und Erprobung der Goldenen Regel.",
+    url: "http://edicionesleonalado.net"
+  },
+  {
+    type: "Buch",
+    title: "Der Innere Blick",
+    author: "Silo",
+    publisher: "Editorial ATE, Barcelona",
+    year: "1979",
+    description: "Grundlegendes Werk des Denkens von Silo über tiefes Nachdenken und den Sinn der Existenz."
+  },
+  {
+    type: "Buch",
+    title: "Silos Botschaft",
+    author: "Silo",
+    publisher: "Editorial EDAF, Madrid",
+    year: "2008",
+    description: "Synthese der spirituellen Dimension seines Denkens mit Wegen der Versöhnung."
+  },
+  {
+    type: "Buch",
+    title: "Wörterbuch des Neuen Humanismus",
+    author: "Silo",
+    publisher: "Ediciones León Alado, Madrid",
+    year: "2014",
+    description: "Unverzichtbares Nachschlagewerk für die philosophische Terminologie des Neuen Humanismus."
+  },
+  {
+    type: "Konferenz",
+    title: "Kommentare zur Goldenen Regel",
+    author: "Silo",
+    year: "17. Dezember 1995",
+    description: "Vortrag in Mendoza (Argentinien) über die Gesetzmäßigkeiten gültigen Handelns."
+  },
+  {
+    type: "Rede",
+    title: "Die Heilung vom Leiden",
+    author: "Silo",
+    year: "4. Mai 1969",
+    description: "Historische Rede in Punta de Vacas zur Überwindung von Gewalt und Schmerz."
+  },
+  {
+    type: "Buch",
+    title: "Selbstbefreiung",
+    author: "L.A. Ammann",
+    publisher: "Editorial ATE, Barcelona",
+    year: "1980",
+    description: "Praktisches Handbuch zur Selbsterkenntnis, Entspannung und Psychophysik."
+  },
+  {
+    type: "Buch",
+    title: "Psychologie-Notizen",
+    author: "Silo",
+    publisher: "Ediciones León Alado, Madrid",
+    year: "2014",
+    description: "Vertiefte Studie der menschlichen Psyche und der Bewusstseinsebenen."
+  },
+  {
+    type: "Buch",
+    title: "Lerne, der Gewalt zu widerstehen",
+    author: "H. Roig, D. Tormen und M. Barberena",
+    publisher: "Herausgegeben von Deborah Tormen, Buenos Aires",
+    year: "2006",
+    description: "Handbuch mit praktischen Übungen zur direkten Anwendung der Goldenen Regel."
+  },
+  {
+    type: "Konferenz",
+    title: "Bedingungen des Dialogs",
+    author: "Silo",
+    year: "6. Oktober 1993",
+    description: "Vortrag an der Moskauer Akademie der Wissenschaften zur gewaltfreien Kommunikation."
+  },
+  {
+    type: "Konferenz",
+    title: "Mission der 80er Jahre",
+    author: "Silo",
+    year: "27. September 1981",
+    description: "Vortrag in Madrid über die kollektiven Herausforderungen aktiver Gewaltfreiheit."
+  },
+  {
+    type: "Buch",
+    title: "Briefe an meine Freunde",
+    author: "Silo",
+    publisher: "Ediciones León Alado, Madrid",
+    year: "2013",
+    description: "Epistolarische Reflexionen über persönliche und gesellschaftliche Transformation."
+  },
+  {
+    type: "Buch",
+    title: "Der Tag des geflügelten Löwen",
+    author: "Silo",
+    publisher: "Ediciones León Alado, Madrid",
+    year: "2013",
+    description: "Allegorische Geschichten über höhere Bewusstseinszustände."
+  },
+  {
+    type: "Handbuch",
+    title: "Handbuch für Ausbildungsthemen",
+    author: "Verschiedene Autoren",
+    publisher: "Ediciones León Alado, Madrid",
+    description: "Praktisches Handbuch mit Meditationen und Übungen für Boten."
+  },
+  {
+    type: "YouTube-Kanal",
+    title: "León Alado YouTube-Kanal",
+    description: "Videos zu Übungen mit der Goldenen Regel und Vorträgen.",
+    url: "https://www.youtube.com/@leonalado7780/videos"
+  },
+  {
+    type: "E-Book",
+    title: "Lerne, der Gewalt zu widerstehen (Digital)",
+    description: "Link zum Online-Lesen des vollständigen Buches.",
+    url: "https://psicologiadelnuevohumanismo.org"
+  }
+];
+
+export const RESOURCES_LIST_PT = [
+  {
+    type: "Livro",
+    title: "A Regra de Ouro da Não-Violência",
+    author: "Roberto Kohanoff e Isabel Lazzaroni",
+    publisher: "Ediciones León Alado",
+    year: "2023",
+    description: "Obra de referência fruto de 30 anos de pesquisa e experimentação sobre a Regra de Ouro.",
+    url: "http://edicionesleonalado.net"
+  },
+  {
+    type: "Livro",
+    title: "O Olhar Interno",
+    author: "Silo",
+    publisher: "Editorial ATE, Barcelona",
+    year: "1979",
+    description: "Obra fundacional do pensamento de Silo, convidando à introspeção profunda."
+  },
+  {
+    type: "Livro",
+    title: "A Mensagem de Silo",
+    author: "Silo",
+    publisher: "Editorial EDAF, Madrid",
+    year: "2008",
+    description: "Sintetiza a dimensão espiritual do seu pensamento, propondo um caminho de reconciliação."
+  },
+  {
+    type: "Livro",
+    title: "Dicionário do Novo Humanismo",
+    author: "Silo",
+    publisher: "Ediciones León Alado, Madrid",
+    year: "2014",
+    description: "Ferramenta de referência indispensável para compreender a terminologia do Novo Humanismo."
+  },
+  {
+    type: "Conferência",
+    title: "Comentários sobre a Regra de Ouro",
+    author: "Silo",
+    year: "17 de Dezembro de 1995",
+    description: "Conferência em Mendoza (Argentina) detalhando as leis da ação válida."
+  },
+  {
+    type: "Discurso",
+    title: "A Cura do Sofrimento",
+    author: "Silo",
+    year: "4 de Maio de 1969",
+    description: "Discurso histórico em Punta de Vacas que lançou as bases para superar a violência."
+  },
+  {
+    type: "Livro",
+    title: "Autolibertação",
+    author: "L.A. Ammann",
+    publisher: "Editorial ATE, Barcelona",
+    year: "1980",
+    description: "Manual prático de autoconhecimento, relaxamento e técnicas psicofísicas."
+  },
+  {
+    type: "Livro",
+    title: "Notas de Psicologia",
+    author: "Silo",
+    publisher: "Ediciones León Alado, Madrid",
+    year: "2014",
+    description: "Estudo aprofundado do psiquismo humano e dos níveis de consciência."
+  },
+  {
+    type: "Livro",
+    title: "Aprenda a resistir à violência",
+    author: "H. Roig, D. Tormen e M. Barberena",
+    publisher: "Edição Deborah Tormen, Buenos Aires",
+    year: "2006",
+    description: "Manual completo com dinâmicas práticas aplicando diretamente a Regra de Ouro."
+  },
+  {
+    type: "Conferência",
+    title: "As Condições do Diálogo",
+    author: "Silo",
+    year: "6 de Outubro de 1993",
+    description: "Conferência na Academia de Ciências de Moscovo sobre a comunicação não-violenta."
+  },
+  {
+    type: "Conferência",
+    title: "Missão dos anos 80",
+    author: "Silo",
+    year: "27 de Setembro de 1981",
+    description: "Conferência em Madrid analisando os desafios da não-violência ativa."
+  },
+  {
+    type: "Livro",
+    title: "Cartas aos meus amigos",
+    author: "Silo",
+    publisher: "Ediciones León Alado, Madrid",
+    year: "2013",
+    description: "Reflexões epistolares sobre a transformação pessoal e social simultânea."
+  },
+  {
+    type: "Livro",
+    title: "O Dia do Leão Alado",
+    author: "Silo",
+    publisher: "Ediciones León Alado, Madrid",
+    year: "2013",
+    description: "Contos alegóricos retratando estados elevados de consciência."
+  },
+  {
+    type: "Manual",
+    title: "Manual de temas de formação para mensageiros",
+    author: "Vários Autores",
+    publisher: "Ediciones León Alado, Madrid",
+    description: "Manual prático com as principais dinâmicas de meditação e ação humanista."
+  },
+  {
+    type: "Canal no YouTube",
+    title: "Canal no YouTube León Alado",
+    description: "Vídeos das práticas com a Regra de Ouro e conferências educativas.",
+    url: "https://www.youtube.com/@leonalado7780/videos"
+  },
+  {
+    type: "Livro Digital",
+    title: "Aprenda a resistir à violência (Digital)",
+    description: "Link para ler online o livro completo editado por Deborah Tormen.",
+    url: "https://psicologiadelnuevohumanismo.org"
   }
 ];
 
@@ -1159,7 +3187,7 @@ export function toIngEn(text: string): string {
   return t;
 }
 
-export function generateAforismosTranslated(answers: Record<number, string>, lang: 'es' | 'en'): AforismoOutput[] {
+export function generateAforismosTranslated(answers: Record<number, string>, lang: 'es' | 'en' | 'fr' | 'de' | 'pt'): AforismoOutput[] {
   const clean = (val: string, placeholder = "___") => {
     return val && val.trim() !== "" ? val.trim() : placeholder;
   };
@@ -1219,6 +3247,129 @@ export function generateAforismosTranslated(answers: Record<number, string>, lan
         id: "opcional-3",
         title: "Trascendencia del Rechazo Activo (Opcional III)",
         formula: "Por [Punto 7] caigo ante [Punto 1], pero por [Punto 8] subo a [Punto 4]",
+        text: opcionalIIIText
+      }
+    ];
+  } else if (lang === 'fr') {
+    const p1 = p1Raw !== "" ? p1Raw : "[Maltraitance 1]";
+    const p2 = p2Raw !== "" ? p2Raw : "[Réponse 2]";
+    const p3 = p3Raw !== "" ? p3Raw : "[Vertu 3]";
+    const p4 = p4Raw !== "" ? p4Raw : "[Action 4]";
+    const p5 = p5Raw !== "" ? p5Raw : "[Chute 5]";
+    const p6 = p6Raw !== "" ? p6Raw : "[Montée 6]";
+    const p7 = p7Raw !== "" ? p7Raw : "[Chute 7]";
+    const p8 = p8Raw !== "" ? p8Raw : "[Montée 8]";
+
+    const aforismoPrincipalText = capitalizeFirst(`par ${p6.toLowerCase()} je m'élève à ${p3.toLowerCase()} et par ${p8.toLowerCase()} je m'élève à ${p4.toLowerCase()}.`);
+    const opcionalIText = capitalizeFirst(`pour éviter de ${p2.toLowerCase()} face à ${p1.toLowerCase()}, je donne le traitement de ${p3.toLowerCase()}, en ${p4.toLowerCase()}.`);
+    const opcionalIIText = capitalizeFirst(`par ${p5.toLowerCase()} je tombe dans ${p2.toLowerCase()}, mais par ${p6.toLowerCase()} je m'élève à ${p3.toLowerCase()}.`);
+    const opcionalIIIText = capitalizeFirst(`par ${p7.toLowerCase()} je tombe face à ${p1.toLowerCase()}, mais par ${p8.toLowerCase()} je m'élève à ${p4.toLowerCase()}.`);
+
+    return [
+      {
+        id: "6+8",
+        title: "Aphorisme d'Élévation (Intégration des Chemins)",
+        formula: "Par [Point 6] je m'élève à [Point 3] et par [Point 8] je m'élève à [Point 4]",
+        text: aforismoPrincipalText
+      },
+      {
+        id: "opcional-1",
+        title: "Aphorisme de Dépassement de Crise (Optionnel I)",
+        formula: "Pour éviter [Point 2] face à [Point 1], je donne le traitement de [Point 3], en faisant [Point 4]",
+        text: opcionalIText
+      },
+      {
+        id: "opcional-2",
+        title: "Résolution du Conflit Émotionnel (Optionnel II)",
+        formula: "Par [Point 5] je tombe dans [Point 2], mais par [Point 6] je m'élève à [Point 3]",
+        text: opcionalIIText
+      },
+      {
+        id: "opcional-3",
+        title: "Transcendance du Rejet Actif (Optionnel III)",
+        formula: "Par [Point 7] je tombe face à [Point 1], mais par [Point 8] je m'élève à [Point 4]",
+        text: opcionalIIIText
+      }
+    ];
+  } else if (lang === 'de') {
+    const p1 = p1Raw !== "" ? p1Raw : "[Fehlbehandlung 1]";
+    const p2 = p2Raw !== "" ? p2Raw : "[Reaktion 2]";
+    const p3 = p3Raw !== "" ? p3Raw : "[Tugend 3]";
+    const p4 = p4Raw !== "" ? p4Raw : "[Handlung 4]";
+    const p5 = p5Raw !== "" ? p5Raw : "[Absturz 5]";
+    const p6 = p6Raw !== "" ? p6Raw : "[Aufstieg 6]";
+    const p7 = p7Raw !== "" ? p7Raw : "[Absturz 7]";
+    const p8 = p8Raw !== "" ? p8Raw : "[Aufstieg 8]";
+
+    const aforismoPrincipalText = capitalizeFirst(`durch ${p6.toLowerCase()} steige ich auf zu ${p3.toLowerCase()} und durch ${p8.toLowerCase()} steige ich auf zu ${p4.toLowerCase()}.`);
+    const opcionalIText = capitalizeFirst(`um ${p2.toLowerCase()} angesichts von ${p1.toLowerCase()} zu vermeiden, schenke ich die Behandlung von ${p3.toLowerCase()}, indem ich ${p4.toLowerCase()}.`);
+    const opcionalIIText = capitalizeFirst(`durch ${p5.toLowerCase()} falle ich in ${p2.toLowerCase()}, aber durch ${p6.toLowerCase()} steige ich auf zu ${p3.toLowerCase()}.`);
+    const opcionalIIIText = capitalizeFirst(`durch ${p7.toLowerCase()} falle ich vor ${p1.toLowerCase()}, aber durch ${p8.toLowerCase()} steige ich auf zu ${p4.toLowerCase()}.`);
+
+    return [
+      {
+        id: "6+8",
+        title: "Aufsteigender Leitgedanke (Integration der Pfade)",
+        formula: "Durch [Punkt 6] steige ich auf zu [Punkt 3] und durch [Punkt 8] steige ich auf zu [Punkt 4]",
+        text: aforismoPrincipalText
+      },
+      {
+        id: "opcional-1",
+        title: "Leitgedanke zur Krisenbewältigung (Optional I)",
+        formula: "Um [Punkt 2] angesichts von [Punkt 1] zu vermeiden, gebe ich die Behandlung von [Punkt 3], indem ich [Punkt 4] tue",
+        text: opcionalIText
+      },
+      {
+        id: "opcional-2",
+        title: "Lösung des emotionalen Konflikts (Optional II)",
+        formula: "Durch [Punkt 5] falle ich in [Punkt 2], aber durch [Punkt 6] steige ich auf zu [Punkt 3]",
+        text: opcionalIIText
+      },
+      {
+        id: "opcional-3",
+        title: "Transzendenz der aktiven Ablehnung (Optional III)",
+        formula: "Durch [Punkt 7] falle ich vor [Punkt 1], aber durch [Punkt 8] steige ich auf zu [Punkt 4]",
+        text: opcionalIIIText
+      }
+    ];
+  } else if (lang === 'pt') {
+    const p1 = p1Raw !== "" ? p1Raw : "[Maltrato 1]";
+    const p2 = p2Raw !== "" ? p2Raw : "[Reação 2]";
+    const p3 = p3Raw !== "" ? p3Raw : "[Virtude 3]";
+    const p4 = p4Raw !== "" ? p4Raw : "[Ação 4]";
+    const p5 = p5Raw !== "" ? p5Raw : "[Queda 5]";
+    const p6 = p6Raw !== "" ? p6Raw : "[Subida 6]";
+    const p7 = p7Raw !== "" ? p7Raw : "[Queda 7]";
+    const p8 = p8Raw !== "" ? p8Raw : "[Subida 8]";
+
+    const aforismoPrincipalText = capitalizeFirst(`através de ${p6.toLowerCase()} subo a ${p3.toLowerCase()} e através de ${p8.toLowerCase()} subo a ${p4.toLowerCase()}.`);
+    const opcionalIText = capitalizeFirst(`para evitar ${p2.toLowerCase()} diante de ${p1.toLowerCase()}, dou o trato de ${p3.toLowerCase()}, agindo com ${p4.toLowerCase()}.`);
+    const opcionalIIText = capitalizeFirst(`por ${p5.toLowerCase()} caio em ${p2.toLowerCase()}, mas por ${p6.toLowerCase()} subo a ${p3.toLowerCase()}.`);
+    const opcionalIIIText = capitalizeFirst(`por ${p7.toLowerCase()} caio diante de ${p1.toLowerCase()}, mas por ${p8.toLowerCase()} subo a ${p4.toLowerCase()}.`);
+
+    return [
+      {
+        id: "6+8",
+        title: "Aforismo de Subida (Integração de Caminhos)",
+        formula: "Através de [Ponto 6] subo a [Ponto 3] e através de [Ponto 8] subo a [Ponto 4]",
+        text: aforismoPrincipalText
+      },
+      {
+        id: "opcional-1",
+        title: "Aforismo de Superação de Crise (Opcional I)",
+        formula: "Para evitar [Ponto 2] diante de [Ponto 1], dou o trato de [Ponto 3], agindo com [Ponto 4]",
+        text: opcionalIText
+      },
+      {
+        id: "opcional-2",
+        title: "Resolução do Conflito Emocional (Opcional II)",
+        formula: "Por [Ponto 5] caio em [Ponto 2], mas por [Ponto 6] subo a [Ponto 3]",
+        text: opcionalIIText
+      },
+      {
+        id: "opcional-3",
+        title: "Transcendência de Rejeição Ativa (Opcional III)",
+        formula: "Por [Ponto 7] caio diante de [Ponto 1], mas por [Ponto 8] subo a [Ponto 4]",
         text: opcionalIIIText
       }
     ];

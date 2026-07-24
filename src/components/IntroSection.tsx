@@ -7,7 +7,7 @@ interface IntroSectionProps {
   onStart: () => void;
   onLoadExample: () => void;
   theme: "light" | "dark";
-  lang?: "es" | "en";
+  lang?: "es" | "en" | "fr" | "de" | "pt";
   showRelaxation: boolean;
   onToggleRelaxation: () => void;
 }
@@ -42,13 +42,29 @@ export default function IntroSection({
         <h1 className={`text-4xl sm:text-5xl font-extrabold tracking-tight balance ${
           isDark ? "text-white" : "text-slate-900"
         }`}>
-          {lang === "es" ? (
+          {lang === "es" && (
             <>
               La Práctica de la <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-400">Regla de Oro</span>
             </>
-          ) : (
+          )}
+          {lang === "en" && (
             <>
               The Practice of the <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-400">Golden Rule</span>
+            </>
+          )}
+          {lang === "fr" && (
+            <>
+              La Pratique de la <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-400">Règle d'Or</span>
+            </>
+          )}
+          {lang === "de" && (
+            <>
+              Die Praxis der <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-400">Goldenen Regel</span>
+            </>
+          )}
+          {lang === "pt" && (
+            <>
+              A Prática da <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-400">Regra de Ouro</span>
             </>
           )}
         </h1>
@@ -233,13 +249,21 @@ export default function IntroSection({
                   <h3 className={`text-sm font-black uppercase tracking-wider flex items-center gap-2 ${
                     isDark ? "text-amber-400" : "text-amber-800"
                   }`}>
-                    <span>{lang === "es" ? "🧘 Recomendación: Relajación Guiada" : "🧘 Recommended: Guided Relaxation"}</span>
+                    <span>
+                      {lang === "es" && "🧘 Recomendación: Relajación Guiada"}
+                      {lang === "en" && "🧘 Recommended: Guided Relaxation"}
+                      {lang === "fr" && "🧘 Recommandation : Relaxation guidée"}
+                      {lang === "de" && "🧘 Empfehlung: Geführte Entspannung"}
+                      {lang === "pt" && "🧘 Recomendação: Relaxamento Guiado"}
+                    </span>
                     <Sparkles className="w-3.5 h-3.5 text-amber-500" />
                   </h3>
                   <p className={`text-xs leading-relaxed max-w-2xl ${isDark ? "text-slate-300" : "text-slate-600"}`}>
-                    {lang === "es"
-                      ? "Antes de iniciar tu reflexión, te proponemos realizar una relajación guiada de 3 minutos (física externa, interna y mental). Es la mejor condición para acallar el ruido interno y reflexionar de corazón."
-                      : "Before starting your reflection, we suggest a 3-minute guided relaxation (external physical, internal, and mental). This is the best state to quiet internal noise and reflect deeply."}
+                    {lang === "es" && "Antes de iniciar tu reflexión, te proponemos realizar una relajación guiada de 3 minutos (física externa, interna y mental). Es la mejor condición para acallar el ruido interno y reflexionar de corazón."}
+                    {lang === "en" && "Before starting your reflection, we suggest a 3-minute guided relaxation (external physical, internal, and mental). This is the best state to quiet internal noise and reflect deeply."}
+                    {lang === "fr" && "Avant de commencer votre réflexion, nous vous suggérons de faire une relaxation guidée de 3 minutes (physique externe, interne et mentale). C'est la meilleure condition pour calmer le bruit interne et réfléchir avec le cœur."}
+                    {lang === "de" && "Bevor Sie mit Ihrer Reflexion beginnen, empfehlen wir eine 3-minütige geführte Entspannung (äußere körperliche, innere und mentale). Dies ist die beste Voraussetzung, um den inneren Lärm zu beruhigen und tief zu reflektieren."}
+                    {lang === "pt" && "Antes de iniciar a sua reflexão, sugerimos que faça um relaxamento guiado de 3 minutos (físico externo, interno e mental). É a melhor condição para acalmar o ruído interno e refletir de coração."}
                   </p>
                 </div>
               </div>
@@ -253,7 +277,13 @@ export default function IntroSection({
                 }`}
               >
                 <Headphones className="w-4 h-4" />
-                <span>{lang === "es" ? "Escuchar Relajación" : "Listen to Relaxation"}</span>
+                <span>
+                  {lang === "es" && "Escuchar Relajación"}
+                  {lang === "en" && "Listen to Relaxation"}
+                  {lang === "fr" && "Écouter la relaxation"}
+                  {lang === "de" && "Entspannung hören"}
+                  {lang === "pt" && "Ouvir o Relaxamento"}
+                </span>
               </button>
             </motion.div>
           )}

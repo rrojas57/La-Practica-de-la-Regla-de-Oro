@@ -8,6 +8,8 @@ export interface StepConfig {
   label: string;
   shortName: string;
   question: string;
+  subQuestion?: string;
+  subDescription?: string;
   description: string;
   helpDescription: string;
   placeholder: string;
@@ -51,21 +53,21 @@ export const STEPS: StepConfig[] = [
     shortName: "Maltrato que rechazo",
     question: "¿Cuál es el maltrato que rechazo?",
     description: "Identifica aquella actitud, acción o comportamiento ajeno que te resulta violento, doloroso o inaceptable. Es la situación externa que perturba tu bienestar.",
-    helpDescription: "Selecciona el tipo de maltrato que más te resuene, o escribe tu propia palabra:",
-    placeholder: "Ej: Excluyentes, Indiferencia, Descalificación...",
+    helpDescription: "Selecciona el tipo de actitud o maltrato que más te resuene (en primera persona o adjetivo):",
+    placeholder: "Ej: Excluyente, Exigente, Intolerante, Indiferente...",
     type: "dark",
     categories: [
       {
         categoryName: "Exclusión e Indiferencia",
-        words: ["Excluyentes", "Indiferencia", "Ignorado", "Rechazo", "Aislamiento", "Desprecio", "Olvido", "Marginalidad", "Invisibilidad"]
+        words: ["Excluyente", "Indiferente", "Ignorado", "Rechazado", "Aislado", "Despreciativo", "Marginal"]
       },
       {
         categoryName: "Agresión y Descalificación",
-        words: ["Agresión", "Insultos", "Gritos", "Humillación", "Burlas", "Descalificación", "Crítica", "Juicio", "Menosprecio", "Desdén"]
+        words: ["Agresivo", "Humillante", "Burlesco", "Descalificador", "Crítico", "Juzgador", "Menospreciativo"]
       },
       {
-        categoryName: "Control y Dominación",
-        words: ["Sometimiento", "Manipulación", "Exigencia", "Injusticia", "Control", "Abuso de poder", "Imposición", "Autoritarismo", "Mentira", "Traición"]
+        categoryName: "Control y Exigencia",
+        words: ["Exigente", "Intolerante", "Manipulador", "Injusto", "Controlador", "Impositivo", "Autoritario", "Sometedor"]
       }
     ]
   },
@@ -76,20 +78,20 @@ export const STEPS: StepConfig[] = [
     question: "¿Cómo me siento y qué hago frente a ese maltrato?",
     description: "Reconoce tu respuesta mecánica ante el Punto 1. Refleja tu estado perturbado, la respuesta de defensa, enojo o sufrimiento que surge automáticamente.",
     helpDescription: "Selecciona cómo reaccionas o te sientes habitualmente ante esa perturbación:",
-    placeholder: "Ej: Sufro y me alejo aislándome, Grito con furia, Me culpo...",
+    placeholder: "Ej: Airado, Sufro y me alejo aislándome, Reacciono con furia...",
     type: "dark",
     categories: [
       {
         categoryName: "Retraimiento y Sufrimiento",
-        words: ["Sufro y me alejo aislándome", "Me aíslo", "Me deprimo", "Me silencio con rencor", "Siento culpa", "Me resigno", "Me siento impotente"]
+        words: ["Sufro y me alejo aislándome", "Me aíslo", "Deprimido", "Silenciado con rencor", "Culpable", "Resignado", "Impotente"]
       },
       {
         categoryName: "Enojo y Contraataque",
-        words: ["Grito con furia", "Ataco de vuelta", "Busco venganza", "Me irrito", "Reclamo con violencia", "Discuto sin escuchar", "Pago con la misma moneda"]
+        words: ["Airado (me enojo y expreso enojo)", "Grito con furia", "Ataco de vuelta", "Irritado", "Reclamo con violencia", "Inflexible"]
       },
       {
         categoryName: "Ansiedad y Parálisis",
-        words: ["Siento miedo y huyo", "Me paralizo", "Me angustio", "Me tenso corporalmente", "Siento desamparo", "Busco aprobación sumisa"]
+        words: ["Temeroso y huyo", "Paralizado", "Angustiado", "Tenso corporalmente", "Desamparado", "Sumiso"]
       }
     ]
   },
@@ -97,47 +99,49 @@ export const STEPS: StepConfig[] = [
     id: 3,
     label: "Punto 3: El trato que pido y doy",
     shortName: "El trato que pido / doy",
-    question: "¿Qué trato le pido a quien me maltrató para darlo yo mismo?",
-    description: "La Virtud opuesta al Punto 1. Es el buen trato que te gustaría recibir y que te comprometes a dar primero, elevando tu nivel de conciencia.",
-    helpDescription: "Selecciona el buen trato inspirador que se opone al maltrato del Punto 1:",
-    placeholder: "Ej: Consideración e inclusión, Aprecio genuino, Escucha activa...",
+    question: "¿Qué trato pido recibir y cómo doy ese trato?",
+    subQuestion: "¿Cómo doy ese trato?",
+    subDescription: "(Paso a la acción: describe cómo vas a dar tú este mismo trato a los demás)",
+    description: "La Virtud opuesta al Punto 1. Es el trato que quieres recibir y que conscientemente eliges dar a los demás.",
+    helpDescription: "Selecciona el trato que pides recibir y te comprometes a dar:",
+    placeholder: "Ej: Consideración e inclusión, Flexible y libre, Aprecio genuino...",
     type: "luminous",
     categories: [
       {
         categoryName: "Inclusión y Acogida",
-        words: ["Consideración e inclusión", "Aceptación", "Acogida sincera", "Escucha atenta", "Reconocimiento", "Integración", "Cercanía"]
+        words: ["Consideración e inclusión", "Aceptación", "Acogida sincera", "Escucha atenta", "Reconocimiento", "Integración"]
       },
       {
-        categoryName: "Afecto y Valoración",
-        words: ["Aprecio genuino", "Respeto profundo", "Amabilidad", "Tolerancia", "Cuidado mutuo", "Compasión", "Empatía", "Valoración"]
+        categoryName: "Flexibilidad y Afecto",
+        words: ["Flexible y libre", "Aprecio genuino", "Respeto profundo", "Amabilidad", "Tolerante", "Comprensivo"]
       },
       {
-        categoryName: "Libertad y Paz",
-        words: ["Libertad", "Confianza absoluta", "Apoyo incondicional", "Justicia", "Comprensión", "Sinceridad", "Paz interior"]
+        categoryName: "Paz y Confianza",
+        words: ["Confianza absoluta", "Apoyo incondicional", "Justicia", "Sinceridad", "Paz interior"]
       }
     ]
   },
   {
     id: 4,
-    label: "Punto 4: El buen trato alternativo",
-    shortName: "Buen trato alternativo",
-    question: "¿Cómo lo hago? (Buen trato opuesto a mi reacción del Punto 2)",
-    description: "La Virtud opuesta al Punto 2. Es la acción consciente y constructiva que realizas en lugar de tu reacción reactiva habitual.",
-    helpDescription: "Selecciona la acción virtuosa que neutraliza la reacción negativa del Punto 2:",
-    placeholder: "Ej: Me acerco y aprecio a los demás, Dialogo con calma, Pongo límites sanos...",
+    label: "Punto 4: El buen trato elegido",
+    shortName: "Buen trato elegido",
+    question: "¿Cómo lo hago? (Buen trato elegido opuesto a mi reacción del Punto 2)",
+    description: "La Virtud opuesta al Punto 2. Es la acción consciente y el trato elegido que realizas en lugar de tu reacción habitual.",
+    helpDescription: "Selecciona la acción virtuosa del buen trato elegido que neutraliza la reacción del Punto 2:",
+    placeholder: "Ej: Me acerco y aprecio a los demás, Actúo con afecto y amabilidad, Dialogo con calma...",
     type: "luminous",
     categories: [
       {
         categoryName: "Acercamiento y Valoración",
-        words: ["Me acerco y aprecio a los demás", "Dialogo con honestidad", "Expreso mi afecto", "Acompaño con paciencia", "Valoro las virtudes del otro"]
+        words: ["Me acerco y aprecio a los demás", "Actúo con afecto y amabilidad", "Dialogo con honestidad", "Acompaño con paciencia"]
       },
       {
         categoryName: "Calma y Serenidad",
-        words: ["Respiro con calma", "Escucho con apertura", "Actúo sin prisa", "Busco comprender antes de juzgar", "Perdono sinceramente", "Reconcilio"]
+        words: ["Respiro con calma", "Escucho con apertura", "Actúo sin prisa", "Busco comprender antes de juzgar", "Reconcilio"]
       },
       {
         categoryName: "Firmeza y Autocuidado",
-        words: ["Pongo límites sanos con amor", "Me expreso con firmeza y calma", "Me valoro a mí mismo", "Confío en mi fuerza interna", "Me abro sin miedo"]
+        words: ["Pongo límites sanos con amor", "Me expreso con firmeza y calma", "Me valoro a mí mismo", "Confío en mi fuerza interna"]
       }
     ]
   },
@@ -146,25 +150,25 @@ export const STEPS: StepConfig[] = [
     label: "Punto 5: Mi camino de caída (De 3 a 2)",
     shortName: "Camino de caída 3 ➔ 2",
     question: "¿Cómo caigo del trato virtuoso (3) a la reacción mecánica (2)?",
-    description: "Identifica qué actitud, creencia, temor, expectativa o vulnerabilidad sabotea tus buenas intenciones de trato y te hace caer de nuevo en el sufrimiento o enojo.",
-    helpDescription: "Selecciona el factor interno que te hace descender a la reactividad del Punto 2:",
-    placeholder: "Ej: Inseguridad, Expectativas frustradas, Orgullo...",
+    description: "Identifica qué actitud, creencia, temor o vulnerabilidad te hace caer de nuevo en el sufrimiento o enojo.",
+    helpDescription: "Selecciona el factor interno que te hace caer a la reactividad del Punto 2:",
+    placeholder: "Ej: Inseguridad, Quisquilloso, Expectativas frustradas...",
     type: "transition",
     direction: "down",
     fromId: 3,
     toId: 2,
     categories: [
       {
-        categoryName: "Inseguridad y Duda",
-        words: ["Inseguridad", "Desconfianza", "Dudas sobre mí mismo", "Celos", "Vulnerabilidad herida", "Temor al rechazo"]
+        categoryName: "Inseguridad y Fijeza",
+        words: ["Inseguridad", "Quisquilloso", "Desconfianza", "Dudas sobre mí mismo", "Vulnerabilidad herida"]
       },
       {
         categoryName: "Expectativas y Orgullo",
-        words: ["Expectativas excesivas", "Orgullo herido", "Soberbia", "Vanidad", "Egoísmo", "Exigencia perfeccionista"]
+        words: ["Expectativas excesivas", "Orgullo herido", "Soberbia", "Egoísmo", "Exigencia perfeccionista"]
       },
       {
         categoryName: "Debilidad y Miedo",
-        words: ["Miedo al fracaso", "Miedo al dolor", "Cobardía social", "Comodidad pasiva", "Pereza interna", "Apatía"]
+        words: ["Miedo al fracaso", "Miedo al dolor", "Comodidad pasiva", "Pereza interna"]
       }
     ]
   },
@@ -173,25 +177,25 @@ export const STEPS: StepConfig[] = [
     label: "Punto 6: Mi camino de subida (De 2 a 3)",
     shortName: "Camino de subida 2 ➔ 3",
     question: "¿Cómo subo del estado perturbado (2) al trato virtuoso (3)?",
-    description: "Reconoce la acción intencionada que te permite elevar tu nivel de conciencia, romper el bucle del sufrimiento o enojo y reconectarte con la virtud.",
+    description: "Reconoce la acción intencionada que te permite elevar tu nivel de conciencia y volver al trato elegido del Punto 3.",
     helpDescription: "Selecciona el puente que te ayuda a volver al estado luminoso del Punto 3:",
-    placeholder: "Ej: Expreso lo que siento y pienso, Tomo conciencia, Respiro...",
+    placeholder: "Ej: Expreso lo que siento y pienso, Respiro profundamente, Medito...",
     type: "transition",
     direction: "up",
     fromId: 2,
     toId: 3,
     categories: [
       {
-        categoryName: "Comunicación Honesta",
-        words: ["Expreso lo que siento y pienso", "Pido ayuda con humildad", "Digo lo que me pasa con honestidad", "Dialogo con franqueza", "Hablo desde el corazón"]
+        categoryName: "Comunicación y Presencia",
+        words: ["Expreso lo que siento y pienso", "Respiro profundamente (freno la respuesta)", "Pido ayuda con humildad", "Dialogo con franqueza"]
       },
       {
         categoryName: "Conciencia y Reflexión",
-        words: ["Reflexiono en silencio", "Me doy cuenta de la mecanicidad", "Respiro profundo y observo", "Acepto mi parte", "Medito en calma"]
+        words: ["Reflexiono en silencio", "Me doy cuenta de la mecanicidad", "Respiro profundo y observo", "Acepto mi parte"]
       },
       {
         categoryName: "Acción Valiente",
-        words: ["Tomo la iniciativa para reparar", "Me arriesgo a cambiar", "Actúo con valentía", "Me hago responsable de mí", "Decido no dañar"]
+        words: ["Tomo la iniciativa para reparar", "Me arriesgo a cambiar", "Actúo con valentía", "Me hago responsable de mí"]
       }
     ]
   },
@@ -199,10 +203,10 @@ export const STEPS: StepConfig[] = [
     id: 7,
     label: "Punto 7: Mi camino de caída (De 4 a 1)",
     shortName: "Camino de caída 4 ➔ 1",
-    question: "¿Cómo caigo del buen trato alternativo (4) al maltrato reactivo (1)?",
-    description: "Identifica qué te desgasta o frustra cuando intentas mantener un buen trato, haciéndote perder la paciencia y caer de nuevo en una actitud violenta o de rechazo.",
+    question: "¿Cómo caigo del buen trato elegido (4) al maltrato reactivo (1)?",
+    description: "Identifica qué te desgasta o frustra cuando intentas mantener un buen trato, haciéndote caer de nuevo en una actitud de rechazo.",
     helpDescription: "Selecciona qué apaga tu motivación y te hace caer de nuevo en conductas nocivas:",
-    placeholder: "Ej: Hartazgo, Cansancio extremo, Frustración...",
+    placeholder: "Ej: Hartazgo, Impaciente, Cansancio acumulado...",
     type: "transition",
     direction: "down",
     fromId: 4,
@@ -210,15 +214,15 @@ export const STEPS: StepConfig[] = [
     categories: [
       {
         categoryName: "Cansancio y Saturación",
-        words: ["Hartazgo", "Cansancio acumulado", "Saturación mental", "Agobio de la rutina", "Estrés", "Desgaste energético"]
+        words: ["Hartazgo", "Impaciente", "Cansancio acumulado", "Saturación mental", "Estrés"]
       },
       {
         categoryName: "Frustración y Decepción",
-        words: ["Decepción del otro", "Frustración al no ver cambios", "Pesimismo", "Desinterés", "Despecho", "Siento que no vale la pena"]
+        words: ["Decepción del otro", "Frustración al no ver cambios", "Pesimismo", "Desinterés", "Siento que no vale la pena"]
       },
       {
-        categoryName: "Impaciencia e Irritabilidad",
-        words: ["Impaciencia", "Ira contenida", "Tolerancia cero", "Fastidio acumulado", "Irritación constante", "Ganas de castigar"]
+        categoryName: "Irritabilidad",
+        words: ["Ira contenida", "Tolerancia cero", "Fastidio acumulado", "Irritación constante"]
       }
     ]
   },
@@ -226,18 +230,18 @@ export const STEPS: StepConfig[] = [
     id: 8,
     label: "Punto 8: Mi camino de subida (De 1 a 4)",
     shortName: "Camino de subida 1 ➔ 4",
-    question: "¿Cómo subo de la actitud de rechazo/maltrato (1) al buen trato alternativo (4)?",
-    description: "Descubre la intención o acción profunda que te permite superar el rechazo, reconciliarte y comprometerte con la acción constructiva del Punto 4.",
-    helpDescription: "Selecciona el puente profundo que te reconecta con el trato benevolente del Punto 4:",
-    placeholder: "Ej: Conecto con lo Humano en mí y en otros, Perdono, Siento empatía...",
+    question: "¿Cómo subo de la actitud de rechazo/maltrato (1) al buen trato elegido (4)?",
+    description: "Descubre la intención o acción profunda que te permite superar el rechazo y comprometerte con el buen trato elegido del Punto 4.",
+    helpDescription: "Selecciona el puente profundo que te reconecta con el buen trato elegido del Punto 4:",
+    placeholder: "Ej: Conecto con lo Humano en mí y en otros, Me pongo pedagógico, Perdono...",
     type: "transition",
     direction: "up",
     fromId: 1,
     toId: 4,
     categories: [
       {
-        categoryName: "Conexión Humana",
-        words: ["Conecto con lo Humano en mí y en otros", "Miro al otro como a un igual", "Siento empatía con su dolor", "Busco lo que nos une y no lo que nos separa"]
+        categoryName: "Conexión Humana y Pedagogía",
+        words: ["Conecto con lo Humano en mí y en otros", "Me pongo pedagógico (actúo pedagógicamente)", "Miro al otro como a un igual", "Siento empatía con su dolor"]
       },
       {
         categoryName: "Reconciliación y Compasión",

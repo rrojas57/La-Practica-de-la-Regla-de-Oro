@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { STEPS, generateAforismos, INTRODUCTION_TEXT } from "./data/helpLists";
-import { translations, STEPS_EN, generateAforismosTranslated } from "./data/translations";
+import { translations, STEPS_EN, STEPS_FR, STEPS_DE, STEPS_PT, generateAforismosTranslated } from "./data/translations";
 import IntroSection from "./components/IntroSection";
 import InteractiveMap from "./components/InteractiveMap";
 import HelpWordsPanel from "./components/HelpWordsPanel";
@@ -9,6 +9,7 @@ import HistorySection, { SavedPractice } from "./components/HistorySection";
 import SupportSection from "./components/SupportSection";
 import RelaxationPlayer from "./components/RelaxationPlayer";
 import SiloSchemaTable from "./components/SiloSchemaTable";
+import { LanguageDropdown } from "./components/LanguageDropdown";
 import {
   Sparkles,
   BookOpen,
@@ -68,10 +69,15 @@ const EXAMPLE_ANSWERS_EN: Record<number, string> = {
 };
 
 export default function App() {
-  // Language selection: 'es' | 'en' (Defaults to Spanish always on first load)
-  const [lang, setLang] = useState<"es" | "en">("es");
+  // Language selection: 'es' | 'en' | 'fr' | 'de' | 'pt' (Defaults to Spanish always on first load)
+  const [lang, setLang] = useState<"es" | "en" | "fr" | "de" | "pt">("es");
   const t = translations[lang];
-  const stepsList = lang === "es" ? STEPS : STEPS_EN;
+  const stepsList = 
+    lang === "es" ? STEPS : 
+    lang === "en" ? STEPS_EN : 
+    lang === "fr" ? STEPS_FR : 
+    lang === "de" ? STEPS_DE : 
+    STEPS_PT;
 
   // Navigation tabs: 'intro' | 'practice' | 'history' | 'support'
   const [activeTab, setActiveTab] = useState<"intro" | "practice" | "history" | "support">("intro");
@@ -502,22 +508,20 @@ ${t.downloadFooterQuote}
             </nav>
 
             {/* Language Selector */}
-            <button
-              onClick={() => {
-                const nextLang = lang === "es" ? "en" : "es";
+            <LanguageDropdown
+              currentLang={lang}
+              onLanguageChange={(nextLang) => {
                 setLang(nextLang);
-                showToast(nextLang === "es" ? "Idioma cambiado a Español" : "Language switched to English");
+                const msgs = {
+                  es: "Idioma cambiado a Español",
+                  en: "Language switched to English",
+                  fr: "Langue changée en Français",
+                  de: "Sprache auf Deutsch umgestellt",
+                  pt: "Idioma alterado para Português"
+                };
+                showToast(msgs[nextLang]);
               }}
-              id="language-switcher-btn"
-              className={`px-2 sm:px-2.5 py-2 text-xs font-extrabold rounded-xl border transition cursor-pointer flex items-center gap-1 uppercase tracking-wider ${
-                theme === "dark"
-                  ? "bg-slate-900 border-slate-800 text-amber-400 hover:bg-slate-850 hover:text-amber-300"
-                  : "bg-slate-100 border-slate-200 text-slate-600 hover:bg-slate-200 hover:text-slate-950"
-              }`}
-              title={lang === "es" ? "Change to English" : "Cambiar a Español"}
-            >
-              <span>{lang === "es" ? "ES" : "EN"}</span>
-            </button>
+            />
 
             {/* Theme switcher */}
             <button
@@ -715,6 +719,12 @@ ${t.downloadFooterQuote}
                       }`}>
                         {currentStep.question}
                       </h3>
+                      {currentStep.subQuestion && (
+                        <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-800 dark:text-amber-300 font-semibold text-xs sm:text-sm space-y-1">
+                          <p className="font-bold text-amber-900 dark:text-amber-200">{currentStep.subQuestion}</p>
+                          <p className="text-[11px] font-medium opacity-90">{currentStep.subDescription}</p>
+                        </div>
+                      )}
                       <p className={`text-xs sm:text-sm ${
                         theme === "dark" ? "text-slate-400" : "text-slate-500"
                       }`}>
@@ -1061,22 +1071,46 @@ ${t.downloadFooterQuote}
           <div className="flex items-center justify-center gap-1.5">
             <Heart className="w-4 h-4 fill-amber-500 text-amber-500" />
             <span className={`font-bold ${theme === "dark" ? "text-slate-200" : "text-slate-800"}`}>
-              {lang === "es" ? "La Práctica de la Regla de Oro" : "The Golden Rule Practice"}
+              {lang === "es" && "La Práctica de la Regla de Oro"}
+              {lang === "en" && "The Golden Rule Practice"}
+              {lang === "fr" && "La Pratique de la Règle d'Or"}
+              {lang === "de" && "Die Praxis der Goldenen Regel"}
+              {lang === "pt" && "A Prática da Regra de Ouro"}
             </span>
           </div>
           <p className="max-w-2xl mx-auto leading-relaxed text-xs">
-            {lang === "es" 
-              ? "Una herramienta basada en la metodología de la no violencia activa para promover la coherencia personal, la paz mental y la reconciliación personal y social." 
-              : "A tool based on the methodology of active nonviolence to promote personal coherence, mental peace, and personal and social reconciliation."}
+            {lang === "es" && "Una herramienta basada en la metodología de la no violencia activa para promover la coherencia personal, la paz mental y la reconciliación personal y social."}
+            {lang === "en" && "A tool based on the methodology of active nonviolence to promote personal coherence, mental peace, and personal and social reconciliation."}
+            {lang === "fr" && "Un outil basé sur la méthodologie de la non-violence active pour promouvoir la cohérence personnelle, la paix mentale et la réconciliation personnelle et sociale."}
+            {lang === "de" && "Ein Instrument, das auf der Methodik der aktiven Gewaltlosigkeit basiert, um persönliche Kohärenz, geistigen Frieden sowie persönliche und soziale Versöhnung zu fördern."}
+            {lang === "pt" && "Uma ferramenta baseada na metodologia da não-violência ativa para promover a coerência pessoal, a paz mental e a reconciliação pessoal e social."}
           </p>
           <div className={`text-[10px] pt-2 border-t flex flex-wrap justify-center items-center gap-x-4 gap-y-1.5 ${
             theme === "dark" ? "border-slate-900 text-slate-500" : "border-slate-100/60 text-slate-400"
           }`}>
-            <span>{lang === "es" ? "© 2026 - Basado en la Escuela de Silo" : "© 2026 - Based on Silo's School"}</span>
+            <span>
+              {lang === "es" && "© 2026 - Basado en la Escuela de Silo"}
+              {lang === "en" && "© 2026 - Based on Silo's School"}
+              {lang === "fr" && "© 2026 - Basé sur l'École de Silo"}
+              {lang === "de" && "© 2026 - Basierend auf Silos Schule"}
+              {lang === "pt" && "© 2026 - Baseado na Escola de Silo"}
+            </span>
             <span>•</span>
-            <span>{lang === "es" ? "Guardado local privado (Sin base de datos)" : "Private local storage (No database)"}</span>
+            <span>
+              {lang === "es" && "Guardado local privado (Sin base de datos)"}
+              {lang === "en" && "Private local storage (No database)"}
+              {lang === "fr" && "Stockage local privé (Pas de base de données)"}
+              {lang === "de" && "Privater lokaler Speicher (Keine Datenbank)"}
+              {lang === "pt" && "Armazenamento local privado (Sem banco de dados)"}
+            </span>
             <span>•</span>
-            <span>{lang === "es" ? "Desarrollado por R.E.R.H., desde la humildad y bondad" : "Developed by R.E.R.H., with humility and kindness"}</span>
+            <span>
+              {lang === "es" && "Desarrollado por R.E.R.H., desde la humildad y bondad"}
+              {lang === "en" && "Developed by R.E.R.H., with humility and kindness"}
+              {lang === "fr" && "Développé par R.E.R.H., avec humilité et bonté"}
+              {lang === "de" && "Entwickelt von R.E.R.H., mit Demut und Güte"}
+              {lang === "pt" && "Desenvolvido por R.E.R.H., com humildade e bondade"}
+            </span>
           </div>
         </div>
       </footer>
