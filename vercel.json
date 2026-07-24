@@ -1,0 +1,8 @@
+{
+  "buildCommand": "vite build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/api/mailbox/admin", "destination": "/api/mailbox-admin" },
+    { "source": "/api/mailbox", "destination": "/api/mailbox" }
+  ]
+}
