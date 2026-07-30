@@ -8,7 +8,7 @@ interface SiloSchemaTableProps {
   aforismos: AforismoOutput[];
   customAforismos: Record<string, string>;
   theme?: "light" | "dark";
-  lang?: "es" | "en";
+  lang?: "es" | "en" | "fr" | "de" | "pt";
 }
 
 export default function SiloSchemaTable({
@@ -25,7 +25,12 @@ export default function SiloSchemaTable({
 
   // Retrieve individual answers or defaults
   const getAns = (num: number) => {
-    return answers[num] || (lang === "es" ? "(Pendiente de responder)" : "(Pending response)");
+    if (answers[num] && answers[num].trim() !== "") return answers[num];
+    if (lang === "fr") return "(En attente de réponse)";
+    if (lang === "de") return "(Ausstehende Antwort)";
+    if (lang === "pt") return "(Pendente de resposta)";
+    if (lang === "en") return "(Pending response)";
+    return "(Pendiente de responder)";
   };
 
   // Get active aforismo text (original or customized)

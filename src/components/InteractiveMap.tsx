@@ -1,6 +1,6 @@
 import { STEPS } from "../data/helpLists";
-import { STEPS_EN } from "../data/translations";
-import { ArrowDown, ArrowUp, Zap, HelpCircle, Check, Sparkles } from "lucide-react";
+import { STEPS_EN, STEPS_FR, STEPS_DE, STEPS_PT } from "../data/translations";
+import { ArrowDown, ArrowUp, Zap, HelpCircle, Check } from "lucide-react";
 import { motion } from "motion/react";
 
 interface InteractiveMapProps {
@@ -9,7 +9,7 @@ interface InteractiveMapProps {
   onSelectStep?: (id: number) => void;
   interactive?: boolean;
   theme?: "light" | "dark";
-  lang?: "es" | "en";
+  lang?: "es" | "en" | "fr" | "de" | "pt";
 }
 
 export default function InteractiveMap({
@@ -21,10 +21,131 @@ export default function InteractiveMap({
   lang = "es",
 }: InteractiveMapProps) {
   const isDark = theme === "dark";
-  const stepsList = lang === "es" ? STEPS : STEPS_EN;
+
+  const getStepsForLang = (l: string) => {
+    if (l === "fr") return STEPS_FR;
+    if (l === "de") return STEPS_DE;
+    if (l === "pt") return STEPS_PT;
+    if (l === "en") return STEPS_EN;
+    return STEPS;
+  };
+  const stepsList = getStepsForLang(lang);
   
   // Helper to check if a step is answered
   const isAnswered = (id: number) => answers[id] && answers[id].trim() !== "";
+
+  // Localized label helpers
+  const getPointLabel = (id: number) => {
+    if (lang === "fr") return `Point ${id}`;
+    if (lang === "de") return `Punkt ${id}`;
+    if (lang === "pt") return `Ponto ${id}`;
+    if (lang === "en") return `Point ${id}`;
+    return `Punto ${id}`;
+  };
+
+  const getDirectionBadge = (dir: "up" | "down") => {
+    if (dir === "up") {
+      if (lang === "fr") return "Montée";
+      if (lang === "de") return "Aufstieg";
+      if (lang === "pt") return "Subida";
+      if (lang === "en") return "Rise";
+      return "Subida";
+    } else {
+      if (lang === "fr") return "Descente";
+      if (lang === "de") return "Abstieg";
+      if (lang === "pt") return "Queda";
+      if (lang === "en") return "Fall";
+      return "Caída";
+    }
+  };
+
+  const getPendingText = () => {
+    if (lang === "fr") return "En attente...";
+    if (lang === "de") return "Ausstehend...";
+    if (lang === "pt") return "Pendente...";
+    if (lang === "en") return "Pending...";
+    return "Pendiente...";
+  };
+
+  const getMapTitle = () => {
+    if (lang === "fr") return "Carte des 8 Espaces de Conscience";
+    if (lang === "de") return "Karte der 8 Bewusstseinsräume";
+    if (lang === "pt") return "Mapa dos 8 Espaços de Consciência";
+    if (lang === "en") return "Map of the 8 Spaces of Consciousness";
+    return "Mapa de los 8 Espacios de Conciencia";
+  };
+
+  const getLegendSelf = () => {
+    if (lang === "fr") return "Conscience de Soi";
+    if (lang === "de") return "Selbstbewusstsein";
+    if (lang === "pt") return "Consciência de Si";
+    if (lang === "en") return "Self-Consciousness";
+    return "Conciencia de Sí";
+  };
+
+  const getLegendRise = () => {
+    if (lang === "fr") return "Chemins de Montée";
+    if (lang === "de") return "Aufsteigende Pfade";
+    if (lang === "pt") return "Caminhos de Subida";
+    if (lang === "en") return "Rising Paths";
+    return "Caminos de Subida";
+  };
+
+  const getLegendFall = () => {
+    if (lang === "fr") return "Chemins de Descente";
+    if (lang === "de") return "Absteigende Pfade";
+    if (lang === "pt") return "Caminhos de Queda";
+    if (lang === "en") return "Falling Paths";
+    return "Caminos de Caída";
+  };
+
+  const getLegendPerturbed = () => {
+    if (lang === "fr") return "Conscience Perturbée";
+    if (lang === "de") return "Gestörtes Bewusstsein";
+    if (lang === "pt") return "Consciência Perturbada";
+    if (lang === "en") return "Perturbed Consciousness";
+    return "Conciencia Perturbada";
+  };
+
+  const getLuminousSpaceHeader = () => {
+    if (lang === "fr") return "Espace Lumineux : Conscience de Soi, Inspirée et Intentionnée";
+    if (lang === "de") return "Lichter Raum: Selbstbewusstsein, inspiriert und absichtsvoll";
+    if (lang === "pt") return "Espaço Luminoso: Consciência de Si, Inspirada e Intencionada";
+    if (lang === "en") return "Luminous Space: Self-Consciousness, Inspired and Intentional";
+    return "Espacio Luminoso: Conciencia de Sí, Inspirada e Intencionada";
+  };
+
+  const getLeftTransitionHeader = () => {
+    if (lang === "fr") return "Transition Gauche";
+    if (lang === "de") return "Linker Übergang";
+    if (lang === "pt") return "Transição Esquerda";
+    if (lang === "en") return "Left Transition";
+    return "Transición Izquierda";
+  };
+
+  const getRightTransitionHeader = () => {
+    if (lang === "fr") return "Transition Droite";
+    if (lang === "de") return "Rechter Übergang";
+    if (lang === "pt") return "Transição Direita";
+    if (lang === "en") return "Right Transition";
+    return "Transición Derecha";
+  };
+
+  const getPerturbedSpaceHeader = () => {
+    if (lang === "fr") return "Espace Climatique : Conscience Perturbée, Compulsive et Mécanique";
+    if (lang === "de") return "Gestörter Raum: Gestörtes, kompulsives und mechanisches Bewusstsein";
+    if (lang === "pt") return "Espaço Climático: Consciência Perturbada, Compulsiva e Mecânica";
+    if (lang === "en") return "Perturbed Space: Perturbed, Compulsive, and Mechanical Consciousness";
+    return "Espacio Climático: Conciencia Perturbada, Compulsiva y Mecánica";
+  };
+
+  const getClickHint = () => {
+    if (lang === "fr") return "💡 Vous pouvez cliquer sur n'importe quel espace de la carte pour accéder directement à sa question ou à son aide.";
+    if (lang === "de") return "💡 Sie können auf jeden Raum auf der Karte klicken, um direkt zu seiner Frage oder Hilfe zu gelangen.";
+    if (lang === "pt") return "💡 Podes clicar em qualquer espaço no mapa para ir diretamente responder ou ver a ajuda.";
+    if (lang === "en") return "💡 Click on any space in the map to jump directly to its question or help suggestions.";
+    return "💡 Puedes pulsar sobre cualquier espacio en el mapa para ir directamente a responder o ver su ayuda.";
+  };
 
   const renderCard = (id: number) => {
     const step = stepsList.find((s) => s.id === id)!;
@@ -117,7 +238,7 @@ export default function InteractiveMap({
         <div className="space-y-1">
           <div className="flex items-center justify-between">
             <span className={`text-[10px] uppercase tracking-wider font-bold ${headerClass}`}>
-              {lang === "es" ? `Punto ${step.id}` : `Point ${step.id}`}
+              {getPointLabel(step.id)}
             </span>
             <div className="flex items-center gap-1.5">
               {answered && (
@@ -125,9 +246,9 @@ export default function InteractiveMap({
                   <Check className="w-3 h-3" />
                 </span>
               )}
-              {step.type === "transition" && (
+              {step.type === "transition" && step.direction && (
                 <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded ${badgeClass}`}>
-                  {step.direction === "up" ? (lang === "es" ? "Subida" : "Rise") : (lang === "es" ? "Caída" : "Fall")}
+                  {getDirectionBadge(step.direction)}
                 </span>
               )}
             </div>
@@ -143,7 +264,7 @@ export default function InteractiveMap({
           ) : (
             <span className="text-xs text-slate-400 italic flex items-center gap-1">
               <HelpCircle className="w-3.5 h-3.5 animate-pulse text-slate-400" />
-              <span>{lang === "es" ? "Pendiente..." : "Pending..."}</span>
+              <span>{getPendingText()}</span>
             </span>
           )}
         </div>
@@ -157,24 +278,24 @@ export default function InteractiveMap({
       <div className="flex flex-wrap items-center justify-between gap-3 px-1">
         <h3 className={`text-sm font-bold flex items-center gap-2 ${isDark ? "text-slate-200" : "text-slate-700"}`}>
           <Zap className="w-4 h-4 text-amber-500" />
-          {lang === "es" ? "Mapa de los 8 Espacios de Conciencia" : "Map of the 8 Spaces of Consciousness"}
+          {getMapTitle()}
         </h3>
         <div className={`flex flex-wrap gap-4 text-[11px] font-medium ${isDark ? "text-slate-400" : "text-slate-500"}`}>
           <div className="flex items-center gap-1">
             <span className={`w-2.5 h-2.5 rounded border inline-block ${isDark ? "bg-amber-950/40 border-amber-800" : "bg-amber-100 border-amber-300"}`} />
-            <span>{lang === "es" ? "Conciencia de Sí" : "Self-Consciousness"}</span>
+            <span>{getLegendSelf()}</span>
           </div>
           <div className="flex items-center gap-1">
             <span className={`w-2.5 h-2.5 rounded border inline-block ${isDark ? "bg-emerald-950/40 border-emerald-850" : "bg-emerald-100 border-emerald-300"}`} />
-            <span>{lang === "es" ? "Caminos de Subida" : "Rising Paths"}</span>
+            <span>{getLegendRise()}</span>
           </div>
           <div className="flex items-center gap-1">
             <span className={`w-2.5 h-2.5 rounded border inline-block ${isDark ? "bg-rose-950/40 border-rose-850" : "bg-rose-100 border-rose-300"}`} />
-            <span>{lang === "es" ? "Caminos de Caída" : "Falling Paths"}</span>
+            <span>{getLegendFall()}</span>
           </div>
           <div className="flex items-center gap-1">
             <span className={`w-2.5 h-2.5 rounded border inline-block ${isDark ? "bg-indigo-950/40 border-indigo-850" : "bg-indigo-50 border-indigo-200"}`} />
-            <span>{lang === "es" ? "Conciencia Perturbada" : "Perturbed Consciousness"}</span>
+            <span>{getLegendPerturbed()}</span>
           </div>
         </div>
       </div>
@@ -192,7 +313,7 @@ export default function InteractiveMap({
             <span className={`px-2.5 py-0.5 rounded-full border text-[10px] font-bold tracking-wider uppercase ${
               isDark ? "bg-amber-950/40 border-amber-900 text-amber-300" : "bg-amber-50 border-amber-200 text-amber-800"
             }`}>
-              {lang === "es" ? "Espacio Luminoso: Conciencia de Sí, Inspirada e Intencionada" : "Luminous Space: Self-Consciousness, Inspired and Intentional"}
+              {getLuminousSpaceHeader()}
             </span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -209,7 +330,7 @@ export default function InteractiveMap({
           <div className="text-center pb-1">
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center justify-center gap-1">
               <ArrowDown className="w-3 h-3 text-rose-400" />
-              <span>{lang === "es" ? "Transición Izquierda" : "Left Transition"}</span>
+              <span>{getLeftTransitionHeader()}</span>
               <ArrowUp className="w-3 h-3 text-emerald-400" />
             </span>
           </div>
@@ -226,7 +347,7 @@ export default function InteractiveMap({
           <div className="text-center pb-1">
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center justify-center gap-1">
               <ArrowDown className="w-3 h-3 text-rose-400" />
-              <span>{lang === "es" ? "Transición Derecha" : "Right Transition"}</span>
+              <span>{getRightTransitionHeader()}</span>
               <ArrowUp className="w-3 h-3 text-emerald-400" />
             </span>
           </div>
@@ -242,7 +363,7 @@ export default function InteractiveMap({
             <span className={`px-2.5 py-0.5 rounded-full border text-[10px] font-bold tracking-wider uppercase ${
               isDark ? "bg-indigo-950/40 border-indigo-900 text-indigo-300" : "bg-indigo-50 border-indigo-200 text-indigo-900"
             }`}>
-              {lang === "es" ? "Espacio Climático: Conciencia Perturbada, Compulsiva y Mecánica" : "Perturbed Space: Perturbed, Compulsive, and Mechanical Consciousness"}
+              {getPerturbedSpaceHeader()}
             </span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -254,9 +375,10 @@ export default function InteractiveMap({
 
       {interactive && (
         <p className="text-center text-xs text-slate-400 italic">
-          {lang === "es" ? "💡 Puedes pulsar sobre cualquier espacio en el mapa para ir directamente a responder o ver su ayuda." : "💡 Click on any space in the map to jump directly to its question or help suggestions."}
+          {getClickHint()}
         </p>
       )}
     </div>
   );
 }
+

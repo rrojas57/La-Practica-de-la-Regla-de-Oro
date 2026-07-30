@@ -8,6 +8,7 @@ interface HelpWordsPanelProps {
   onSelectWord: (word: string) => void;
   selectedWord?: string;
   theme: "light" | "dark";
+  lang?: "es" | "en" | "fr" | "de" | "pt";
 }
 
 export default function HelpWordsPanel({
@@ -16,8 +17,33 @@ export default function HelpWordsPanel({
   onSelectWord,
   selectedWord,
   theme,
+  lang = "es"
 }: HelpWordsPanelProps) {
   const isDark = theme === "dark";
+
+  const getTitle = () => {
+    if (lang === "fr") return "Vous ne trouvez pas le mot juste ?";
+    if (lang === "de") return "Finden Sie nicht das richtige Wort?";
+    if (lang === "pt") return "Não encontras a palavra adequada?";
+    if (lang === "en") return "Can't find the right word?";
+    return "¿No encuentras la palabra adecuada?";
+  };
+
+  const getSuffix = () => {
+    if (lang === "fr") return "Cliquez sur n'importe laquelle de ces suggestions pour la sélectionner :";
+    if (lang === "de") return "Klicken Sie auf einen dieser Vorschläge, um ihn auszuwählen:";
+    if (lang === "pt") return "Clica em qualquer uma destas sugestões para a selecionar:";
+    if (lang === "en") return "Click on any of these suggestions to select it:";
+    return "Haz clic en cualquiera de estas sugerencias para seleccionarla:";
+  };
+
+  const getFooter = () => {
+    if (lang === "fr") return "Vous pouvez également écrire tout autre mot qui exprime le mieux votre ressenti.";
+    if (lang === "de") return "Sie können auch jedes andere Wort schreiben, das Ihre Gefühle am besten wiedergibt.";
+    if (lang === "pt") return "Também podes escrever qualquer outra palavra que represente melhor o teu sentir.";
+    if (lang === "en") return "You can also write any other word that best represents your feeling.";
+    return "También puedes escribir cualquier otra palabra que represente mejor tu sentir.";
+  };
 
   return (
     <div className={`rounded-2xl p-5 border space-y-4 transition-colors duration-200 ${
@@ -28,12 +54,12 @@ export default function HelpWordsPanel({
         <div className={`p-1.5 rounded-lg ${isDark ? "bg-amber-950/40 text-amber-400" : "bg-amber-100 text-amber-700"}`}>
           <Lightbulb className={`w-4 h-4 ${isDark ? "text-amber-400" : "text-amber-600"}`} />
         </div>
-        <h4 className={`font-bold text-sm ${isDark ? "text-slate-100" : "text-slate-800"}`}>¿No encuentras la palabra adecuada?</h4>
+        <h4 className={`font-bold text-sm ${isDark ? "text-slate-100" : "text-slate-800"}`}>{getTitle()}</h4>
       </div>
 
       <p className={`text-xs leading-relaxed flex items-start gap-1.5 ${isDark ? "text-slate-300" : "text-slate-600"}`}>
         <Info className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
-        <span>{helpDescription} Haz clic en cualquiera de estas sugerencias para seleccionarla:</span>
+        <span>{helpDescription} {getSuffix()}</span>
       </p>
 
       {/* Categories */}
@@ -76,7 +102,7 @@ export default function HelpWordsPanel({
         isDark ? "border-slate-800" : "border-slate-200/60"
       }`}>
         <Sparkles className="w-3 h-3 text-amber-500" />
-        <span>También puedes escribir cualquier otra palabra que represente mejor tu sentir.</span>
+        <span>{getFooter()}</span>
       </div>
     </div>
   );
