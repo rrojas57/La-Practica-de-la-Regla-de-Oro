@@ -58,6 +58,8 @@ export interface TranslationDict {
   practiceBtnHideHelp: string;
   practiceHelpSuffix: string;
   practiceHelpOptional: string;
+  practiceNotesLabel: string;
+  practiceNotesPlaceholder: string;
   
   // Simultaneous Preview
   previewTitle: string;
@@ -233,6 +235,8 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     practiceBtnHideHelp: "Ocultar sugerencias de ayuda",
     practiceHelpSuffix: " Haz clic en cualquiera de estas sugerencias para seleccionarla:",
     practiceHelpOptional: "También puedes escribir cualquier otra palabra que represente mejor tu sentir.",
+    practiceNotesLabel: "Tus notas o diario de la reflexión (Opcional):",
+    practiceNotesPlaceholder: "Usa este espacio para detallar más la situación externa, escribir sobre los cambios corporales que experimentas o documentar tus compromisos...",
     
     // Simultaneous Preview
     previewTitle: "Idea Fuerza en Construcción",
@@ -406,6 +410,8 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     practiceBtnHideHelp: "Hide help suggestions",
     practiceHelpSuffix: " Click on any of these suggestions to select it:",
     practiceHelpOptional: "You can also write any other word that better represents your feelings.",
+    practiceNotesLabel: "Your notes or reflection journal (Optional):",
+    practiceNotesPlaceholder: "Use this space to elaborate on the external situation, write down physical changes you feel, or document your commitments...",
     
     // Simultaneous Preview
     previewTitle: "Key Idea in Construction",
@@ -579,6 +585,8 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     practiceBtnHideHelp: "Masquer les suggestions d'aide",
     practiceHelpSuffix: " Cliquez sur l'une de ces suggestions pour la sélectionner :",
     practiceHelpOptional: "Vous pouvez également écrire n'importe quel autre mot qui représente mieux votre ressenti.",
+    practiceNotesLabel: "Vos notes ou journal de réflexion (Optionnel) :",
+    practiceNotesPlaceholder: "Utilisez cet espace pour détailler davantage la situation extérieure, noter les changements corporels ressentis ou documenter vos engagements...",
     
     // Simultaneous Preview
     previewTitle: "Idée Force en Construction",
@@ -752,6 +760,8 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     practiceBtnHideHelp: "Hilfevorschläge ausblenden",
     practiceHelpSuffix: " Klicken Sie auf einen dieser Vorschläge, um ihn auszuwählen:",
     practiceHelpOptional: "Sie können auch jedes andere Wort schreiben, das Ihre Gefühle am besten wiedergibt.",
+    practiceNotesLabel: "Ihre Notizen oder Reflexionstagebuch (Optional):",
+    practiceNotesPlaceholder: "Nutzen Sie diesen Raum, um die externe Situation genauer zu beschreiben, körperliche Veränderungen aufzuschreiben oder Ihre Verpflichtungen zu dokumentieren...",
     
     // Simultaneous Preview
     previewTitle: "Leitgedanke im Aufbau",
@@ -925,6 +935,8 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     practiceBtnHideHelp: "Ocultar sugestões de ajuda",
     practiceHelpSuffix: " Clica em qualquer uma destas sugestões para a selecionar:",
     practiceHelpOptional: "Também podes escrever qualquer outra palavra que represente melhor o teu sentir.",
+    practiceNotesLabel: "As tuas notas ou diário de reflexão (Opcional):",
+    practiceNotesPlaceholder: "Usa este espaço para detalhar mais a situação externa, escrever sobre as alterações corporais que sentes ou documentar os teus compromissos...",
     
     // Simultaneous Preview
     previewTitle: "Ideia-Força em Construção",

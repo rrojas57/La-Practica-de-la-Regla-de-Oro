@@ -604,7 +604,7 @@ ${t.downloadFooterQuote}
                 <div className="flex items-center gap-4">
                   <div className="text-right space-y-1">
                     <span className={`text-xs ${theme === "dark" ? "text-slate-400" : "text-slate-500"}`}>{t.practiceProgressLabel}</span>
-                    <p className={`text-sm font-bold ${theme === "dark" ? "text-slate-200" : "text-slate-800"}`}>{answeredCount} {lang === "es" ? "de" : "of"} {totalSteps}{t.practiceCompletedCount}</p>
+                    <p className={`text-sm font-bold ${theme === "dark" ? "text-slate-200" : "text-slate-800"}`}>{answeredCount} {lang === "fr" ? "sur" : lang === "de" ? "von" : lang === "en" ? "of" : "de"} {totalSteps}{t.practiceCompletedCount}</p>
                   </div>
                   <div className={`w-14 h-14 rounded-full border-4 flex items-center justify-center relative transition-colors ${
                     theme === "dark" ? "border-slate-800 bg-slate-850" : "border-slate-100 bg-slate-50"
@@ -642,13 +642,19 @@ ${t.downloadFooterQuote}
                       <div className="flex items-center gap-2">
                         <Headphones className="w-4 h-4 text-amber-500 animate-pulse shrink-0" />
                         <span>
-                          {lang === "es"
-                            ? "🧘 ¿Te gustaría calmar tu mente antes de empezar? Realiza la relajación guiada"
-                            : "🧘 Would you like to calm your mind before starting? Do the guided relaxation"}
+                          {lang === "fr"
+                            ? "🧘 Souhaitez-vous calmer votre esprit avant de commencer ? Faites la relaxation guidée"
+                            : lang === "de"
+                            ? "🧘 Möchten Sie Ihren Geist beruhigen, bevor Sie beginnen? Machen Sie die geführte Entspannung"
+                            : lang === "pt"
+                            ? "🧘 Gostarias de acalmar a tua mente antes de começar? Faz a relaxamento guiada"
+                            : lang === "en"
+                            ? "🧘 Would you like to calm your mind before starting? Do the guided relaxation"
+                            : "🧘 ¿Te gustaría calmar tu mente antes de empezar? Realiza la relajación guiada"}
                         </span>
                       </div>
                       <span className="text-amber-600 dark:text-amber-400 font-extrabold hover:underline shrink-0 text-[10px] uppercase tracking-wider">
-                        {lang === "es" ? "Escuchar" : "Listen"} →
+                        {lang === "fr" ? "Écouter" : lang === "de" ? "Anhören" : lang === "pt" ? "Ouvir" : lang === "en" ? "Listen" : "Escuchar"} →
                       </span>
                     </motion.div>
                   )}
@@ -699,7 +705,7 @@ ${t.downloadFooterQuote}
                     {/* Step tag */}
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">
-                        {t.practiceQuestionLabel} {currentStepId} {lang === "es" ? "de" : "of"} {totalSteps}
+                        {t.practiceQuestionLabel} {currentStepId} {lang === "fr" ? "sur" : lang === "de" ? "von" : lang === "en" ? "of" : "de"} {totalSteps}
                       </span>
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
                         currentStep.type === 'luminous'
@@ -819,6 +825,7 @@ ${t.downloadFooterQuote}
                         onSelectWord={handleSelectWord}
                         selectedWord={answers[currentStepId]}
                         theme={theme}
+                        lang={lang}
                       />
                       <div className="flex justify-end">
                         <button
@@ -862,11 +869,11 @@ ${t.downloadFooterQuote}
                       theme === "dark" ? "text-slate-100" : "text-slate-800"
                     }`}>
                       <FileText className="w-4 h-4 text-slate-400" />
-                      <span>{lang === "es" ? "Tus notas o diario de la reflexión (Opcional):" : "Your notes or reflection journal (Optional):"}</span>
+                      <span>{t.practiceNotesLabel}</span>
                     </h4>
                     <textarea
                       rows={3}
-                      placeholder={lang === "es" ? "Usa este espacio para detallar más la situación externa, escribir sobre los cambios corporales que experimentas o documentar tus compromisos..." : "Use this space to elaborate on the external situation, write down physical changes you feel, or document your commitments..."}
+                      placeholder={t.practiceNotesPlaceholder}
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
                       className={`w-full px-4 py-3 rounded-xl border text-xs font-medium focus:outline-none transition duration-150 focus:ring-2 focus:ring-amber-500/10 ${
@@ -988,7 +995,7 @@ ${t.downloadFooterQuote}
                       <div className="space-y-1">
                         <h4 className={`font-bold text-sm ${theme === "dark" ? "text-slate-200" : "text-slate-800"}`}>{t.practiceSynthesisOnWayTitle}</h4>
                         <p className={`text-xs leading-relaxed ${theme === "dark" ? "text-slate-400" : "text-slate-500"}`}>
-                          {lang === "es" ? `Responde las ${totalSteps} preguntas del cuestionario para generar el conjunto de aforismos interactivos y de superación personal. Actualmente llevas ${answeredCount} de ${totalSteps}.` : `Answer all ${totalSteps} questions of the questionnaire to generate your set of interactive self-improvement aphorisms. Currently you have answered ${answeredCount} of ${totalSteps}.`}
+                          {t.resultsSynthesisSubtitle.replace("{totalSteps}", String(totalSteps)).replace("{totalSteps}", String(totalSteps)).replace("{answeredCount}", String(answeredCount))}
                         </p>
                       </div>
                       
