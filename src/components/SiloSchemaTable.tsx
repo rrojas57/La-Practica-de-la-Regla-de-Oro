@@ -536,7 +536,13 @@ ${lang === "es" ? "Generado el" : "Generated on"}: ${new Date().toLocaleDateStri
                 {/* Row 3: Opcional II */}
                 <div className="p-3.5 flex-1 flex flex-col justify-center bg-slate-50 dark:bg-slate-900">
                   <span className="text-[10px] font-bold tracking-wider uppercase text-indigo-700 dark:text-indigo-400 block mb-1.5 leading-tight">
-                    {lang === "es" ? "Opcional II: Por 5 caigo a 2, pero por 6 subo a 3" : "Optional II: Through 5 I fall to 2, but through 6 I rise to 3"}
+                    {
+                      lang === "es" ? "Opcional II: Por 5 caigo a 2, pero por 6 subo a 3" :
+                      lang === "fr" ? "Optionnel II : Par 5 je tombe à 2, mais par 6 je monte à 3" :
+                      lang === "de" ? "Optional II: Durch 5 falle ich auf 2, aber durch 6 steige ich auf 3" :
+                      lang === "pt" ? "Opcional II: Por 5 caio para 2, mas por 6 subo para 3" :
+                      "Optional II: Through 5 I fall to 2, but through 6 I rise to 3"
+                    }
                   </span>
                   <p className="text-xs font-semibold text-slate-900 dark:text-slate-100 leading-relaxed">
                     {af_opt_2}
@@ -546,7 +552,13 @@ ${lang === "es" ? "Generado el" : "Generated on"}: ${new Date().toLocaleDateStri
                 {/* Row 4: Opcional III */}
                 <div className="p-3.5 flex-1 flex flex-col justify-center bg-slate-50 dark:bg-slate-900">
                   <span className="text-[10px] font-bold tracking-wider uppercase text-indigo-700 dark:text-indigo-400 block mb-1.5 leading-tight">
-                    {lang === "es" ? "Opcional III: Por 7 caigo a 1 pero por 8 subo a 4" : "Optional III: Through 7 I fall to 1 but through 8 I rise to 4"}
+                    {
+                      lang === "es" ? "Opcional III: Por 7 caigo a 1 pero por 8 subo a 4" :
+                      lang === "fr" ? "Optionnel III : Par 7 je tombe à 1 mais par 8 je monte à 4" :
+                      lang === "de" ? "Optional III: Durch 7 falle ich auf 1, aber durch 8 steige ich auf 4" :
+                      lang === "pt" ? "Opcional III: Por 7 caio para 1 mas por 8 subo para 4" :
+                      "Optional III: Through 7 I fall to 1 but through 8 I rise to 4"
+                    }
                   </span>
                   <p className="text-xs font-semibold text-slate-900 dark:text-slate-100 leading-relaxed">
                     {af_opt_3}
@@ -558,7 +570,13 @@ ${lang === "es" ? "Generado el" : "Generated on"}: ${new Date().toLocaleDateStri
               {/* BOTTOM FOOTER RIGHT: PEDIDOS O AFORISMOS */}
               <div className="bg-slate-250 dark:bg-slate-800 border-t-2 border-slate-900 dark:border-slate-700 py-2.5 px-3 text-center">
                 <span className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-amber-400 block">
-                  {lang === "es" ? "PEDIDOS O AFORISMOS" : "REQUESTS OR APHORISMS"}
+                  {
+                    lang === "es" ? "PEDIDOS O AFORISMOS" :
+                    lang === "fr" ? "DEMANDES OU APHORISMES" :
+                    lang === "de" ? "BITTEN ODER APHORISMEN" :
+                    lang === "pt" ? "PEDIDOS OU AFORISMOS" :
+                    "REQUESTS OR APHORISMS"
+                  }
                 </span>
               </div>
 
@@ -568,8 +586,24 @@ ${lang === "es" ? "Generado el" : "Generated on"}: ${new Date().toLocaleDateStri
 
           {/* Footer citation inside the image itself */}
           <div className="flex justify-between items-center mt-4 pt-4 border-t border-slate-150 dark:border-slate-850 text-[9px] text-slate-400 dark:text-slate-500">
-            <span>{lang === "es" ? "© 2026 - Ejercicio de Reflexión y Reconciliación" : "© 2026 - Reflection & Reconciliation Exercise"}</span>
-            <span>{lang === "es" ? "Desarrollado con humildad y bondad por R.E.R.H." : "Developed with humility and kindness by R.E.R.H."}</span>
+            <span>
+              {
+                lang === "es" ? "© 2026 - Ejercicio de Reflexión y Reconciliación" :
+                lang === "fr" ? "© 2026 - Exercice de Réflexion et Réconciliation" :
+                lang === "de" ? "© 2026 - Reflexions- und Versöhnungsübung" :
+                lang === "pt" ? "© 2026 - Exercício de Reflexão e Reconciliação" :
+                "© 2026 - Reflection & Reconciliation Exercise"
+              }
+            </span>
+            <span>
+              {
+                lang === "es" ? "Desarrollado con humildad y bondad por R.E.R.H." :
+                lang === "fr" ? "Développé avec humilité et bonté par R.E.R.H." :
+                lang === "de" ? "Mit Demut und Güte entwickelt von R.E.R.H." :
+                lang === "pt" ? "Desenvolvido com humildade e bondade por R.E.R.H." :
+                "Developed with humility and kindness by R.E.R.H."
+              }
+            </span>
           </div>
         </div>
       </div>
@@ -585,7 +619,13 @@ ${lang === "es" ? "Generado el" : "Generated on"}: ${new Date().toLocaleDateStri
               <div className="flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-amber-500 animate-pulse" />
                 <h3 className="text-md font-extrabold uppercase tracking-tight">
-                  {lang === "es" ? "Ficha de Trabajo Oficial" : "Official Practice Worksheet"}
+                  {
+                    lang === "es" ? "Ficha de Trabajo Oficial" :
+                    lang === "fr" ? "Fiche de Travail Officielle" :
+                    lang === "de" ? "Offizielles Arbeitsblatt" :
+                    lang === "pt" ? "Ficha de Trabalho Oficial" :
+                    "Official Practice Worksheet"
+                  }
                 </h3>
               </div>
               <button 

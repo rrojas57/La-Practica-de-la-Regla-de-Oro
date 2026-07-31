@@ -68,6 +68,39 @@ const EXAMPLE_ANSWERS_EN: Record<number, string> = {
   8: "I connect with the Human in me and in others"
 };
 
+const EXAMPLE_ANSWERS_FR: Record<number, string> = {
+  1: "Excluants",
+  2: "Je souffre et me mets à distance en m'isolant",
+  3: "Considération et inclusion",
+  4: "Je m'approche et j'apprécie les autres",
+  5: "Insécurité",
+  6: "J'exprime ce que je ressens et ce que je pense",
+  7: "Épuisement",
+  8: "Je me connecte à l'Humain en moi et chez les autres"
+};
+
+const EXAMPLE_ANSWERS_DE: Record<number, string> = {
+  1: "Ausschließend",
+  2: "Ich leide und distanziere mich, indem ich mich isoliere",
+  3: "Rücksichtnahme und Inklusion",
+  4: "Ich gehe auf andere zu und schätze sie",
+  5: "Unsicherheit",
+  6: "Ich drücke aus, was ich fühle und denke",
+  7: "Burnout",
+  8: "Ich verbinde mich mit dem Menschlichen in mir und in anderen"
+};
+
+const EXAMPLE_ANSWERS_PT: Record<number, string> = {
+  1: "Excludentes",
+  2: "Sofro e me afasto, isolando-me",
+  3: "Consideração e inclusão",
+  4: "Aproximo-me e aprecio os outros",
+  5: "Insegurança",
+  6: "Exprimo o que sinto e penso",
+  7: "Esgotamento",
+  8: "Conecto-me com o Humano em mim e nos outros"
+};
+
 export default function App() {
   // Language selection: 'es' | 'en' | 'fr' | 'de' | 'pt' (Defaults to Spanish always on first load)
   const [lang, setLang] = useState<"es" | "en" | "fr" | "de" | "pt">("es");
@@ -114,7 +147,10 @@ export default function App() {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     localStorage.setItem("regla_de_oro_theme", newTheme);
-    showToast(`${t.toastThemeChanged}${newTheme === "light" ? (lang === "es" ? "Claro" : "Light") : (lang === "es" ? "Oscuro" : "Dark")}`);
+    const themeLabel = newTheme === "light" 
+      ? (lang === "es" ? "Claro" : lang === "fr" ? "Clair" : lang === "de" ? "Hell" : lang === "pt" ? "Claro" : "Light") 
+      : (lang === "es" ? "Oscuro" : lang === "fr" ? "Sombre" : lang === "de" ? "Dunkel" : lang === "pt" ? "Escuro" : "Dark");
+    showToast(`${t.toastThemeChanged}${themeLabel}`);
   };
 
   // Load history on mount
@@ -196,11 +232,17 @@ export default function App() {
 
     const title = practiceTitle.trim() !== "" 
       ? practiceTitle.trim() 
-      : lang === "es" ? `Superar el rechazo de "${answers[1] || "..."}"` : `Overcoming the rejection of "${answers[1] || "..."}"`;
+      : lang === "es" ? `Superar el rechazo de "${answers[1] || "..."}"` 
+      : lang === "fr" ? `Surmonter le rejet de "${answers[1] || "..."}"` 
+      : lang === "de" ? `Überwindung der Ablehnung von "${answers[1] || "..."}"` 
+      : lang === "pt" ? `Superar a rejeição de "${answers[1] || "..."}"` 
+      : `Overcoming the rejection of "${answers[1] || "..."}"`;
+
+    const locale = lang === "es" ? "es-ES" : lang === "fr" ? "fr-FR" : lang === "de" ? "de-DE" : lang === "pt" ? "pt-PT" : "en-US";
 
     const newPractice: SavedPractice = {
       id: Date.now().toString(),
-      date: new Date().toLocaleDateString(lang === "es" ? "es-ES" : "en-US", {
+      date: new Date().toLocaleDateString(locale, {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -240,12 +282,28 @@ export default function App() {
 
   // Load example values
   const handleLoadExample = () => {
-    setAnswers(lang === "es" ? EXAMPLE_ANSWERS : EXAMPLE_ANSWERS_EN);
+    setAnswers(
+      lang === "es" ? EXAMPLE_ANSWERS :
+      lang === "fr" ? EXAMPLE_ANSWERS_FR :
+      lang === "de" ? EXAMPLE_ANSWERS_DE :
+      lang === "pt" ? EXAMPLE_ANSWERS_PT :
+      EXAMPLE_ANSWERS_EN
+    );
     setCurrentStepId(1);
-    setNotes(lang === "es" 
-      ? "Este es el ejemplo clásico de aplicación de la Regla de Oro, abordando la violencia externa del trato excluyente mediante la consideración e inclusión, superando el sufrimiento defensivo y la desconfianza por medio de la comunicación honesta."
-      : "This is the classic example of applying the Golden Rule, addressing the external violence of excluding treatment through consideration and inclusion, overcoming defensive suffering and distrust through honest communication.");
-    setPracticeTitle(lang === "es" ? "Ejemplo - Superación del Trato Excluyente" : "Example - Overcoming Excluding Treatment");
+    setNotes(
+      lang === "es" ? "Este es el ejemplo clásico de aplicación de la Regla de Oro, abordando la violencia externa del trato excluyente mediante la consideración e inclusión, superando el sufrimiento defensivo y la desconfianza por medio de la comunicación honesta." :
+      lang === "fr" ? "C'est l'exemple classique d'application de la Règle d'Or, traitant de la violence externe du traitement excluant grâce à la considération et l'inclusion, surmontant la souffrance défensive et la méfiance par une communication honnête." :
+      lang === "de" ? "Dies ist das klassische Beispiel für die Anwendung der Goldenen Regel, bei dem die äußere Gewalt ausschließender Behandlung durch Rücksichtnahme und Inklusion angegangen und defensive Leiden sowie Misstrauen durch ehrliche Kommunikation überwunden werden." :
+      lang === "pt" ? "Este é o exemplo clássico de aplicação da Regra de Ouro, abordando a violência externa do tratamento excludente através da consideração e inclusão, superando o sofrimento defensivo e a desconfiança por meio de uma comunicação honesta." :
+      "This is the classic example of applying the Golden Rule, addressing the external violence of excluding treatment through consideration and inclusion, overcoming defensive suffering and distrust through honest communication."
+    );
+    setPracticeTitle(
+      lang === "es" ? "Ejemplo - Superación del Trato Excluyente" :
+      lang === "fr" ? "Exemple - Surmonter le traitement excluant" :
+      lang === "de" ? "Beispiel - Überwindung ausschließender Behandlung" :
+      lang === "pt" ? "Exemplo - Superação do Tratamento Excludente" :
+      "Example - Overcoming Excluding Treatment"
+    );
     setCustomAforismos({});
     setActiveTab("practice");
     showToast(t.toastExampleLoaded);
@@ -255,9 +313,13 @@ export default function App() {
   const handleLoadExampleAnswers = (exampleAnswers: Record<number, string>, title: string) => {
     setAnswers(exampleAnswers);
     setCurrentStepId(1);
-    setNotes(lang === "es" 
-      ? `Este es el ejercicio de reflexión cargado desde los ejemplos de apoyo de la aplicación: "${title}". Úsalo como inspiración para tu propio trabajo.`
-      : `This is the reflection exercise loaded from the application's support examples: "${title}". Use it as inspiration for your own work.`);
+    setNotes(
+      lang === "es" ? `Este es el ejercicio de reflexión cargado desde los ejemplos de apoyo de la aplicación: "${title}". Úsalo como inspiración para tu propio trabajo.` :
+      lang === "fr" ? `C'est l'exercice de réflexion chargé depuis les exemples d'aide de l'application : "${title}". Utilisez-le comme inspiration pour votre propre travail.` :
+      lang === "de" ? `Dies ist die Reflexionsübung, die aus den Unterstützungsbeispielen der Anwendung geladen wurde: "${title}". Nutzen Sie sie als Inspiration für Ihre eigene Arbeit.` :
+      lang === "pt" ? `Este é o exercício de reflexão carregado a partir dos exemplos de apoio da aplicação: "${title}". Usa-o como inspiração para o teu próprio trabalho.` :
+      `This is the reflection exercise loaded from the application's support examples: "${title}". Use it as inspiration for your own work.`
+    );
     setPracticeTitle(title);
     setCustomAforismos({});
     setActiveTab("practice");
@@ -300,12 +362,16 @@ export default function App() {
   // Download all aforismos as a text file
   const handleDownloadAll = () => {
     const aforismos = currentAforismos;
+    const locale = lang === "es" ? "es-ES" : lang === "fr" ? "fr-FR" : lang === "de" ? "de-DE" : lang === "pt" ? "pt-PT" : "en-US";
+    const defaultTitle = lang === "es" ? "Mi reflexión" : lang === "fr" ? "Ma réflexion" : lang === "de" ? "Meine Reflexion" : lang === "pt" ? "Minha reflexão" : "My reflection";
+    const defaultFileName = lang === "es" ? "Regla_de_Oro" : lang === "fr" ? "Regle_d_Or" : lang === "de" ? "Goldene_Regel" : lang === "pt" ? "Regra_de_Ouro" : "Golden_Rule";
+
     const textContent = `
 =========================================
 ${t.downloadHeader}
 =========================================
-${t.downloadPracticeTitle}${practiceTitle || (lang === "es" ? "Mi reflexión" : "My reflection")}
-${t.downloadDate}${new Date().toLocaleDateString(lang === "es" ? "es-ES" : "en-US")}
+${t.downloadPracticeTitle}${practiceTitle || defaultTitle}
+${t.downloadDate}${new Date().toLocaleDateString(locale)}
 
 ${t.downloadResponsesHeader}
 1. ${stepsList[0].shortName}: "${answers[1] || "___"}"
@@ -332,7 +398,7 @@ ${t.downloadFooterQuote}
     const element = document.createElement("a");
     const file = new Blob([textContent], { type: "text/plain;charset=utf-8" });
     element.href = URL.createObjectURL(file);
-    element.download = `${lang === "es" ? "Regla_de_Oro" : "Golden_Rule"}_${practiceTitle.replace(/\s+/g, "_") || "reflexion"}.txt`;
+    element.download = `${defaultFileName}_${practiceTitle.replace(/\s+/g, "_") || "reflexion"}.txt`;
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);

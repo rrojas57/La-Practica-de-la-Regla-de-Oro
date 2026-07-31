@@ -58,17 +58,31 @@ export default function AforismosDisplay({
         <div className="space-y-2 max-w-3xl">
           <h3 className={`text-xl font-bold flex items-center gap-2 ${isDark ? "text-white" : "text-slate-900"}`}>
             <Sparkles className="w-5 h-5 text-amber-500 animate-pulse" />
-            {lang === "es" ? "Personalizador de Aforismos" : "Aphorism Customizer"}
+            {
+              lang === "es" ? "Personalizador de Aforismos" :
+              lang === "fr" ? "Personnaliseur d'Aphorismes" :
+              lang === "de" ? "Aphorismen-Anpasser" :
+              lang === "pt" ? "Personalizador de Aforismos" :
+              "Aphorism Customizer"
+            }
           </h3>
           <p className={`text-sm font-medium leading-relaxed ${isDark ? "text-slate-300" : "text-slate-700"}`}>
-            {lang === "es" 
-              ? "Revisa la fórmula, consulta tus respuestas de referencia y edita y construye el texto de cada uno para que sea el adecuado para ti."
-              : "Review the formula, consult your reference answers, and customize and build the text of each one so it is right for you."}
+            {
+              lang === "es" ? "Revisa la fórmula, consulta tus respuestas de referencia y edita y construye el texto de cada uno para que sea el adecuado para ti." :
+              lang === "fr" ? "Examinez la formule, consultez vos réponses de référence, puis éditez et construisez le texte de chacun pour qu'il vous convienne." :
+              lang === "de" ? "Überprüfen Sie die Formel, konsultieren Sie Ihre Referenzantworten und bearbeiten Sie den Text so, dass er für Sie passt." :
+              lang === "pt" ? "Reveja a fórmula, consulte as suas respostas de referência e edite o texto de cada um para que seja o adecuado para si." :
+              "Review the formula, consult your reference answers, and customize and build the text of each one so it is right for you."
+            }
           </p>
           <p className={`text-xs leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}>
-            {lang === "es" 
-              ? "Y recuerda que los aforismos son frases o sentencias breves que funcionan como ideas fuerza o una declaración de las acciones que queremos poner en marcha para superar la contradicción o el sufrimiento trabajados en el ejercicio."
-              : "And remember that aphorisms are short sentences or phrases that function as core driving ideas or a declaration of the actions we want to implement to overcome the contradiction or suffering addressed in the exercise."}
+            {
+              lang === "es" ? "Y recuerda que los aforismos son frases o sentencias breves que funcionan como ideas fuerza o una declaración de las acciones que queremos poner en marcha para superar la contradicción o el sufrimiento trabajados en el ejercicio." :
+              lang === "fr" ? "Et rappelez-vous que les aphorismes sont des phrases courtes qui fonctionnent comme des idées-forces ou des déclarations d'actions à mettre en œuvre pour surmonter la contradiction ou la souffrance travaillée." :
+              lang === "de" ? "Und denken Sie daran, dass Aphorismen kurze Sätze sind, die als Leitgedanken oder Erklärungen der Aktionen dienen, die wir umsetzen möchten, um die erarbeitete Widersprüchlichkeit oder das Leiden zu überwinden." :
+              lang === "pt" ? "E recorda que os aforismos são frases curtas que funcionam como ideias-força ou uma declaração das ações que queremos colocar em prática para superar a contradição ou o sofrimento trabalhado no exercício." :
+              "And remember that aphorisms are short sentences or phrases that function as core driving ideas or a declaration of the actions we want to implement to overcome the contradiction or suffering addressed in the exercise."
+            }
           </p>
         </div>
         
@@ -82,7 +96,15 @@ export default function AforismosDisplay({
             }`}
           >
             <Download className="w-4 h-4" />
-            <span>{lang === "es" ? "Descargar Todo" : "Download All"}</span>
+            <span>
+              {
+                lang === "es" ? "Descargar Todo" :
+                lang === "fr" ? "Télécharger tout" :
+                lang === "de" ? "Alle herunterladen" :
+                lang === "pt" ? "Descarregar Tudo" :
+                "Download All"
+              }
+            </span>
           </button>
         )}
       </div>
@@ -99,7 +121,13 @@ export default function AforismosDisplay({
         >
           <span className="flex items-center gap-2">
             <Info className="w-4 h-4 text-amber-500" />
-            {lang === "es" ? "Consultar tus Respuestas de Referencia (Puntos 1 al 8)" : "Consult your Reference Answers (Points 1 to 8)"}
+            {
+              lang === "es" ? "Consultar tus Respuestas de Referencia (Puntos 1 al 8)" :
+              lang === "fr" ? "Consulter vos Réponses de Référence (Points 1 à 8)" :
+              lang === "de" ? "Konsultieren Sie Ihre Referenzantworten (Punkte 1 bis 8)" :
+              lang === "pt" ? "Consultar as Tuas Respostas de Referência (Pontos 1 a 8)" :
+              "Consult your Reference Answers (Points 1 to 8)"
+            }
           </span>
           {showFormulaHelper ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
         </button>
@@ -116,9 +144,13 @@ export default function AforismosDisplay({
               }`}
             >
               <p className={`text-xs mb-4 leading-relaxed ${isDark ? "text-slate-400" : "text-slate-600"}`}>
-                {lang === "es" 
-                  ? "Sustituye mentalmente cada número de la fórmula por las respuestas que pusiste en el cuestionario. Utiliza estos valores para pulir la redacción final a tu gusto:"
-                  : "Mentally replace each number in the formula with the answers you filled in the questionnaire. Use these values to polish the final wording as you wish:"}
+                {
+                  lang === "es" ? "Sustituye mentalmente cada número de la fórmula por las respuestas que pusiste en el cuestionario. Utiliza estos valores para pulir la redacción final a tu gusto:" :
+                  lang === "fr" ? "Remplacez mentalement chaque numéro de la formule par les réponses renseignées dans le questionnaire. Utilisez ces valeurs pour peaufiner la rédaction finale à votre convenance :" :
+                  lang === "de" ? "Ersetzen Sie gedanklich jede Nummer in der Formel durch die Antworten aus dem Fragebogen. Nutzen Sie diese Werte, um den endgültigen Wortlaut nach Ihren Wünschen zu verfeinern:" :
+                  lang === "pt" ? "Substitui mentalmente cada número na fórmula pelas respostas que preencheste no questionário. Utiliza estes valores para aperfeiçoar a redação final ao teu gosto:" :
+                  "Mentally replace each number in the formula with the answers you filled in the questionnaire. Use these values to polish the final wording as you wish:"
+                }
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">

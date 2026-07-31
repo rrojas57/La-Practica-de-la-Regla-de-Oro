@@ -1,0 +1,233 @@
+=====================================================================
+TRANSCRIPCIÓN COMPLETA DE TEXTOS DE LA APLICACIÓN - LA REGLA DE ORO
+IDIOMA: PORTUGUÉS (PT)
+=====================================================================
+
+---------------------------------------------------------------------
+1. NAVEGACIÓN Y MENÚ PRINCIPAL (HEADER & NAVIGATION)
+---------------------------------------------------------------------
+[logoTitle] Título Principal: A Regra de Ouro
+[logoSubtitle] Subtítulo: Prática Interativa
+[tabIntro] Pestaña Introducción: Introdução
+[tabPractice] Pestaña Práctica: Prática
+[tabHistory] Pestaña Historial: Histórico
+[tabSupport] Pestaña Biblioteca y Enlaces: Biblioteca & Links
+[themeToggleDark] Botón Modo Oscuro: Mudar para Tema Escuro
+[themeToggleLight] Botón Modo Claro: Mudar para Tema Claro
+
+---------------------------------------------------------------------
+2. NOTIFICACIONES / MENSAJES FLOTANTES (TOAST NOTIFICATIONS)
+---------------------------------------------------------------------
+[toastThemeChanged] Tema cambiado: Tema alterado para: 
+[toastFormReset] Formulario reiniciado: Formulário reiniciado com sucesso.
+[toastPracticeSaved] Práctica guardada: Prática guardada com sucesso no seu histórico!
+[toastPracticeLoaded] Práctica cargada: Prática carregada: 
+[toastPracticeDeleted] Práctica eliminada: Prática eliminada do seu histórico.
+[toastExampleLoaded] Ejemplo cargado: Um exemplo resolvido completo foi carregado. Reveja o mapa e as ideias-força.
+[toastPracticeReady] Práctica lista: Exemplo carregado com sucesso no seu espaço de trabalho. Compare-o no mapa!
+[toastFormCheck] Verificación de formulario: Por favor, responda a pelo menos as primeiras perguntas antes de guardar.
+[toastDownloadSuccess] Descarga exitosa: Ficheiro de texto descarregado com sucesso.
+
+---------------------------------------------------------------------
+3. SECCIÓN DE INTRODUCCIÓN (INTRO SECTION)
+---------------------------------------------------------------------
+[introTagline] Etiqueta: Transformação Pessoal e Não-Violência
+[introTitle] Título: A Prática da Regra de Ouro
+[introSubtitle] Subtítulo: Um caminho prático para superar a reação mecânica, compreender os seus estados internos e escolher o bom trato de forma consciente.
+[introPrivacyTitle] Título Privacidad: 🔒 Espaço 100% Seguro e Privado
+[introPrivacyText] Texto Privacidad: Este exercício é uma ferramenta de autoconhecimento estritamente pessoal. Para a sua total tranquilidade, as respostas que introduzir ao longo destes pontos não são armazenadas em nenhum servidor externo nem ficam registadas em nenhuma base de dados acessível por terceiros. Tudo o que escrever é processado de forma temporária e local no seu ecrã para o seu próprio trabalho interior. Pratique com absoluta liberdade.
+[introPrincipleTitle] Título Principio de la Regla de Oro: Princípio Central
+[introSiloQuote] Cita de Silo: Quando tratas os outros como queres que te tratem, libertas-te.
+[introInspiration] Inspiración: Esta prática inspira-se na Regra de Ouro do Novo Humanismo, recolhida em "A Regra de Ouro da Não-Violência" de Roberto Kohanoff e Isabel Lazzaroni.
+[introSiloAuthor] Autor: — Silo, Humanismo Universalista
+[introBenefitsTitle] Título Beneficios: A prática da Regra de Ouro ajuda-nos a:
+[introBenefits] Beneficios:
+  - Deter a reação compulsiva e escolher como queremos agir (resposta diferida).
+  - Compreender por que razão certas atitudes ou comportamentos dos outros nos afetam tanto.
+  - Libertar-nos de tensões internas, contradições e estados de espírito (climas) negativos.
+  - Melhorar as nossas relações, porque deixamos de pedir que o outro mude e começamos a mudar nós mesmos.
+  - Construir um estilo de vida mais coerente, mais amável e mais livre.
+  - Não se trata de ser perfeito nem de "comportar-se bem". Trata-se de aprender a viver com mais consciência e menos violência interna, passo a passo.
+[introPurposeTitle] Título Propósito: Esta prática serve para:
+[introPurposes] Propósitos:
+  - Compreender-nos melhor e reconhecer o que nos magoa e porquê.
+  - Detetar padrões repetidos que provêm da nossa história pessoal.
+  - Quebrar a cadeia de violência interna e externa.
+  - Agir a partir das nossas melhores virtudes, não do impulso do momento.
+  - Elevar o nosso nível de consciência, o que melhora a nossa vida e a das pessoas ao nosso redor.
+  - Com o tempo, esta prática torna-se uma ferramenta para viver com mais unidade interna: pensar, sentir e agir na mesma direção.
+  - Esta aplicação irá acompanhar-te passo a passo para que possas praticá-la de forma simples, profunda e acessível. Não importa a tua idade, cultura, história ou situação atual: todos podemos aprender a viver com menos violência e mais liberdade interna.
+[introExplanation] Explicación: Todas as pessoas experimentam momentos de tensão, raiva, frustração ou confusão. Às vezes reagimos de forma puramente mecânica ou compulsiva a partir de um baixo nível de consciência. Esta prática é uma ferramenta de autoconhecimento e transformação pessoal desenhada para te ajudar a deter a reação automática, compreender os teus estados internos e escolher o bom trato de forma consciente. Não é uma norma rígida nem uma obrigação moral, mas sim um caminho para uma vida com menos sofrimento, mais unidade interna e verdadeira liberdade.
+[introPurposesExtra] Texto extra propósito: Esta aplicação irá acompanhar-te passo a passo para que possas praticá-la de forma simples, profunda e acessível. Não importa a tua idade, cultura, história ou situação atual: todos podemos aprender a viver com menos violência e mais liberdade interna.
+[introBtnStart] Botón Comenzar: Iniciar Nova Prática
+[introBtnExample] Botón Cargar Ejemplo: Ver um Exemplo Resolvido
+
+---------------------------------------------------------------------
+4. SECCIÓN DE PRÁCTICA Y CUESTIONARIO (PRACTICE SECTION)
+---------------------------------------------------------------------
+[practiceTitleLabel] Etiqueta de Título de Práctica: Prática em curso
+[practiceTitlePlaceholder] Placeholder de Título: Atribui um título à tua reflexão (Ex: Superação de conflito de trabalho)
+[practiceProgressLabel] Etiqueta de Progreso: Progresso global:
+[practiceCompletedCount] Contador de Completados:  completados
+[practicePrivacyTitle] Título Privacidad Práctica: Garantia de Confidencialidade e Privacidade Absoluta
+[practicePrivacyText] Texto Privacidad Práctica: A tua prática de reflexão é absolutamente privada. Tudo o que escreves é guardado localmente e de forma encriptada na base de dados do teu próprio navegador (localStorage). Nenhum dado pessoal, reflexão ou resposta é enviado para servidores externos ou bases de dados na nuvem. A tua intimidade emocional está completamente protegida.
+[practiceQuestionLabel] Etiqueta Pregunta: Pergunta 
+[practiceTypeLuminous] Tipo Espacio Luminoso: Espaço Luminoso
+[practiceTypeDark] Tipo Espacio Perturbado: Espaço Perturbado
+[practiceTypeTransition] Tipo Espacio Transición: Transição
+[practiceInputWordLabel] Etiqueta Entrada Palabra: A tua palavra ou frase curta:
+[practiceBtnPrev] Botón Anterior: Anterior
+[practiceBtnNext] Botón Siguiente: Seguinte
+[practiceBtnLastPrompt] Botón Último Paso: Última pergunta!
+[practiceHelpPrompt] Prompt de Ayuda: Se não encontrares a palavra adequada, podes procurar sugestões neste painel de ajuda.
+[practiceBtnHelp] Botón Mostrar Ayuda: Ver ajuda
+[practiceBtnHideHelp] Botón Ocultar Ayuda: Ocultar sugestões de ajuda
+[practiceHelpSuffix] Sufijo de Ayuda:  Clica em qualquer uma destas sugestões para a selecionar:
+[practiceHelpOptional] Ayuda Opcional: Também podes escrever qualquer outra palavra que represente melhor o teu sentir.
+[practiceNotesLabel] Etiqueta Diario / Notas: As tuas notas ou diário de reflexão (Opcional):
+[practiceNotesPlaceholder] Placeholder Notas: Usa este espaço para detalhar mais a situação externa, escrever sobre as alterações corporais que sentes ou documentar os teus compromissos...
+[relaxationBannerText] Banner Invitación Relajación: 🧘 Gostarias de acalmar a tua mente antes de começar? Faz a relaxamento guiada
+[relaxationBannerBtn] Botón Banner Relajación: Ouvir →
+
+---------------------------------------------------------------------
+5. VISTA PREVIA SIMULTÁNEA / IDEA FUERZA (SIMULTANEOUS PREVIEW)
+---------------------------------------------------------------------
+[previewTitle] Título Vista Previa: Ideia-Força em Construção
+[previewMainTitle] Título Aforismo Principal: Aforismo Principal (Caminhos de Subida 6 + 8):
+[previewGoldenTitle] Título Fórmula de Superación: Fórmula de Superação (Opcional I):
+[previewGoldenTemplate] Plantilla Fórmula: Para evitar {p2} perante {p1}, dou o trato de {p3}, fazendo {p4}.
+[previewHint] Pista / Indicación: ✨ Vê como as tuas reflexões se integram dinamicamente em tempo real nestas sentenças lógicas.
+
+---------------------------------------------------------------------
+6. BARRAS DE ACCIONES (WORKSPACE ACTIONS)
+---------------------------------------------------------------------
+[actionTitle] Título Acciones: Queres conservar a tua sessão?
+[actionSubtitle] Subtítulo Acciones: Guarda as tuas respostas no teu histórico privado para as reveres mais tarde.
+[actionBtnReset] Botón Reiniciar: Reiniciar
+[actionBtnSave] Botón Guardar: Guardar Prática
+[actionResetConfirm] Confirmación de Reinicio: Tens a certeza de que desejas reiniciar as respostas atuais? O teu rascunho ativo será perdido.
+
+---------------------------------------------------------------------
+7. RESULTADOS Y AFORISMOS GENERADOS (RESULTS & APHORISMS)
+---------------------------------------------------------------------
+[resultsCompletedTitle] Título Práctica Completada: Completaste todos os 8 pontos da prática!
+[resultsCompletedSubtitle] Subtítulo Práctica Completada: A tua mente transitou da reatividade para a autoconsciência. Abaixo podes contemplar os teus aforismos finais.
+[resultsBtnSaveHistory] Botón Guardar en Historial: Guardar no Histórico
+[resultsSynthesisTitle] Título Síntesis: A tua síntese está a caminho
+[resultsSynthesisSubtitle] Subtítulo Síntesis: Responde às {totalSteps} perguntas do questionário para gerares o conjunto de aforismos interativos e de superação pessoal. Atualmente levas {answeredCount} de {totalSteps}.
+[aforismosTitle] Título Aforismos: As Tuas Ideias-Força e Aforismos Gerados
+[aforismosSubtitle] Subtítulo Aforismos: Fórmulas e sentenças lógicas construídas de forma simultânea a partir da tua reflexão.
+[aforismosBtnDownload] Botón Descargar: Descarregar Todas
+[aforismosCopiedTitle] Título Copiado: Copiar aforismo
+[aforismosCopiedMessage] Mensaje Copiado: Aforismo copiado para a área de transferência
+
+---------------------------------------------------------------------
+8. SECCIÓN HISTORIAL (HISTORY SECTION)
+---------------------------------------------------------------------
+[historyTitle] Título Historial: O Teu Histórico de Práticas Guardadas
+[historySubtitle] Subtítulo Historial: Aqui residem os teus trabalhos anteriores de autoconhecimento. São guardados localmente no teu próprio dispositivo.
+[historyEmptyTitle] Título Historial Vacío: Histórico de Práticas Vazio
+[historyEmptyText] Texto Historial Vacío: Ainda não tens reflexões guardadas no teu navegador. Completa o questionário no separador Prática e clica em 'Guardar Prática' para começares a construir a tua bitácula pessoal.
+[historyBtnStartNew] Botón Nueva Práctica: Começar Primeira Prática
+[historyCardDate] Etiqueta Fecha: Data de registo: 
+[historyBtnLoad] Botón Cargar Práctica: Carregar no Espaço de Trabalho
+[historyBtnDelete] Botón Eliminar Práctica: Eliminar
+[historyDeleteConfirm] Confirmación Eliminar: Tens a certeza de que desejas eliminar esta prática do histórico? Esta ação não pode ser desfeita.
+
+---------------------------------------------------------------------
+9. BIBLIOTECA, RECURSOS Y EJEMPLOS (SUPPORT & RESOURCES SECTION)
+---------------------------------------------------------------------
+[supportTitle] Título Soporte: Biblioteca e Material de Apoio
+[supportSubtitle] Subtítulo Soporte: Aprofunda a tua compreensão da Regra de Ouro com as referências bibliográficas originais e o glossário de termos do Novo Humanismo.
+[supportTabExamples] Pestaña Ejemplos: Exemplos & Testemunhos
+[supportTabGlossary] Pestaña Glosario: Glossário de Termos
+[supportTabResources] Pestaña Recursos: Biblioteca de Links
+[supportTabMailbox] Pestaña Buzón: Caixa de Correio & Contacto
+[supportExamplesTitle] Título Ejemplos: Casos de Estudo e Práticas de Inspiração
+[supportExamplesSubtitle] Subtítulo Ejemplos: Reveja estes exercícios reais e anónimos resolvidos para te guiar na tua própria reflexão interior.
+[supportExamplesBtnLoad] Botón Cargar Ejemplo: Carregar este Exemplo no Espaço de Trabalho
+[supportExamplesAforismoLabel] Etiqueta Aforismo Ejemplo: Aforismo-chave resultante:
+[supportExamplesCommentaryLabel] Etiqueta Comentario Ejemplo: Comentário do exercício:
+[supportGlossarySearchPlaceholder] Buscar en Glosario: Procurar termo ou definição...
+[supportGlossaryEmpty] Glosario Vacío: Não foram encontrados termos para a pesquisa.
+[supportResourcesTitle] Título Recursos: Livros e Conferências de Consulta
+[supportResourcesSubtitle] Subtítulo Recursos: Acede de forma direta à literatura fundacional do pensamento humanista e à metodologia da não-violência ativa.
+[supportResourcesAuthor] Etiqueta Autor: Autor: 
+[supportResourcesPublisher] Etiqueta Editorial: Editora: 
+[supportResourcesYear] Etiqueta Año: Ano: 
+Tipos de Recursos:
+  - Libro: Livro
+  - Conferencia: Conferência
+  - Discurso: Discurso de Silo
+  - Manual: Manual
+  - Vídeo: Canal de YouTube
+  - PDF: Livro em PDF
+
+---------------------------------------------------------------------
+10. BUZÓN DE MENSAJES (MAILBOX)
+---------------------------------------------------------------------
+[supportMailboxTitle] Título Buzón: Caixa de Correio e Sugestões
+[supportMailboxSubtitle] Subtítulo Buzón: Envia as tuas opiniões, dúvidas ou relatórios técnicos diretamente para a equipa de desenvolvimento de forma totalmente anónima.
+[supportMailboxPrivateCheckTitle] Checkbox Privacidad Título: Garantia de Anonimato Completo
+[supportMailboxPrivateCheckText] Checkbox Privacidad Texto: A tua privacidade está protegida. Esta caixa de correio não recolhe o teu e-mail, o teu IP, a tua geolocalização, nem qualquer dado que te possa identificar. A mensagem é transmitida de forma encriptada diretamente para a folha de cálculo de gestão para revisão técnica e editorial. Se desejares uma resposta, por favor inclui opcionalmente um meio de contacto no final da tua mensagem.
+[supportMailboxLabelCategory] Etiqueta Categoría: Categoria da mensagem:
+Categorías:
+  - Opinión: Opinião ou Sugestão
+  - Error: Reportar um erro técnico
+  - Pregunta: Dúvida conceptual ou metodológica
+  - Otro: Outro assunto
+[supportMailboxLabelMessage] Etiqueta Mensaje: Conteúdo da tua mensagem:
+[supportMailboxPlaceholderMessage] Placeholder Mensaje: Escreve aqui as tuas ideias, sugestões ou comentários com total liberdade...
+[supportMailboxBtnSend] Botón Enviar: Enviar Mensagem Anónima
+[supportMailboxBtnSending] Botón Enviando: A enviar de forma segura...
+[supportMailboxSuccessTitle] Título Éxito Envío: Mensagem Enviada com Sucesso!
+[supportMailboxSuccessText] Texto Éxito Envío: Muito obrigado pela tua contribuição. A tua mensagem foi integrada de forma segura na nossa folha de cálculo de gestão e será analisada com profundo respeito pela equipa técnica. O teu contributo ajuda-nos a melhorar a experiência de todos.
+[supportMailboxBtnSendAnother] Botón Enviar Otro: Enviar Outra Mensagem
+
+---------------------------------------------------------------------
+11. ENCABEZADOS Y PIE DE PÁGINA EN DESCARGA TXT / PDF
+---------------------------------------------------------------------
+[downloadHeader] Encabezado: A PRÁTICA DA REGRA DE OURO
+[downloadPracticeTitle] Título Práctica: Título da reflexão: 
+[downloadDate] Fecha: Data de descarregamento: 
+[downloadResponsesHeader] Sección Respuestas: RESPOSTAS AO QUESTIONÁRIO:
+[downloadAforismosHeader] Sección Aforismos: IDEAS-FORÇA E AFORISMOS GERADOS:
+[downloadNotesHeader] Sección Notas: NOTAS PESSOAIS / DIÁRIO DE TRABAHO:
+[downloadNotesEmpty] Notas Vacías: Sem notas adicionais.
+[downloadFooterQuote] Cita de Cierre: Quando tratas os outros como queres que te tratem, libertas-te. — Silo
+
+---------------------------------------------------------------------
+12. ETIQUETAS DE LOS 8 PASOS EN AFORISMOS (STEP LABELS 1-8)
+---------------------------------------------------------------------
+Paso 1: 1. Tipo de maltrato
+Paso 2: 2. Sofrimento / Reação
+Paso 3: 3. Virtude guia
+Paso 4: 4. Ação solidária
+Paso 5: 5. Sentimento de queda
+Paso 6: 6. Ação de subida 1
+Paso 7: 7. Sentimento de queda
+Paso 8: 8. Ação de subida 2
+
+---------------------------------------------------------------------
+13. GUION Y TEXTOS DE RELAJACIÓN GUIADA (RELAXATION PLAYER)
+---------------------------------------------------------------------
+--- Fase 1: Preparação ---
+Subtítulo: Acomode-se numa postura confortável
+Texto: Encontre uma posição confortável, feche suavemente os olhos se desejar e prepare-se para libertar o ruído e as tensões do dia. Respire lenta e profundamente.
+
+--- Fase 2: 1. Relaxamento Externo ---
+Subtítulo: Aquietar o corpo físico
+Texto: Começamos por relaxar os músculos do corpo. Relaxe a testa, as bochechas, as mandíbulas, a língua e a garganta. Deixe os olhos caírem pesados. Sinta o pescoço solto, os ombros e os braços a cair pesados. Relaxe o peito, o abdómen, as pernas e os pés. Sinta todo o seu corpo completamente solto e em paz.
+
+--- Fase 3: 2. Relaxamento Interno ---
+Subtítulo: Aquietar o peito e os órgãos
+Texto: Agora relaxamos as tensões internas. Sinta o peito por dentro, relaxe os pulmões e acalme o coração. Sinta o estômago e os intestinos, soltando qualquer nó, tensão ou contração. Registe o seu interior suave, caloroso e luminoso, como um refúgio de paz.
+
+--- Fase 4: 3. Relaxamento Mental ---
+Subtítulo: Silêncio e paz mental
+Texto: Finalmente, relaxe a mente. Deixe passar as preocupações e pensamentos como nuvens ao vento. Não se detenha em nenhum deles. Si aparecer uma imagem, deixe-a ir suavemente. Sinta a mente silenciosa, vazia e tranquila, como um lago cristalino em absoluta calma.
+
+--- Fase 5: Estado de Paz Pronto ---
+Subtítulo: Unidade interna para a prática
+Texto: Alcançou um estado de calma, silêncio e coerência. Está na melhor disposição para iniciar a sua reflexão sobre a Regra de Ouro. Quando desejar, continue para o exercício.
+

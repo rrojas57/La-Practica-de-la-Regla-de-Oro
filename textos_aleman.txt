@@ -1,0 +1,233 @@
+=====================================================================
+TRANSCRIPCIÓN COMPLETA DE TEXTOS DE LA APLICACIÓN - LA REGLA DE ORO
+IDIOMA: ALEMÁN (DE)
+=====================================================================
+
+---------------------------------------------------------------------
+1. NAVEGACIÓN Y MENÚ PRINCIPAL (HEADER & NAVIGATION)
+---------------------------------------------------------------------
+[logoTitle] Título Principal: Die Goldene Regel
+[logoSubtitle] Subtítulo: Interaktive Praxis
+[tabIntro] Pestaña Introducción: Einführung
+[tabPractice] Pestaña Práctica: Praxis
+[tabHistory] Pestaña Historial: Verlauf
+[tabSupport] Pestaña Biblioteca y Enlaces: Bibliothek & Links
+[themeToggleDark] Botón Modo Oscuro: Zu dunklem Thema wechseln
+[themeToggleLight] Botón Modo Claro: Zu hellem Thema wechseln
+
+---------------------------------------------------------------------
+2. NOTIFICACIONES / MENSAJES FLOTANTES (TOAST NOTIFICATIONS)
+---------------------------------------------------------------------
+[toastThemeChanged] Tema cambiado: Thema geändert zu: 
+[toastFormReset] Formulario reiniciado: Formular erfolgreich zurückgesetzt.
+[toastPracticeSaved] Práctica guardada: Praxis erfolgreich in Ihrem Verlauf gespeichert!
+[toastPracticeLoaded] Práctica cargada: Praxis geladen: 
+[toastPracticeDeleted] Práctica eliminada: Praxis aus Ihrem Verlauf gelöscht.
+[toastExampleLoaded] Ejemplo cargado: Ein vollständig gelöstes Beispiel wurde geladen. Überprüfen Sie die Karte und die Leitgedanken.
+[toastPracticeReady] Práctica lista: Beispiel erfolgreich in Ihren Arbeitsbereich geladen. Vergleichen Sie es auf der Karte!
+[toastFormCheck] Verificación de formulario: Bitte beantworten Sie mindestens die ersten Fragen, bevor Sie speichern.
+[toastDownloadSuccess] Descarga exitosa: Textdatei erfolgreich heruntergeladen.
+
+---------------------------------------------------------------------
+3. SECCIÓN DE INTRODUCCIÓN (INTRO SECTION)
+---------------------------------------------------------------------
+[introTagline] Etiqueta: Persönliche Transformation und Gewaltfreiheit
+[introTitle] Título: Die Praxis der Goldenen Regel
+[introSubtitle] Subtítulo: Ein praktischer Weg, um mechanische Reaktionen zu überwinden, Ihre inneren Zustände zu verstehen und sich bewusst für eine gütige Behandlung zu entscheiden.
+[introPrivacyTitle] Título Privacidad: 🔒 100% sicherer und privater Bereich
+[introPrivacyText] Texto Privacidad: Diese Übung ist ein rein persönliches Werkzeug zur Selbsterkenntnis. Zur Ihrer vollständigen Beruhigung werden die Antworten, die Sie in diesen Punkten eingeben, auf keinem externen Server gespeichert und in keiner für Dritte zugänglichen Datenbank registriert. Alles, was Sie schreiben, wird vorübergehend und lokal auf Ihrem Bildschirm für Ihre eigene innere Arbeit verarbeitet. Praktizieren Sie mit absoluter Freiheit.
+[introPrincipleTitle] Título Principio de la Regla de Oro: Zentrales Prinzip
+[introSiloQuote] Cita de Silo: Wenn Sie andere so behandeln, wie Sie selbst behandelt werden möchten, befreien Sie sich.
+[introInspiration] Inspiración: Diese Praxis ist von der Goldenen Regel des Neuen Humanismus inspiriert, wie sie in „Die Goldene Regel der Gewaltfreiheit“ von Roberto Kohanoff und Isabel Lazzaroni dargelegt ist.
+[introSiloAuthor] Autor: — Silo, Universalistischer Humanismus
+[introBenefitsTitle] Título Beneficios: Die Praxis der Goldenen Regel hilft uns dabei:
+[introBenefits] Beneficios:
+  - Kompulsive Reaktionen zu stoppen und selbst zu wählen, wie wir handeln wollen (verzögerte Antwort).
+  - Zu verstehen, warum uns bestimmte Einstellungen oder Verhaltensweisen anderer so sehr betreffen.
+  - Uns von inneren Spannungen, Widersprüchen und negativen Stimmungen (Klimata) zu befreien.
+  - Unsere Beziehungen zu verbessern, weil wir aufhören, den anderen um Veränderung zu bitten, und anfangen, uns selbst zu verändern.
+  - Einen kohärenteren, gütigeren und freieren Lebensstil aufzubauen.
+  - Es geht nicht darum, perfekt zu sein oder sich „gut zu benehmen“. Es geht darum zu lernen, Schritt für Schritt mit mehr Bewusstsein und weniger innerer Gewalt zu leben.
+[introPurposeTitle] Título Propósito: Diese Praxis dient dazu:
+[introPurposes] Propósitos:
+  - Uns selbst besser zu verstehen und zu erkennen, was uns schmerzt und warum.
+  - Sich wiederholende Muster zu erkennen, die aus unserer persönlichen Geschichte stammen.
+  - Die Kette der inneren und äußeren Gewalt zu durchbrechen.
+  - Aus unseren besten Tugenden heraus zu handeln, nicht aus dem Impuls des Augenblicks.
+  - Unser Bewusstseinsniveau zu erhöhen, was unser Leben und das Leben der Menschen um uns herum verbessert.
+  - Mit der Zeit wird diese Praxis zu einem Werkzeug, um mit mehr innerer Einheit zu leben: Denken, Fühlen und Handeln in dieselbe Richtung zu lenken.
+  - Diese Anwendung wird Sie Schritt für Schritt begleiten, damit Sie sie auf einfache, tiefe und zugängliche Weise praktizieren können. Unabhängig von Ihrem Alter, Ihrer Kultur, Ihrer Geschichte oder Ihrer aktuellen Situation: Wir alle können lernen, mit weniger Gewalt und mehr innerer Freiheit zu leben.
+[introExplanation] Explicación: Wir alle erleben Momente der Spannung, des Ärgers, der Frustration oder der Verwirrung. Manchmal reagieren wir rein mechanisch oder compulsiv auf einem niedrigen Bewusstseinsniveau. Diese Praxis ist ein Werkzeug zur Selbsterkenntnis und zur persönlichen Transformation, das Ihnen helfen soll, die automatische Reaktion zu stoppen, Ihre inneren Zustände zu verstehen und sich bewusst für eine gütige Behandlung zu entscheiden. Es ist weder eine starre Norm noch eine moralische Verpflichtung, sondern un chemin vers une vie avec moins de souffrance, mehr innerer Einheit und wahrer Freiheit.
+[introPurposesExtra] Texto extra propósito: Diese Anwendung wird Sie Schritt für Schritt begleiten, damit Sie sie auf einfache, tiefe und zugängliche Weise praktizieren können. Unabhängig von Ihrem Alter, Ihrer Kultur, Ihrer Geschichte oder Ihrer aktuellen Situation: Wir alle können lernen, mit weniger Gewalt und mehr innerer Freiheit zu leben.
+[introBtnStart] Botón Comenzar: Neue Praxis starten
+[introBtnExample] Botón Cargar Ejemplo: Ein gelöstes Beispiel ansehen
+
+---------------------------------------------------------------------
+4. SECCIÓN DE PRÁCTICA Y CUESTIONARIO (PRACTICE SECTION)
+---------------------------------------------------------------------
+[practiceTitleLabel] Etiqueta de Título de Práctica: Praxis läuft
+[practiceTitlePlaceholder] Placeholder de Título: Geben Sie Ihrer Reflexion einen Titel (z. B. Überwindung eines Arbeitskonflikts)
+[practiceProgressLabel] Etiqueta de Progreso: Gesamtfortschritt:
+[practiceCompletedCount] Contador de Completados:  abgeschlossen
+[practicePrivacyTitle] Título Privacidad Práctica: Garantie für absolute Vertraulichkeit und Privatsphäre
+[practicePrivacyText] Texto Privacidad Práctica: Ihre Reflexionspraxis ist absolut privat. Alles, was Sie schreiben, wird lokal und verschlüsselt in der Datenbank Ihres eigenen Browsers (localStorage) gespeichert. Es werden keine persönlichen Daten, Reflexionen oder Antworten an externe Server oder Cloud-Datenbanken gesendet. Ihre emotionale Privatsphäre ist vollständig geschützt.
+[practiceQuestionLabel] Etiqueta Pregunta: Frage 
+[practiceTypeLuminous] Tipo Espacio Luminoso: Lichter Raum
+[practiceTypeDark] Tipo Espacio Perturbado: Gestörter Raum
+[practiceTypeTransition] Tipo Espacio Transición: Übergang
+[practiceInputWordLabel] Etiqueta Entrada Palabra: Ihr Wort oder kurzer Satz:
+[practiceBtnPrev] Botón Anterior: Zurück
+[practiceBtnNext] Botón Siguiente: Weiter
+[practiceBtnLastPrompt] Botón Último Paso: Letzte Frage!
+[practiceHelpPrompt] Prompt de Ayuda: Wenn Sie nicht das richtige Wort finden, können Sie in diesem Hilfebereich nach Vorschlägen suchen.
+[practiceBtnHelp] Botón Mostrar Ayuda: Hilfe anzeigen
+[practiceBtnHideHelp] Botón Ocultar Ayuda: Hilfevorschläge ausblenden
+[practiceHelpSuffix] Sufijo de Ayuda:  Klicken Sie auf einen dieser Vorschläge, um ihn auszuwählen:
+[practiceHelpOptional] Ayuda Opcional: Sie können auch jedes andere Wort schreiben, das Ihre Gefühle am besten wiedergibt.
+[practiceNotesLabel] Etiqueta Diario / Notas: Ihre Notizen oder Reflexionstagebuch (Optional):
+[practiceNotesPlaceholder] Placeholder Notas: Nutzen Sie diesen Raum, um die externe Situation genauer zu beschreiben, körperliche Veränderungen aufzuschreiben oder Ihre Verpflichtungen zu dokumentieren...
+[relaxationBannerText] Banner Invitación Relajación: 🧘 Möchten Sie Ihren Geist beruhigen, bevor Sie beginnen? Machen Sie die geführte Entspannung
+[relaxationBannerBtn] Botón Banner Relajación: Anhören →
+
+---------------------------------------------------------------------
+5. VISTA PREVIA SIMULTÁNEA / IDEA FUERZA (SIMULTANEOUS PREVIEW)
+---------------------------------------------------------------------
+[previewTitle] Título Vista Previa: Leitgedanke im Aufbau
+[previewMainTitle] Título Aforismo Principal: Hauptaphorismus (Aufsteigende Pfade 6 + 8):
+[previewGoldenTitle] Título Fórmula de Superación: Überwindungsformel (Optional I):
+[previewGoldenTemplate] Plantilla Fórmula: Um {p2} angesichts von {p1} zu vermeiden, schenke ich die Behandlung von {p3}, indem ich {p4} tue.
+[previewHint] Pista / Indicación: ✨ Sehen Sie, wie Ihre Reflexionen dynamisch in Echtzeit in diese logischen Sätze integriert werden.
+
+---------------------------------------------------------------------
+6. BARRAS DE ACCIONES (WORKSPACE ACTIONS)
+---------------------------------------------------------------------
+[actionTitle] Título Acciones: Möchten Sie Ihre Sitzung speichern?
+[actionSubtitle] Subtítulo Acciones: Speichern Sie Ihre Antworten in Ihrem privaten Verlauf, um sie später zu überprüfen.
+[actionBtnReset] Botón Reiniciar: Zurücksetzen
+[actionBtnSave] Botón Guardar: Praxis speichern
+[actionResetConfirm] Confirmación de Reinicio: Sind Sie sicher, dass Sie die aktuellen Antworten zurücksetzen möchten? Ihr aktiver Entwurf geht verloren.
+
+---------------------------------------------------------------------
+7. RESULTADOS Y AFORISMOS GENERADOS (RESULTS & APHORISMS)
+---------------------------------------------------------------------
+[resultsCompletedTitle] Título Práctica Completada: Sie haben alle 8 Punkte der Praxis abgeschlossen!
+[resultsCompletedSubtitle] Subtítulo Práctica Completada: Ihr Geist hat sich von der Reaktivität zur Selbsterkenntnis bewegt. Unten können Sie Ihre endgültigen Aphorismen betrachten.
+[resultsBtnSaveHistory] Botón Guardar en Historial: Im Verlauf speichern
+[resultsSynthesisTitle] Título Síntesis: Ihre Synthese ist auf dem Weg
+[resultsSynthesisSubtitle] Subtítulo Síntesis: Beantworten Sie die {totalSteps} Fragen des Fragebogens, um die interaktiven und selbstverbessernden Aphorismen zu generieren. Derzeit haben Sie {answeredCount} von {totalSteps} beantwortet.
+[aforismosTitle] Título Aforismos: Ihre Leitgedanken und generierten Aphorismen
+[aforismosSubtitle] Subtítulo Aforismos: Formeln und logische Aussagen, die gleichzeitig aus Ihrer Reflexion erstellt wurden.
+[aforismosBtnDownload] Botón Descargar: Alle herunterladen
+[aforismosCopiedTitle] Título Copiado: Aphorismus kopieren
+[aforismosCopiedMessage] Mensaje Copiado: Aphorismus in die Zwischenablage kopiert
+
+---------------------------------------------------------------------
+8. SECCIÓN HISTORIAL (HISTORY SECTION)
+---------------------------------------------------------------------
+[historyTitle] Título Historial: Ihr Verlauf gespeicherter Praktiken
+[historySubtitle] Subtítulo Historial: Hier befinden sich Ihre früheren Arbeiten zur Selbsterkenntnis. Sie werden lokal auf Ihrem eigenen Gerät gespeichert.
+[historyEmptyTitle] Título Historial Vacío: Verlauf der gespeicherten Praktiken ist leer
+[historyEmptyText] Texto Historial Vacío: Sie haben noch keine gespeicherten Reflexionen in Ihrem Browser. Füllen Sie den Fragebogen im Reiter Praxis aus und klicken Sie auf 'Praxis speichern', um Ihr persönliches Tagebuch aufzubauen.
+[historyBtnStartNew] Botón Nueva Práctica: Erste Praxis starten
+[historyCardDate] Etiqueta Fecha: Registrierungsdatum: 
+[historyBtnLoad] Botón Cargar Práctica: In den Arbeitsbereich laden
+[historyBtnDelete] Botón Eliminar Práctica: Löschen
+[historyDeleteConfirm] Confirmación Eliminar: Sind Sie sicher, dass Sie diese Praxis aus Ihrem Verlauf löschen möchten? Dies kann nicht rückgängig gemacht werden.
+
+---------------------------------------------------------------------
+9. BIBLIOTECA, RECURSOS Y EJEMPLOS (SUPPORT & RESOURCES SECTION)
+---------------------------------------------------------------------
+[supportTitle] Título Soporte: Bibliothek und Begleitmaterial
+[supportSubtitle] Subtítulo Soporte: Vertiefen Sie Ihr Verständnis der Goldenen Regel mit den originalen Literaturreferenzen und dem Glossar der Begriffe des Neuen Humanismus.
+[supportTabExamples] Pestaña Ejemplos: Beispiele & Erfahrungsberichte
+[supportTabGlossary] Pestaña Glosario: Glossary der Begriffe
+[supportTabResources] Pestaña Recursos: Links-Bibliothek
+[supportTabMailbox] Pestaña Buzón: Briefkasten & Kontakt
+[supportExamplesTitle] Título Ejemplos: Fallstudien und inspirierende Praktiken
+[supportExamplesSubtitle] Subtítulo Ejemplos: Überprüfen Sie diese echten und anonymen gelösten Übungen, um sich bei Ihrer eigenen inneren Reflexion leiten zu lassen.
+[supportExamplesBtnLoad] Botón Cargar Ejemplo: Dieses Beispiel in den Arbeitsbereich laden
+[supportExamplesAforismoLabel] Etiqueta Aforismo Ejemplo: Resultierender Hauptaphorismus:
+[supportExamplesCommentaryLabel] Etiqueta Comentario Ejemplo: Kommentar zur Übung:
+[supportGlossarySearchPlaceholder] Buscar en Glosario: Begriff oder Definition suchen...
+[supportGlossaryEmpty] Glosario Vacío: Keine Begriffe gefunden, die Ihrer Suche entsprechen.
+[supportResourcesTitle] Título Recursos: Bücher und Vorträge zum Nachschlagen
+[supportResourcesSubtitle] Subtítulo Recursos: Greifen Sie direkt auf die grundlegende Literatur des humanistischen Denkens und der Methodik der aktiven Gewaltfreiheit zu.
+[supportResourcesAuthor] Etiqueta Autor: Autor: 
+[supportResourcesPublisher] Etiqueta Editorial: Herausgeber: 
+[supportResourcesYear] Etiqueta Año: Jahr: 
+Tipos de Recursos:
+  - Libro: Buch
+  - Conferencia: Konferenz
+  - Discurso: Silos Ansprache
+  - Manual: Handbuch
+  - Vídeo: YouTube-Kanal
+  - PDF: PDF-Buch
+
+---------------------------------------------------------------------
+10. BUZÓN DE MENSAJES (MAILBOX)
+---------------------------------------------------------------------
+[supportMailboxTitle] Título Buzón: Briefkasten und Feedback
+[supportMailboxSubtitle] Subtítulo Buzón: Senden Sie Ihre Meinungen, Zweifel oder technischen Berichte völlig anonym direkt an das Entwicklungsteam.
+[supportMailboxPrivateCheckTitle] Checkbox Privacidad Título: Garantie für vollständige Anonymität
+[supportMailboxPrivateCheckText] Checkbox Privacidad Texto: Ihre Privatsphäre ist geschützt. Dieser Briefkasten erfasst weder Ihre E-Mail, Ihre IP, Ihren Standort noch sonstige Daten, die Sie identifizieren könnten. Die Nachricht wird verschlüsselt direkt an das Verwaltungstabellen-Dokument gesendet, um eine rein technische und inhaltliche Überprüfung zu ermöglichen. Wenn Sie eine Antwort wünschen, geben Sie bitte optional eine Kontaktmöglichkeit am Ende Ihrer Nachricht an.
+[supportMailboxLabelCategory] Etiqueta Categoría: Kategorie der Nachricht:
+Categorías:
+  - Opinión: Meinung oder Vorschlag
+  - Error: Einen technischen Fehler melden
+  - Pregunta: Konzeptionelle/methodische Frage
+  - Otro: Anderes Anliegen
+[supportMailboxLabelMessage] Etiqueta Mensaje: Inhalt Ihrer Nachricht:
+[supportMailboxPlaceholderMessage] Placeholder Mensaje: Schreiben Sie hier völlig frei Ihre Ideen, Vorschläge oder Kommentare...
+[supportMailboxBtnSend] Botón Enviar: Anonyme Nachricht senden
+[supportMailboxBtnSending] Botón Enviando: Sicheres Senden läuft...
+[supportMailboxSuccessTitle] Título Éxito Envío: Nachricht erfolgreich gesendet!
+[supportMailboxSuccessText] Texto Éxito Envío: Vielen Dank für Ihren Beitrag. Ihre Nachricht wurde sicher in unsere Verwaltungstabelle integriert und wird vom technischen Team mit tiefem Respekt analysiert. Ihr Beitrag hilft uns, die Erfahrung für alle zu verbessern.
+[supportMailboxBtnSendAnother] Botón Enviar Otro: Eine weitere Nachricht senden
+
+---------------------------------------------------------------------
+11. ENCABEZADOS Y PIE DE PÁGINA EN DESCARGA TXT / PDF
+---------------------------------------------------------------------
+[downloadHeader] Encabezado: DIE PRAXIS DER GOLDENEN REGEL
+[downloadPracticeTitle] Título Práctica: Titel der Reflexion: 
+[downloadDate] Fecha: Download-Datum: 
+[downloadResponsesHeader] Sección Respuestas: ANTWORTEN AUF DEN FRAGEBOGEN:
+[downloadAforismosHeader] Sección Aforismos: GENERIERTE LEITGEDANKEN UND APHORISMEN:
+[downloadNotesHeader] Sección Notas: PERSÖNLICHE NOTIZEN / ARBEITSTAGEBUCH:
+[downloadNotesEmpty] Notas Vacías: Keine zusätzlichen Notizen.
+[downloadFooterQuote] Cita de Cierre: Wenn Sie andere so behandeln, wie Sie selbst behandelt werden möchten, befreien Sie sich. — Silo
+
+---------------------------------------------------------------------
+12. ETIQUETAS DE LOS 8 PASOS EN AFORISMOS (STEP LABELS 1-8)
+---------------------------------------------------------------------
+Paso 1: 1. Art der Fehlbehandlung
+Paso 2: 2. Leiden / Reaktion
+Paso 3: 3. Leitende Tugend
+Paso 4: 4. Solidarische Aktion
+Paso 5: 5. Gefühl des Absturzes
+Paso 6: 6. Aufsteigende Aktion 1
+Paso 7: 7. Gefühl des Absturzes
+Paso 8: 8. Aufsteigende Aktion 2
+
+---------------------------------------------------------------------
+13. GUION Y TEXTOS DE RELAJACIÓN GUIADA (RELAXATION PLAYER)
+---------------------------------------------------------------------
+--- Fase 1: Vorbereitung ---
+Subtítulo: Machen Sie es sich bequem
+Texto: Finden Sie eine bequeme Position, schließen Sie sanft die Augen, wenn Sie möchten, und bereiten Sie sich darauf vor, den Lärm und die Spannungen des Tages loszulassen. Atmen Sie langsam und tief.
+
+--- Fase 2: 1. Äußere Entspannung ---
+Subtítulo: Den physischen Körper beruhigen
+Texto: Wir beginnen mit der Entspannung der Körpermuskeln. Entspannen Sie Stirn, Wangen, Kiefer, Zunge und Rachen. Lassen Sie Ihre Augen schwer werden. Fühlen Sie den Nacken locker, Schultern und Arme schwer herabsinken. Entspannen Sie Brust, Bauch, Beine und Füße. Fühlen Sie Ihren ganzen Körper vollkommen locker und in Frieden.
+
+--- Fase 3: 2. Innere Entspannung ---
+Subtítulo: Brust und Organe beruhigen
+Texto: Jetzt entspannen wir die inneren Spannungen. Fühlen Sie Ihre Brust von innen, entspannen Sie Ihre Lungen und beruhigen Sie Ihr Herz. Fühlen Sie Ihren Magen und Darm und lösen Sie jeden Knoten, jede Spannung oder Verkrampfung. Nehmen Sie Ihr Inneres weich, warm und leuchtend wahr, wie einen Zufluchtsort des Friedens.
+
+--- Fase 4: 3. Mentale Entspannung ---
+Subtítulo: Stille und geistiger Frieden
+Texto: Schließlich entspannen Sie Ihren Geist. Lassen Sie Sorgen und Gedanken wie Wolken im Wind vorüberziehen. Verweilen Sie bei keinem von ihnen. Wenn ein Bild erscheint, lassen Sie es sanft gehen. Fühlen Sie Ihren Geist still, leer und friedlich, wie einen kristallklaren See in absoluter Windstille.
+
+--- Fase 5: Friedlicher Zustand bereit ---
+Subtítulo: Innere Einheit für die Praxis
+Texto: Sie haben einen Zustand der Ruhe, Stille und Kohärenz erreicht. Sie sind bestens vorbereitet, um Ihre Reflexion über die Goldene Regel zu beginnen. Wenn Sie möchten, fahren Sie mit der Übung fort.
+

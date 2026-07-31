@@ -17,7 +17,7 @@ interface HistorySectionProps {
   onDeletePractice: (id: string) => void;
   onStartNew: () => void;
   theme?: "light" | "dark";
-  lang?: "es" | "en";
+  lang?: "es" | "en" | "fr" | "de" | "pt";
 }
 
 export default function HistorySection({
@@ -74,15 +74,29 @@ export default function HistorySection({
           className="w-full sm:w-auto px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2 transition duration-150 cursor-pointer animate-pulse"
         >
           <Sparkles className="w-4 h-4" />
-          <span>{lang === "es" ? "Nueva Práctica" : "New Practice"}</span>
+          <span>
+            {
+              lang === "es" ? "Nueva Práctica" :
+              lang === "fr" ? "Nouvelle Pratique" :
+              lang === "de" ? "Neue Praxis" :
+              lang === "pt" ? "Nova Prática" :
+              "New Practice"
+            }
+          </span>
         </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {practices.map((practice, idx) => {
-          const maltrato = practice.answers[1] || (lang === "es" ? "No especificado" : "Unspecified");
-          const reaccion = practice.answers[2] || (lang === "es" ? "No especificado" : "Unspecified");
-          const virtud = practice.answers[3] || (lang === "es" ? "No especificado" : "Unspecified");
+          const unspecifiedLabel = 
+            lang === "es" ? "No especificado" :
+            lang === "fr" ? "Non spécifié" :
+            lang === "de" ? "Nicht angegeben" :
+            lang === "pt" ? "Não especificado" :
+            "Unspecified";
+          const maltrato = practice.answers[1] || unspecifiedLabel;
+          const reaccion = practice.answers[2] || unspecifiedLabel;
+          const virtud = practice.answers[3] || unspecifiedLabel;
 
           return (
             <motion.div
@@ -108,7 +122,13 @@ export default function HistorySection({
                         onDeletePractice(practice.id);
                       }
                     }}
-                    title={lang === "es" ? "Eliminar práctica" : "Delete practice"}
+                    title={
+                      lang === "es" ? "Eliminar práctica" :
+                      lang === "fr" ? "Supprimer la pratique" :
+                      lang === "de" ? "Praxis löschen" :
+                      lang === "pt" ? "Eliminar prática" :
+                      "Delete practice"
+                    }
                     className={`p-1 rounded-md transition duration-150 cursor-pointer opacity-0 group-hover:opacity-100 focus:opacity-100 ${
                       isDark 
                         ? "text-slate-500 hover:text-red-400 hover:bg-red-950/40" 
@@ -131,7 +151,13 @@ export default function HistorySection({
                       isDark ? "bg-slate-800 border-slate-700" : "bg-slate-50 border-slate-100"
                     }`}>
                       <span className="text-[9px] uppercase tracking-wider font-bold text-slate-400 block">
-                        {lang === "es" ? "Maltrato recibido" : "Mistreatment received"}
+                        {
+                          lang === "es" ? "Maltrato recibido" :
+                          lang === "fr" ? "Maltraitance reçue" :
+                          lang === "de" ? "Erhaltene Fehlbehandlung" :
+                          lang === "pt" ? "Maltrato recebido" :
+                          "Mistreatment received"
+                        }
                       </span>
                       <span className={`font-semibold line-clamp-1 ${isDark ? "text-slate-200" : "text-slate-700"}`}>{maltrato}</span>
                     </div>
@@ -139,7 +165,13 @@ export default function HistorySection({
                       isDark ? "bg-slate-800 border-slate-700" : "bg-slate-50 border-slate-100"
                     }`}>
                       <span className="text-[9px] uppercase tracking-wider font-bold text-slate-400 block">
-                        {lang === "es" ? "Mi reacción" : "My reaction"}
+                        {
+                          lang === "es" ? "Mi reacción" :
+                          lang === "fr" ? "Ma réaction" :
+                          lang === "de" ? "Meine Reaktion" :
+                          lang === "pt" ? "Minha reação" :
+                          "My reaction"
+                        }
                       </span>
                       <span className={`font-semibold line-clamp-1 ${isDark ? "text-slate-200" : "text-slate-700"}`}>{reaccion}</span>
                     </div>
@@ -152,14 +184,28 @@ export default function HistorySection({
                     ? "bg-amber-950/20 border border-amber-900/30 text-amber-200" 
                     : "bg-amber-50/40 border border-amber-100/50 text-amber-950"
                 }`}>
-                  "{virtud}" {lang === "es" ? "como opuesto a" : "as opposed to"} "{maltrato}"
+                  "{virtud}" {
+                    lang === "es" ? "como opuesto a" :
+                    lang === "fr" ? "par opposition à" :
+                    lang === "de" ? "im Gegensatz zu" :
+                    lang === "pt" ? "como oposto a" :
+                    "as opposed to"
+                  } "{maltrato}"
                 </div>
 
                 {practice.notes && (
                   <p className={`text-xs line-clamp-2 leading-relaxed border-t pt-2 ${
                     isDark ? "border-slate-850 text-slate-400" : "border-slate-100 text-slate-500"
                   }`}>
-                    <span className="font-bold">{lang === "es" ? "Notas:" : "Notes:"}</span> {practice.notes}
+                    <span className="font-bold">
+                      {
+                        lang === "es" ? "Notas:" :
+                        lang === "fr" ? "Notes :" :
+                        lang === "de" ? "Notizen:" :
+                        lang === "pt" ? "Notas:" :
+                        "Notes:"
+                      }
+                    </span> {practice.notes}
                   </p>
                 )}
               </div>
@@ -172,7 +218,15 @@ export default function HistorySection({
                   onClick={() => onSelectPractice(practice)}
                   className="text-xs font-bold text-amber-500 hover:text-amber-400 flex items-center gap-1 cursor-pointer"
                 >
-                  <span>{lang === "es" ? "Ver práctica completa" : "View full practice"}</span>
+                  <span>
+                    {
+                      lang === "es" ? "Ver práctica completa" :
+                      lang === "fr" ? "Voir la pratique complète" :
+                      lang === "de" ? "Vollständige Praxis anzeigen" :
+                      lang === "pt" ? "Ver prática completa" :
+                      "View full practice"
+                    }
+                  </span>
                   <ArrowRight className="w-3.5 h-3.5 transition group-hover:translate-x-0.5" />
                 </button>
               </div>
